@@ -20,7 +20,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
         private void tabKhu1_Click(object sender, EventArgs e)
         {
-            //j
+            //jj
         }
     }
 }
