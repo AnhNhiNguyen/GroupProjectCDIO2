@@ -49,10 +49,5 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmThanhToan = new frmPayment();
 			frmThanhToan.ShowDialog();
 		}
-
-		private void tBtnExit_Click(object sender, EventArgs e)
-		{
-			Application.Exit();
-		}
 	}
 }
