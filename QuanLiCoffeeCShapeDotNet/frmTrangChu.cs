@@ -12,46 +12,42 @@ namespace QuanLiCoffeeCShapeDotNet
 {
     public partial class frmTrangChu : Form
     {
+
+		Form frmMatHang;
+		Form frmThanhToan;
         public frmTrangChu()
         {
             InitializeComponent();
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		public Boolean CheckForm(string frm)
+		{
+			foreach (Form f in this.MdiChildren)
+			{
+				if (f.Name.Equals(frm))
+				{
+					return true;
+				}
+
+			}
+			return false;
+		}
+
+		private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
+		private void tbtnQLBanHang_Click(object sender, EventArgs e)
+		{
+			frmMatHang = new frmDanhMucMatHang();
+			frmMatHang.ShowDialog();
+		}
 
-        }
-
-        private void toolStripLabel7_Click(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void button7_Click(object sender, EventArgs e)
-        {
-            frmPayment tt = new frmPayment();
-            tt.ShowDialog();
-        }
-
-        private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hoạtĐộngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel2_Click(object sender, EventArgs e)
-        {
-            frmDanhMucMatHang mh = new frmDanhMucMatHang();
-            mh.ShowDialog();
-        }
-    }
+		private void btnThanhToan_Click(object sender, EventArgs e)
+		{
+			frmThanhToan = new frmPayment();
+			frmThanhToan.ShowDialog();
+		}
+	}
 }
