@@ -1,6 +1,6 @@
 ﻿namespace QuanLiCoffeeCShapeDotNet
 {
-    partial class DanhMucMatHang
+    partial class frmDanhMucMatHang
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhMucMatHang));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDanhMucMatHang));
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columm3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();

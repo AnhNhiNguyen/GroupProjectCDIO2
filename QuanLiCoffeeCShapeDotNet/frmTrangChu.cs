@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
-    public partial class DanhMucMatHang : Form
+    public partial class frmTrangChu : Form
     {
-        public DanhMucMatHang()
+        public frmTrangChu()
         {
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
