@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
-	public partial class frmHome : Form
-	{
-		public frmHome()
-		{
-			InitializeComponent();
-			//dat lam commentfádadsasd
-		}
-	}
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+    }
 }

@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
-	public partial class frmHome : Form
-	{
-		public frmHome()
-		{
-			InitializeComponent();
-			//dat lam commentfádadsasd
-		}
-	}
+    public partial class Payment : Form
+    {
+        public Payment()
+        {
+            InitializeComponent();
+        }
+    }
 }
