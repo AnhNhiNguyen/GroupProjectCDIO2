@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DanhMucMatHang.cs">
+    <Compile Include="frmDanhMucMatHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhMucMatHang.Designer.cs">
-      <DependentUpon>DanhMucMatHang.cs</DependentUpon>
+    <Compile Include="frmDanhMucMatHang.Designer.cs">
+      <DependentUpon>frmDanhMucMatHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -58,31 +58,31 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="frmTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="frmTrangChu.Designer.cs">
+      <DependentUpon>frmTrangChu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payment.cs">
+    <Compile Include="frmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Payment.Designer.cs">
-      <DependentUpon>Payment.cs</DependentUpon>
+    <Compile Include="frmPayment.Designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DanhMucMatHang.resx">
-      <DependentUpon>DanhMucMatHang.cs</DependentUpon>
+    <EmbeddedResource Include="frmDanhMucMatHang.resx">
+      <DependentUpon>frmDanhMucMatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="frmTrangChu.resx">
+      <DependentUpon>frmTrangChu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Payment.resx">
-      <DependentUpon>Payment.cs</DependentUpon>
+    <EmbeddedResource Include="frmPayment.resx">
+      <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
