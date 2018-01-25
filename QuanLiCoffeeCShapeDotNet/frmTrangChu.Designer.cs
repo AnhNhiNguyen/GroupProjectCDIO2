@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Tất Cả");
-			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cafe Đen");
-			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Cafe Sữa");
-			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Coffe", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3});
-			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("ST Vàng");
-			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Pesi");
-			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Revive");
-			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Bò Húc");
-			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Highland");
-			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Nước đóng chai", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
-			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("B52");
-			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Masala");
-			System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Bloody Caesar");
-			System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Pina Colada ");
-			System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Pha Chế", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14});
+			System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Tất Cả");
+			System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Cafe Đen");
+			System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Cafe Sữa");
+			System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Coffe", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18});
+			System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("ST Vàng");
+			System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Pesi");
+			System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Revive");
+			System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Bò Húc");
+			System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Highland");
+			System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Nước đóng chai", new System.Windows.Forms.TreeNode[] {
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24});
+			System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("B52");
+			System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Masala");
+			System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Bloody Caesar");
+			System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Pina Colada ");
+			System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Pha Chế", new System.Windows.Forms.TreeNode[] {
+            treeNode26,
+            treeNode27,
+            treeNode28,
+            treeNode29});
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
 			this.danhMụcNhàCungCấpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,8 +104,15 @@
 			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.tBtnSuDungDichVu = new System.Windows.Forms.ToolStripButton();
+			this.tbtnQLBanHang = new System.Windows.Forms.ToolStripButton();
+			this.tBtnThongKe = new System.Windows.Forms.ToolStripButton();
+			this.tBtnBaoCao = new System.Windows.Forms.ToolStripButton();
+			this.tBtnGhiChu = new System.Windows.Forms.ToolStripButton();
+			this.tBtnMeoVat = new System.Windows.Forms.ToolStripButton();
+			this.tBtnExit = new System.Windows.Forms.ToolStripButton();
 			this.textBox7 = new System.Windows.Forms.TextBox();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvMatHangBan = new System.Windows.Forms.DataGridView();
 			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,6 +130,10 @@
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.label3 = new System.Windows.Forms.Label();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+			this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
 			this.label1 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -134,19 +145,12 @@
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tLbCSDL = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tLbTaiKhoan = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.tbtnQLBanHang = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.button8 = new System.Windows.Forms.Button();
 			this.btnThanhToan = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
@@ -154,14 +158,10 @@
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
-			this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			this.toolStrip1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvMatHangBan)).BeginInit();
 			this.toolStrip2.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -478,41 +478,41 @@
 			this.treeView2.Location = new System.Drawing.Point(827, 80);
 			this.treeView2.Margin = new System.Windows.Forms.Padding(2);
 			this.treeView2.Name = "treeView2";
-			treeNode1.Name = "Node16";
-			treeNode1.Text = "Tất Cả";
-			treeNode2.Name = "Node3";
-			treeNode2.Text = "Cafe Đen";
-			treeNode3.Name = "Node5";
-			treeNode3.Text = "Cafe Sữa";
-			treeNode4.Name = "Coffe";
-			treeNode4.Text = "Coffe";
-			treeNode5.Name = "Node7";
-			treeNode5.Text = "ST Vàng";
-			treeNode6.Name = "Node6";
-			treeNode6.Text = "Pesi";
-			treeNode7.Name = "Node8";
-			treeNode7.Text = "Revive";
-			treeNode8.Name = "Node9";
-			treeNode8.Text = "Bò Húc";
-			treeNode9.Name = "Node10";
-			treeNode9.Text = "Highland";
-			treeNode10.Name = "Node4";
-			treeNode10.Text = "Nước đóng chai";
-			treeNode11.Name = "Node12";
-			treeNode11.Text = "B52";
-			treeNode12.Name = "Node13";
-			treeNode12.Text = "Masala";
-			treeNode13.Name = "Node14";
-			treeNode13.Text = "Bloody Caesar";
-			treeNode14.Name = "Node15";
-			treeNode14.Text = "Pina Colada ";
-			treeNode15.Name = "Node11";
-			treeNode15.Text = "Pha Chế";
+			treeNode16.Name = "Node16";
+			treeNode16.Text = "Tất Cả";
+			treeNode17.Name = "Node3";
+			treeNode17.Text = "Cafe Đen";
+			treeNode18.Name = "Node5";
+			treeNode18.Text = "Cafe Sữa";
+			treeNode19.Name = "Coffe";
+			treeNode19.Text = "Coffe";
+			treeNode20.Name = "Node7";
+			treeNode20.Text = "ST Vàng";
+			treeNode21.Name = "Node6";
+			treeNode21.Text = "Pesi";
+			treeNode22.Name = "Node8";
+			treeNode22.Text = "Revive";
+			treeNode23.Name = "Node9";
+			treeNode23.Text = "Bò Húc";
+			treeNode24.Name = "Node10";
+			treeNode24.Text = "Highland";
+			treeNode25.Name = "Node4";
+			treeNode25.Text = "Nước đóng chai";
+			treeNode26.Name = "Node12";
+			treeNode26.Text = "B52";
+			treeNode27.Name = "Node13";
+			treeNode27.Text = "Masala";
+			treeNode28.Name = "Node14";
+			treeNode28.Text = "Bloody Caesar";
+			treeNode29.Name = "Node15";
+			treeNode29.Text = "Pina Colada ";
+			treeNode30.Name = "Node11";
+			treeNode30.Text = "Pha Chế";
 			this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode4,
-            treeNode10,
-            treeNode15});
+            treeNode16,
+            treeNode19,
+            treeNode25,
+            treeNode30});
 			this.treeView2.Size = new System.Drawing.Size(233, 96);
 			this.treeView2.TabIndex = 80;
 			// 
@@ -560,19 +560,76 @@
 			// 
 			this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.tBtnSuDungDichVu,
             this.tbtnQLBanHang,
-            this.toolStripButton3,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripButton4,
-            this.toolStripButton7});
+            this.tBtnThongKe,
+            this.tBtnBaoCao,
+            this.tBtnGhiChu,
+            this.tBtnMeoVat,
+            this.tBtnExit});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 24);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(1072, 27);
 			this.toolStrip1.TabIndex = 52;
 			this.toolStrip1.Text = "toolStrip1";
 			this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+			// 
+			// tBtnSuDungDichVu
+			// 
+			this.tBtnSuDungDichVu.Image = ((System.Drawing.Image)(resources.GetObject("tBtnSuDungDichVu.Image")));
+			this.tBtnSuDungDichVu.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tBtnSuDungDichVu.Name = "tBtnSuDungDichVu";
+			this.tBtnSuDungDichVu.Size = new System.Drawing.Size(117, 24);
+			this.tBtnSuDungDichVu.Text = "Sử dụng dịch vụ";
+			// 
+			// tbtnQLBanHang
+			// 
+			this.tbtnQLBanHang.Image = ((System.Drawing.Image)(resources.GetObject("tbtnQLBanHang.Image")));
+			this.tbtnQLBanHang.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tbtnQLBanHang.Name = "tbtnQLBanHang";
+			this.tbtnQLBanHang.Size = new System.Drawing.Size(122, 24);
+			this.tbtnQLBanHang.Text = "Quản lí bán hàng";
+			this.tbtnQLBanHang.Click += new System.EventHandler(this.tbtnQLBanHang_Click);
+			// 
+			// tBtnThongKe
+			// 
+			this.tBtnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("tBtnThongKe.Image")));
+			this.tBtnThongKe.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tBtnThongKe.Name = "tBtnThongKe";
+			this.tBtnThongKe.Size = new System.Drawing.Size(148, 24);
+			this.tBtnThongKe.Text = "Thống kê đồ ăn, uống";
+			// 
+			// tBtnBaoCao
+			// 
+			this.tBtnBaoCao.Image = ((System.Drawing.Image)(resources.GetObject("tBtnBaoCao.Image")));
+			this.tBtnBaoCao.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tBtnBaoCao.Name = "tBtnBaoCao";
+			this.tBtnBaoCao.Size = new System.Drawing.Size(73, 24);
+			this.tBtnBaoCao.Text = "Báo cáo";
+			// 
+			// tBtnGhiChu
+			// 
+			this.tBtnGhiChu.Image = ((System.Drawing.Image)(resources.GetObject("tBtnGhiChu.Image")));
+			this.tBtnGhiChu.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tBtnGhiChu.Name = "tBtnGhiChu";
+			this.tBtnGhiChu.Size = new System.Drawing.Size(72, 24);
+			this.tBtnGhiChu.Text = "Ghi chú";
+			// 
+			// tBtnMeoVat
+			// 
+			this.tBtnMeoVat.Image = ((System.Drawing.Image)(resources.GetObject("tBtnMeoVat.Image")));
+			this.tBtnMeoVat.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tBtnMeoVat.Name = "tBtnMeoVat";
+			this.tBtnMeoVat.Size = new System.Drawing.Size(75, 24);
+			this.tBtnMeoVat.Text = "Mẹo Vặt";
+			// 
+			// tBtnExit
+			// 
+			this.tBtnExit.Image = ((System.Drawing.Image)(resources.GetObject("tBtnExit.Image")));
+			this.tBtnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tBtnExit.Name = "tBtnExit";
+			this.tBtnExit.Size = new System.Drawing.Size(62, 24);
+			this.tBtnExit.Text = "Thoát";
 			// 
 			// textBox7
 			// 
@@ -583,21 +640,21 @@
 			this.textBox7.Size = new System.Drawing.Size(156, 20);
 			this.textBox7.TabIndex = 79;
 			// 
-			// dataGridView1
+			// dgvMatHangBan
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dgvMatHangBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvMatHangBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5});
-			this.dataGridView1.Location = new System.Drawing.Point(442, 123);
-			this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.RowTemplate.Height = 24;
-			this.dataGridView1.Size = new System.Drawing.Size(299, 322);
-			this.dataGridView1.TabIndex = 76;
+			this.dgvMatHangBan.Location = new System.Drawing.Point(442, 123);
+			this.dgvMatHangBan.Margin = new System.Windows.Forms.Padding(2);
+			this.dgvMatHangBan.Name = "dgvMatHangBan";
+			this.dgvMatHangBan.RowTemplate.Height = 24;
+			this.dgvMatHangBan.Size = new System.Drawing.Size(299, 322);
+			this.dgvMatHangBan.TabIndex = 76;
 			// 
 			// Column1
 			// 
@@ -741,6 +798,42 @@
 			this.toolStrip2.TabIndex = 60;
 			this.toolStrip2.Text = "toolStrip2";
 			// 
+			// toolStripButton8
+			// 
+			this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+			this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton8.Name = "toolStripButton8";
+			this.toolStripButton8.Size = new System.Drawing.Size(24, 24);
+			this.toolStripButton8.Text = "toolStripButton8";
+			// 
+			// toolStripButton9
+			// 
+			this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+			this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton9.Name = "toolStripButton9";
+			this.toolStripButton9.Size = new System.Drawing.Size(24, 24);
+			this.toolStripButton9.Text = "toolStripButton9";
+			// 
+			// toolStripButton10
+			// 
+			this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
+			this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton10.Name = "toolStripButton10";
+			this.toolStripButton10.Size = new System.Drawing.Size(24, 24);
+			this.toolStripButton10.Text = "toolStripButton10";
+			// 
+			// toolStripButton11
+			// 
+			this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+			this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton11.Name = "toolStripButton11";
+			this.toolStripButton11.Size = new System.Drawing.Size(24, 24);
+			this.toolStripButton11.Text = "toolStripButton11";
+			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -846,9 +939,9 @@
 			this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2,
+            this.tLbCSDL,
             this.toolStripStatusLabel3,
-            this.toolStripStatusLabel4,
+            this.tLbTaiKhoan,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel6});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 566);
@@ -856,25 +949,6 @@
 			this.statusStrip1.Size = new System.Drawing.Size(1072, 25);
 			this.statusStrip1.TabIndex = 82;
 			this.statusStrip1.Text = "statusStrip1";
-			// 
-			// toolStripStatusLabel2
-			// 
-			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-			this.toolStripStatusLabel2.Size = new System.Drawing.Size(27, 20);
-			this.toolStripStatusLabel2.Text = "null";
-			// 
-			// toolStripStatusLabel4
-			// 
-			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-			this.toolStripStatusLabel4.Size = new System.Drawing.Size(27, 20);
-			this.toolStripStatusLabel4.Text = "null";
-			// 
-			// toolStripStatusLabel6
-			// 
-			this.toolStripStatusLabel6.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources._27294429_921676997988805_2014646134_n;
-			this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-			this.toolStripStatusLabel6.Size = new System.Drawing.Size(86, 20);
-			this.toolStripStatusLabel6.Text = "Phiên bản: ";
 			// 
 			// toolStripStatusLabel1
 			// 
@@ -884,6 +958,12 @@
 			this.toolStripStatusLabel1.Size = new System.Drawing.Size(61, 20);
 			this.toolStripStatusLabel1.Text = "CSDL:";
 			// 
+			// tLbCSDL
+			// 
+			this.tLbCSDL.Name = "tLbCSDL";
+			this.tLbCSDL.Size = new System.Drawing.Size(27, 20);
+			this.tLbCSDL.Text = "null";
+			// 
 			// toolStripStatusLabel3
 			// 
 			this.toolStripStatusLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -892,6 +972,12 @@
 			this.toolStripStatusLabel3.Size = new System.Drawing.Size(88, 20);
 			this.toolStripStatusLabel3.Text = "Tài Khoản:";
 			// 
+			// tLbTaiKhoan
+			// 
+			this.tLbTaiKhoan.Name = "tLbTaiKhoan";
+			this.tLbTaiKhoan.Size = new System.Drawing.Size(27, 20);
+			this.tLbTaiKhoan.Text = "null";
+			// 
 			// toolStripStatusLabel5
 			// 
 			this.toolStripStatusLabel5.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources._27157082_921677001322138_1196703350_n;
@@ -899,62 +985,12 @@
 			this.toolStripStatusLabel5.Size = new System.Drawing.Size(83, 20);
 			this.toolStripStatusLabel5.Text = "Thời gian: ";
 			// 
-			// toolStripButton1
+			// toolStripStatusLabel6
 			// 
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(117, 24);
-			this.toolStripButton1.Text = "Sử dụng dịch vụ";
-			// 
-			// tbtnQLBanHang
-			// 
-			this.tbtnQLBanHang.Image = ((System.Drawing.Image)(resources.GetObject("tbtnQLBanHang.Image")));
-			this.tbtnQLBanHang.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tbtnQLBanHang.Name = "tbtnQLBanHang";
-			this.tbtnQLBanHang.Size = new System.Drawing.Size(122, 24);
-			this.tbtnQLBanHang.Text = "Quản lí bán hàng";
-			this.tbtnQLBanHang.Click += new System.EventHandler(this.tbtnQLBanHang_Click);
-			// 
-			// toolStripButton3
-			// 
-			this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton3.Name = "toolStripButton3";
-			this.toolStripButton3.Size = new System.Drawing.Size(148, 24);
-			this.toolStripButton3.Text = "Thống kê đồ ăn, uống";
-			// 
-			// toolStripButton5
-			// 
-			this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-			this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton5.Name = "toolStripButton5";
-			this.toolStripButton5.Size = new System.Drawing.Size(73, 24);
-			this.toolStripButton5.Text = "Báo cáo";
-			// 
-			// toolStripButton6
-			// 
-			this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-			this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton6.Name = "toolStripButton6";
-			this.toolStripButton6.Size = new System.Drawing.Size(72, 24);
-			this.toolStripButton6.Text = "Ghi chú";
-			// 
-			// toolStripButton4
-			// 
-			this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-			this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton4.Name = "toolStripButton4";
-			this.toolStripButton4.Size = new System.Drawing.Size(75, 24);
-			this.toolStripButton4.Text = "Mẹo Vặt";
-			// 
-			// toolStripButton7
-			// 
-			this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-			this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton7.Name = "toolStripButton7";
-			this.toolStripButton7.Size = new System.Drawing.Size(62, 24);
-			this.toolStripButton7.Text = "Thoát";
+			this.toolStripStatusLabel6.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources._27294429_921676997988805_2014646134_n;
+			this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+			this.toolStripStatusLabel6.Size = new System.Drawing.Size(86, 20);
+			this.toolStripStatusLabel6.Text = "Phiên bản: ";
 			// 
 			// button8
 			// 
@@ -1062,42 +1098,6 @@
 			this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.button2.UseVisualStyleBackColor = false;
 			// 
-			// toolStripButton8
-			// 
-			this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-			this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton8.Name = "toolStripButton8";
-			this.toolStripButton8.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton8.Text = "toolStripButton8";
-			// 
-			// toolStripButton9
-			// 
-			this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-			this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton9.Name = "toolStripButton9";
-			this.toolStripButton9.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton9.Text = "toolStripButton9";
-			// 
-			// toolStripButton10
-			// 
-			this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
-			this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton10.Name = "toolStripButton10";
-			this.toolStripButton10.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton10.Text = "toolStripButton10";
-			// 
-			// toolStripButton11
-			// 
-			this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
-			this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton11.Name = "toolStripButton11";
-			this.toolStripButton11.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton11.Text = "toolStripButton11";
-			// 
 			// frmTrangChu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1111,7 +1111,7 @@
 			this.Controls.Add(this.button9);
 			this.Controls.Add(this.dataGridView2);
 			this.Controls.Add(this.textBox7);
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.dgvMatHangBan);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.btnThanhToan);
 			this.Controls.Add(this.button6);
@@ -1144,7 +1144,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvMatHangBan)).EndInit();
 			this.toolStrip2.ResumeLayout(false);
 			this.toolStrip2.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
@@ -1206,15 +1206,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tBtnSuDungDichVu;
         private System.Windows.Forms.ToolStripButton tbtnQLBanHang;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton tBtnThongKe;
+        private System.Windows.Forms.ToolStripButton tBtnBaoCao;
+        private System.Windows.Forms.ToolStripButton tBtnGhiChu;
+        private System.Windows.Forms.ToolStripButton tBtnMeoVat;
+        private System.Windows.Forms.ToolStripButton tBtnExit;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMatHangBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1255,9 +1255,9 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel tLbCSDL;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel tLbTaiKhoan;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
     }
