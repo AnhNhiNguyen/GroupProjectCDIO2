@@ -105,7 +105,7 @@
 			this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+			this.tbtnQLBanHang = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
@@ -119,7 +119,7 @@
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.button8 = new System.Windows.Forms.Button();
-			this.button7 = new System.Windows.Forms.Button();
+			this.btnThanhToan = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
@@ -561,7 +561,7 @@
 			this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripButton2,
+            this.tbtnQLBanHang,
             this.toolStripButton3,
             this.toolStripButton5,
             this.toolStripButton6,
@@ -582,13 +582,14 @@
 			this.toolStripButton1.Size = new System.Drawing.Size(117, 24);
 			this.toolStripButton1.Text = "Sử dụng dịch vụ";
 			// 
-			// toolStripButton2
+			// tbtnQLBanHang
 			// 
-			this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton2.Name = "toolStripButton2";
-			this.toolStripButton2.Size = new System.Drawing.Size(122, 24);
-			this.toolStripButton2.Text = "Quản lí bán hàng";
+			this.tbtnQLBanHang.Image = ((System.Drawing.Image)(resources.GetObject("tbtnQLBanHang.Image")));
+			this.tbtnQLBanHang.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tbtnQLBanHang.Name = "tbtnQLBanHang";
+			this.tbtnQLBanHang.Size = new System.Drawing.Size(122, 24);
+			this.tbtnQLBanHang.Text = "Quản lí bán hàng";
+			this.tbtnQLBanHang.Click += new System.EventHandler(this.tbtnQLBanHang_Click);
 			// 
 			// toolStripButton3
 			// 
@@ -697,20 +698,21 @@
 			this.button8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.button8.UseVisualStyleBackColor = false;
 			// 
-			// button7
+			// btnThanhToan
 			// 
-			this.button7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-			this.button7.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.button7.Location = new System.Drawing.Point(754, 422);
-			this.button7.Margin = new System.Windows.Forms.Padding(2);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(68, 57);
-			this.button7.TabIndex = 74;
-			this.button7.Text = "Thanh toán";
-			this.button7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button7.UseVisualStyleBackColor = false;
+			this.btnThanhToan.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnThanhToan.Image = ((System.Drawing.Image)(resources.GetObject("btnThanhToan.Image")));
+			this.btnThanhToan.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.btnThanhToan.Location = new System.Drawing.Point(754, 422);
+			this.btnThanhToan.Margin = new System.Windows.Forms.Padding(2);
+			this.btnThanhToan.Name = "btnThanhToan";
+			this.btnThanhToan.Size = new System.Drawing.Size(68, 57);
+			this.btnThanhToan.TabIndex = 74;
+			this.btnThanhToan.Text = "Thanh toán";
+			this.btnThanhToan.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.btnThanhToan.UseVisualStyleBackColor = false;
+			this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
 			// 
 			// button6
 			// 
@@ -1107,7 +1109,7 @@
 			this.Controls.Add(this.textBox7);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.button8);
-			this.Controls.Add(this.button7);
+			this.Controls.Add(this.btnThanhToan);
 			this.Controls.Add(this.button6);
 			this.Controls.Add(this.button5);
 			this.Controls.Add(this.button4);
@@ -1201,7 +1203,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton tbtnQLBanHang;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
@@ -1215,7 +1217,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
