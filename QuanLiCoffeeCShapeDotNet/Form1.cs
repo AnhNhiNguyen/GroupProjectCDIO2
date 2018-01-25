@@ -15,7 +15,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		public frmHome()
 		{
 			InitializeComponent();
-			
+			//dat lam comment
 		}
 	}
 }
