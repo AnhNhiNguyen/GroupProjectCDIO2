@@ -21,5 +21,37 @@ namespace QuanLiCoffeeCShapeDotNet
         {
 
         }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void button7_Click(object sender, EventArgs e)
+        {
+            frmPayment tt = new frmPayment();
+            tt.ShowDialog();
+        }
+
+        private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hoạtĐộngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel2_Click(object sender, EventArgs e)
+        {
+            frmDanhMucMatHang mh = new frmDanhMucMatHang();
+            mh.ShowDialog();
+        }
     }
 }
