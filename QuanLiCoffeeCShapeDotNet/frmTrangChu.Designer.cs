@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Tất Cả");
-			System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Cafe Đen");
-			System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Cafe Sữa");
-			System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Coffe", new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18});
-			System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("ST Vàng");
-			System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Pesi");
-			System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Revive");
-			System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Bò Húc");
-			System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Highland");
-			System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Nước đóng chai", new System.Windows.Forms.TreeNode[] {
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24});
-			System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("B52");
-			System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Masala");
-			System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Bloody Caesar");
-			System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Pina Colada ");
-			System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Pha Chế", new System.Windows.Forms.TreeNode[] {
-            treeNode26,
-            treeNode27,
-            treeNode28,
-            treeNode29});
+			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Tất Cả");
+			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cafe Đen");
+			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Cafe Sữa");
+			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Coffe", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3});
+			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("ST Vàng");
+			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Pesi");
+			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Revive");
+			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Bò Húc");
+			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Highland");
+			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Nước đóng chai", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9});
+			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("B52");
+			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Masala");
+			System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Bloody Caesar");
+			System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Pina Colada ");
+			System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Pha Chế", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14});
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
 			this.danhMụcNhàCungCấpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -485,41 +485,41 @@
 			this.treeView2.Location = new System.Drawing.Point(827, 80);
 			this.treeView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.treeView2.Name = "treeView2";
-			treeNode16.Name = "Node16";
-			treeNode16.Text = "Tất Cả";
-			treeNode17.Name = "Node3";
-			treeNode17.Text = "Cafe Đen";
-			treeNode18.Name = "Node5";
-			treeNode18.Text = "Cafe Sữa";
-			treeNode19.Name = "Coffe";
-			treeNode19.Text = "Coffe";
-			treeNode20.Name = "Node7";
-			treeNode20.Text = "ST Vàng";
-			treeNode21.Name = "Node6";
-			treeNode21.Text = "Pesi";
-			treeNode22.Name = "Node8";
-			treeNode22.Text = "Revive";
-			treeNode23.Name = "Node9";
-			treeNode23.Text = "Bò Húc";
-			treeNode24.Name = "Node10";
-			treeNode24.Text = "Highland";
-			treeNode25.Name = "Node4";
-			treeNode25.Text = "Nước đóng chai";
-			treeNode26.Name = "Node12";
-			treeNode26.Text = "B52";
-			treeNode27.Name = "Node13";
-			treeNode27.Text = "Masala";
-			treeNode28.Name = "Node14";
-			treeNode28.Text = "Bloody Caesar";
-			treeNode29.Name = "Node15";
-			treeNode29.Text = "Pina Colada ";
-			treeNode30.Name = "Node11";
-			treeNode30.Text = "Pha Chế";
+			treeNode1.Name = "Node16";
+			treeNode1.Text = "Tất Cả";
+			treeNode2.Name = "Node3";
+			treeNode2.Text = "Cafe Đen";
+			treeNode3.Name = "Node5";
+			treeNode3.Text = "Cafe Sữa";
+			treeNode4.Name = "Coffe";
+			treeNode4.Text = "Coffe";
+			treeNode5.Name = "Node7";
+			treeNode5.Text = "ST Vàng";
+			treeNode6.Name = "Node6";
+			treeNode6.Text = "Pesi";
+			treeNode7.Name = "Node8";
+			treeNode7.Text = "Revive";
+			treeNode8.Name = "Node9";
+			treeNode8.Text = "Bò Húc";
+			treeNode9.Name = "Node10";
+			treeNode9.Text = "Highland";
+			treeNode10.Name = "Node4";
+			treeNode10.Text = "Nước đóng chai";
+			treeNode11.Name = "Node12";
+			treeNode11.Text = "B52";
+			treeNode12.Name = "Node13";
+			treeNode12.Text = "Masala";
+			treeNode13.Name = "Node14";
+			treeNode13.Text = "Bloody Caesar";
+			treeNode14.Name = "Node15";
+			treeNode14.Text = "Pina Colada ";
+			treeNode15.Name = "Node11";
+			treeNode15.Text = "Pha Chế";
 			this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode19,
-            treeNode25,
-            treeNode30});
+            treeNode1,
+            treeNode4,
+            treeNode10,
+            treeNode15});
 			this.treeView2.Size = new System.Drawing.Size(233, 96);
 			this.treeView2.TabIndex = 80;
 			// 
@@ -601,7 +601,7 @@
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton1.Text = "toolStripButton1";
+			this.toolStripButton1.Text = "Sử dụng dịch vụ";
 			// 
 			// toolStripLabel1
 			// 
@@ -616,7 +616,7 @@
 			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton2.Name = "toolStripButton2";
 			this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton2.Text = "toolStripButton2";
+			this.toolStripButton2.Text = "Quản lí bán hàng";
 			// 
 			// toolStripButton3
 			// 
@@ -625,7 +625,7 @@
 			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton3.Name = "toolStripButton3";
 			this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton3.Text = "toolStripButton3";
+			this.toolStripButton3.Text = "Thống kê đồ ăn, uống";
 			// 
 			// toolStripLabel3
 			// 
@@ -640,7 +640,7 @@
 			this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton5.Name = "toolStripButton5";
 			this.toolStripButton5.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton5.Text = "toolStripButton5";
+			this.toolStripButton5.Text = "Báo cáo";
 			// 
 			// toolStripLabel5
 			// 
@@ -655,7 +655,7 @@
 			this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton6.Name = "toolStripButton6";
 			this.toolStripButton6.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton6.Text = "toolStripButton6";
+			this.toolStripButton6.Text = "Ghi chú";
 			// 
 			// toolStripLabel6
 			// 
@@ -670,7 +670,7 @@
 			this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton4.Name = "toolStripButton4";
 			this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton4.Text = "toolStripButton4";
+			this.toolStripButton4.Text = "Mẹo Vặt";
 			// 
 			// toolStripLabel4
 			// 
@@ -685,7 +685,7 @@
 			this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton7.Name = "toolStripButton7";
 			this.toolStripButton7.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton7.Text = "toolStripButton7";
+			this.toolStripButton7.Text = "Thoát";
 			// 
 			// toolStripLabel7
 			// 
