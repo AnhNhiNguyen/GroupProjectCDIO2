@@ -133,9 +133,7 @@
 			this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
 			this.label4 = new System.Windows.Forms.Label();
-			this.toolStripLabel8 = new System.Windows.Forms.ToolStripLabel();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
 			this.label3 = new System.Windows.Forms.Label();
@@ -176,7 +174,7 @@
 			// nhânViênToolStripMenuItem
 			// 
 			this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-			this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.nhânViênToolStripMenuItem.Text = "Nhân viên";
 			// 
 			// nhânSựToolStripMenuItem
@@ -193,19 +191,19 @@
 			// caLàmViệcToolStripMenuItem
 			// 
 			this.caLàmViệcToolStripMenuItem.Name = "caLàmViệcToolStripMenuItem";
-			this.caLàmViệcToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.caLàmViệcToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.caLàmViệcToolStripMenuItem.Text = "Ca làm việc";
 			// 
 			// tạmỨngToolStripMenuItem
 			// 
 			this.tạmỨngToolStripMenuItem.Name = "tạmỨngToolStripMenuItem";
-			this.tạmỨngToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.tạmỨngToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.tạmỨngToolStripMenuItem.Text = "Tạm Ứng";
 			// 
 			// lươngToolStripMenuItem
 			// 
 			this.lươngToolStripMenuItem.Name = "lươngToolStripMenuItem";
-			this.lươngToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.lươngToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.lươngToolStripMenuItem.Text = "Lương";
 			// 
 			// menuStrip1
@@ -862,12 +860,6 @@
 			this.label5.TabIndex = 63;
 			this.label5.Text = "Giảm giá";
 			// 
-			// toolStripLabel9
-			// 
-			this.toolStripLabel9.Name = "toolStripLabel9";
-			this.toolStripLabel9.Size = new System.Drawing.Size(48, 24);
-			this.toolStripLabel9.Text = "Ghi chú";
-			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
@@ -878,12 +870,6 @@
 			this.label4.Size = new System.Drawing.Size(77, 17);
 			this.label4.TabIndex = 62;
 			this.label4.Text = "Phí dịch vụ";
-			// 
-			// toolStripLabel8
-			// 
-			this.toolStripLabel8.Name = "toolStripLabel8";
-			this.toolStripLabel8.Size = new System.Drawing.Size(74, 24);
-			this.toolStripLabel8.Text = "Đặt số lượng";
 			// 
 			// dateTimePicker1
 			// 
@@ -896,12 +882,11 @@
 			// 
 			// toolStripButton10
 			// 
-			this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
 			this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton10.Name = "toolStripButton10";
-			this.toolStripButton10.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton10.Text = "toolStripButton10";
+			this.toolStripButton10.Size = new System.Drawing.Size(98, 24);
+			this.toolStripButton10.Text = "Đặt số lượng";
 			// 
 			// label3
 			// 
@@ -922,9 +907,7 @@
             this.toolStripButton8,
             this.toolStripButton9,
             this.toolStripButton10,
-            this.toolStripLabel8,
-            this.toolStripButton11,
-            this.toolStripLabel9});
+            this.toolStripButton11});
 			this.toolStrip2.Location = new System.Drawing.Point(442, 98);
 			this.toolStrip2.Name = "toolStrip2";
 			this.toolStrip2.Size = new System.Drawing.Size(230, 27);
@@ -933,12 +916,11 @@
 			// 
 			// toolStripButton11
 			// 
-			this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
 			this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton11.Name = "toolStripButton11";
-			this.toolStripButton11.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton11.Text = "toolStripButton11";
+			this.toolStripButton11.Size = new System.Drawing.Size(72, 24);
+			this.toolStripButton11.Text = "Ghi chú";
 			// 
 			// label1
 			// 
@@ -1235,9 +1217,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel9;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.Label label3;
