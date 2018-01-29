@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
-    public partial class frmNhaCungCap : Form
+    public partial class frmThemNhomHang : Form
     {
-        public frmNhaCungCap()
+        public frmThemNhomHang()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

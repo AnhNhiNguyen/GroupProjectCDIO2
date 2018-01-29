@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
-    public partial class frmNhaCungCap : Form
+    public partial class frmThongKeMatHang : Form
     {
-        public frmNhaCungCap()
+        public frmThongKeMatHang()
         {
             InitializeComponent();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

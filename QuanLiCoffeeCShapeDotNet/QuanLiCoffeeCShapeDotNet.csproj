@@ -33,8 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,6 +71,36 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhaCungCap.Designer.cs">
+      <DependentUpon>frmNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyNhanVien.Designer.cs">
+      <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemMatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemMatHang.Designer.cs">
+      <DependentUpon>frmThemMatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemNhomHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemNhomHang.Designer.cs">
+      <DependentUpon>frmThemNhomHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongKeMatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongKeMatHang.Designer.cs">
+      <DependentUpon>frmThongKeMatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +123,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhaCungCap.resx">
+      <DependentUpon>frmNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyNhanVien.resx">
+      <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemMatHang.resx">
+      <DependentUpon>frmThemMatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemNhomHang.resx">
+      <DependentUpon>frmThemNhomHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongKeMatHang.resx">
+      <DependentUpon>frmThongKeMatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrangChu.resx">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
@@ -127,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\27294429_921676997988805_2014646134_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_kteatime_1393.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -49,5 +49,10 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmThanhToan = new frmPayment();
 			frmThanhToan.ShowDialog();
 		}
-	}
+
+        private void cácDanhMụcKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
