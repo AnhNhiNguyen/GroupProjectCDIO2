@@ -17,5 +17,10 @@ namespace QuanLiCoffeeCShapeDotNet
 			InitializeComponent();
 			//dat lam commentfádadsasd
 		}
-	}
+
+        private void tabKhu1_Click(object sender, EventArgs e)
+        {
+            //jj
+        }
+    }
 }

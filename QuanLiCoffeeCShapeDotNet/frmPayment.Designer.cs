@@ -62,10 +62,10 @@
 			this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
 			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button4.Location = new System.Drawing.Point(298, 313);
-			this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button4.Location = new System.Drawing.Point(298, 312);
+			this.button4.Margin = new System.Windows.Forms.Padding(2);
 			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(120, 37);
+			this.button4.Size = new System.Drawing.Size(120, 50);
 			this.button4.TabIndex = 15;
 			this.button4.Text = "Hủy bỏ";
 			this.button4.UseVisualStyleBackColor = false;
@@ -76,10 +76,10 @@
 			this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
 			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button3.Location = new System.Drawing.Point(298, 262);
-			this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button3.Location = new System.Drawing.Point(298, 258);
+			this.button3.Margin = new System.Windows.Forms.Padding(2);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(120, 37);
+			this.button3.Size = new System.Drawing.Size(120, 50);
 			this.button3.TabIndex = 16;
 			this.button3.Text = "   Đóng bill \r\n    không In";
 			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -91,9 +91,9 @@
 			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button2.Location = new System.Drawing.Point(298, 204);
-			this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button2.Margin = new System.Windows.Forms.Padding(2);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(120, 42);
+			this.button2.Size = new System.Drawing.Size(120, 50);
 			this.button2.TabIndex = 17;
 			this.button2.Text = "Đóng bill và In";
 			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -102,7 +102,7 @@
 			// textBox3
 			// 
 			this.textBox3.Location = new System.Drawing.Point(250, 142);
-			this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox3.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox3.Multiline = true;
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(169, 36);
@@ -111,7 +111,7 @@
 			// textBox2
 			// 
 			this.textBox2.Location = new System.Drawing.Point(250, 100);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox2.Multiline = true;
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(169, 36);
@@ -120,7 +120,7 @@
 			// textBox1
 			// 
 			this.textBox1.Location = new System.Drawing.Point(250, 54);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(169, 36);
@@ -130,7 +130,7 @@
 			// 
 			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.Location = new System.Drawing.Point(298, 9);
-			this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button1.Margin = new System.Windows.Forms.Padding(2);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(120, 28);
 			this.button1.TabIndex = 11;
@@ -188,10 +188,10 @@
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(0, 10);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox1.Location = new System.Drawing.Point(-1, 11);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(134, 115);
+			this.pictureBox1.Size = new System.Drawing.Size(134, 167);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 19;
 			this.pictureBox1.TabStop = false;
@@ -215,7 +215,7 @@
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label1);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "frmPayment";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Payment";
