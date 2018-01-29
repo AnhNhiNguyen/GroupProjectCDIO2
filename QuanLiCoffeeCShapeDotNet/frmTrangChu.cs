@@ -54,5 +54,10 @@ namespace QuanLiCoffeeCShapeDotNet
         {
 
         }
-    }
+
+		private void tBtnThoat_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+	}
 }

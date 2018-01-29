@@ -59,17 +59,18 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\KhuVucDAO.cs" />
+    <Compile Include="DAO\Sqlcommands.cs" />
+    <Compile Include="DAO\TableDAO.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\BillInfo.cs" />
+    <Compile Include="DTO\KhuVuc.cs" />
+    <Compile Include="DTO\Table.cs" />
     <Compile Include="frmDanhMucMatHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDanhMucMatHang.Designer.cs">
       <DependentUpon>frmDanhMucMatHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNhaCungCap.cs">
       <SubType>Form</SubType>
@@ -120,9 +121,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDanhMucMatHang.resx">
       <DependentUpon>frmDanhMucMatHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhaCungCap.resx">
       <DependentUpon>frmNhaCungCap.cs</DependentUpon>
