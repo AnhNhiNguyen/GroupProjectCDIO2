@@ -63,6 +63,16 @@ namespace QuanLiCoffeeCShapeDotNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _13 {
+            get {
+                object obj = ResourceManager.GetObject("13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _27153250_921677014655470_1558042169_n {
             get {
                 object obj = ResourceManager.GetObject("27153250_921677014655470_1558042169_n", resourceCulture);
@@ -103,9 +113,69 @@ namespace QuanLiCoffeeCShapeDotNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap if_button_blue_48574 {
+            get {
+                object obj = ResourceManager.GetObject("if_button-blue_48574", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_button_green_48575 {
+            get {
+                object obj = ResourceManager.GetObject("if_button-green_48575", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_button_red_48578 {
+            get {
+                object obj = ResourceManager.GetObject("if_button-red_48578", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_button_white_48579 {
+            get {
+                object obj = ResourceManager.GetObject("if_button-white_48579", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap if_kteatime_1393 {
             get {
                 object obj = ResourceManager.GetObject("if_kteatime_1393", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_print_44993 {
+            get {
+                object obj = ResourceManager.GetObject("if_print_44993", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_view_refresh_118801 {
+            get {
+                object obj = ResourceManager.GetObject("if_view-refresh_118801", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

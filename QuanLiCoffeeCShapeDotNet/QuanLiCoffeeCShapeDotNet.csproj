@@ -72,6 +72,18 @@
     <Compile Include="frmDanhMucMatHang.Designer.cs">
       <DependentUpon>frmDanhMucMatHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoanhThu.Designer.cs">
+      <DependentUpon>frmDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLuongNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLuongNV.Designer.cs">
+      <DependentUpon>frmLuongNV.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhaCungCap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +133,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDanhMucMatHang.resx">
       <DependentUpon>frmDanhMucMatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoanhThu.resx">
+      <DependentUpon>frmDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLuongNV.resx">
+      <DependentUpon>frmLuongNV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhaCungCap.resx">
       <DependentUpon>frmNhaCungCap.cs</DependentUpon>
@@ -180,6 +198,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\if_kteatime_1393.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_view-refresh_118801.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_print_44993.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_button-white_48579.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_button-blue_48574.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_button-green_48575.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_button-red_48578.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
