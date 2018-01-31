@@ -10,7 +10,7 @@ namespace QuanLiCoffeeCShapeDotNet.DTO
 	public class Table
 	{
 
-		public Table(int idTable, string tableName, string tableStatus, string describeTable, int idKhuVuc)
+		public Table(int idTable, string tableName, int tableStatus, string describeTable, int idKhuVuc)
 		{
 			this.idTable = idTable;
 			this.tableName = tableName;
@@ -23,14 +23,14 @@ namespace QuanLiCoffeeCShapeDotNet.DTO
 		{
 			this.idTable = (int)row["idTable"];
 			this.tableName = row["tableName"].ToString();
-			this.tableStatus = row["tableStatus"].ToString();
+			this.tableStatus = (int)row["tableStatus"];
 			this.describeTable = row["describeTable"].ToString() ;
 			this.idKhuVuc = (int)row["idKhuVuc"];
 		}
 
 		private int idTable;
 		private string tableName;
-		private string tableStatus;
+		private int tableStatus;
 		private string describeTable;
 		private int idKhuVuc;
 
@@ -60,7 +60,7 @@ namespace QuanLiCoffeeCShapeDotNet.DTO
 			}
 		}
 
-		public string TableStatus
+		public int TableStatus
 		{
 			get
 			{

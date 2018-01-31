@@ -25,7 +25,7 @@ CREATE TABLE PDT_ACCOUNT
 	passWork NCHAR(12) NOT NULL,
 	sex int DEFAULT 0,--0:NAM;1:NU
 	permission int DEFAULT -1,-- -1:STAFF,0:ADMIN
-	describeAccount NVARCHAR(MAX) DEFAULT 'ĐÂY LÀ MÔ TẢ OR GHI CHÚ'
+	describeAccount NVARCHAR(MAX) DEFAULT N'ĐÂY LÀ MÔ TẢ OR GHI CHÚ'
 )
 GO
 
@@ -33,7 +33,7 @@ CREATE TABLE PDT_CATEGORYFOOD
 (
 	idCategory INT IDENTITY PRIMARY KEY,
 	categoryName NVARCHAR(50 )NOT NULL,
-	describeCategoryFood NVARCHAR(MAX) DEFAULT 'ĐÂY LÀ MÔ TẢ OR GHI CHÚ'
+	describeCategoryFood NVARCHAR(MAX) DEFAULT N'ĐÂY LÀ MÔ TẢ OR GHI CHÚ'
 )
 GO
 
@@ -43,7 +43,7 @@ CREATE TABLE PDT_FOOD
 	FoodName NVARCHAR(50) NOT NULL,
 	donViTinh NVARCHAR(20) NOT NULL,
 	gia FLOAT NOT NULL,
-	describeFood NVARCHAR(MAX) DEFAULT 'ĐÂY LÀ MÔ TẢ OR GHI CHÚ',
+	describeFood NVARCHAR(MAX) DEFAULT N'ĐÂY LÀ MÔ TẢ OR GHI CHÚ',
 	
 	idCategoryFood INT NOT NULL,
 
@@ -54,8 +54,8 @@ CREATE TABLE PDT_FOOD
 CREATE TABLE PDT_KHUVUC
 (
 	idKhuVuc INT IDENTITY PRIMARY KEY,
-	khuvucName NVARCHAR(50) NOT NULL,
-	describeKhuVuc NVARCHAR(MAX) DEFAULT 'ĐÂY LÀ MÔ TẢ OR GHI CHÚ'
+	khuVucName NVARCHAR(50) NOT NULL,
+	describeKhuVuc NVARCHAR(MAX) DEFAULT N'ĐÂY LÀ MÔ TẢ OR GHI CHÚ'
 )
 GO
 
@@ -63,7 +63,7 @@ CREATE TABLE PDT_TABLE
 (
 	idTable INT IDENTITY PRIMARY KEY,
 	tableName NVARCHAR(50) NOT NULL,
-	tableStatus NVARCHAR(50) NOT NULL DEFAULT 'Bàn trống ',
+	tableStatus INT NOT NULL DEFAULT -1,
 	describeTable NVARCHAR(MAX) DEFAULT 'ĐÂY LÀ MÔ TẢ OR GHI CHÚ',
 
 	idKhuVuc INT NOT NULL,

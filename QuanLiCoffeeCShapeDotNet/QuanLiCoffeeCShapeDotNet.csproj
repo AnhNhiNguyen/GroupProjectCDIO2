@@ -59,11 +59,15 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\CategoryFoodDAO.cs" />
+    <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\KhuVucDAO.cs" />
     <Compile Include="DAO\Sqlcommands.cs" />
     <Compile Include="DAO\TableDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
+    <Compile Include="DTO\CategoryFood.cs" />
+    <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\KhuVuc.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="frmDanhMucMatHang.cs">
@@ -163,18 +167,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -219,6 +223,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\if_button-red_48578.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\coffe.png" />
+    <Content Include="Resources\coffeNull.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
