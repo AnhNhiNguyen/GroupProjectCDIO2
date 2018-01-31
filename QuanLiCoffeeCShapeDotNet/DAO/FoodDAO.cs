@@ -54,5 +54,19 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			return list;
 		}
 
+		public DataTable treeViewClickByIdCategoryFood(int idCategoryFood)
+		{		
+			DataTable data = Sqlcommands.Instances.getDataTable("SELECT FoodName,donViTinh,gia FROM PDT_FOOD WHERE idCategoryFood=" + idCategoryFood);
+
+			return data;
+		}
+
+		public DataTable buttonClickByIdCategoryFood(int idCategoryFood)
+		{
+			DataTable data = Sqlcommands.Instances.getDataTable("SELECT FoodName,donViTinh,gia FROM PDT_FOOD WHERE idCategoryFood=" + idCategoryFood);
+
+			return data;
+		}
+
 	}
 }

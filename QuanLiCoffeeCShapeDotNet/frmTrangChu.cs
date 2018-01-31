@@ -12,15 +12,15 @@ using QuanLiCoffeeCShapeDotNet.DTO;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
-    public partial class frmTrangChu : Form
-    {
+	public partial class frmTrangChu : Form
+	{
 
 		Form frmMatHang;
 		Form frmThanhToan;
-        public frmTrangChu()
-        {
-            InitializeComponent();
-        }
+		public frmTrangChu()
+		{
+			InitializeComponent();
+		}
 
 		public Boolean CheckForm(string frm)
 		{
@@ -36,9 +36,9 @@ namespace QuanLiCoffeeCShapeDotNet
 		}
 
 		private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+		{
 
-        }
+		}
 
 		private void tbtnQLBanHang_Click(object sender, EventArgs e)
 		{
@@ -61,6 +61,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			loadKhuVuc();
 			loadTreeViewFood();
+			loadListView();
 		}
 
 		private void loadKhuVuc()
@@ -99,7 +100,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
 						Location = new Point(btnBegin.Location.X + btnBegin.Width,
 						btnBegin.Location.Y),
-						
+
 
 					};
 					btn.Click += btnClick;
@@ -137,26 +138,80 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			Button btn = sender as Button;
 
-			MessageBox.Show(btn.Text);
+			//MessageBox.Show(btn.Text);
+
+			txtNameTable.Text = btn.Text.ToString();
+
 		}
 
 		public void loadTreeViewFood()
 		{
 			List<CategoryFood> listCFood = CategoryFoodDAO.Instances.loadCategory();
-			twFood.Nodes.Add("Tất cả");
+			//twFood.Nodes.Add("Tất cả");
 			for (int i = 0; i < listCFood.Count; i++)
 			{
-				//twFood.Nodes.Add(listCFood[i].CategoryName);
-				twFood.Nodes[0].Nodes.Add(listCFood[i].CategoryName);
-				//twFood.Nodes[i].Tag = "1";
+				twFood.Nodes.Add(listCFood[i].CategoryName);
+				twFood.Nodes[i].Tag = listCFood[i].IdCategory;
 
-				List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
+				//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
+				//for (int j = 0; j <listFood.Count; j++)
+				//{
+				//	twFood.Nodes[i].Nodes.Add(listFood[j].FoodName);
+				//}
 
-				for (int j = 0; j <listFood.Count; j++)
-				{
-					twFood.Nodes[0].Nodes[i].Nodes.Add(listFood[j].FoodName);
-				}
+
 			}
+		}
+
+		private void twFood_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+		{
+			//MessageBox.Show(twFood.Nodes[].ToString());
+			//MessageBox.Show(e.ToString());
+			//MessageBox.Show(e.Node.Tag.ToString());
+			if (e.Node.Tag == null)
+				return;
+
+			DataTable data = FoodDAO.Instances.treeViewClickByIdCategoryFood((int)e.Node.Tag);
+			dgvListFood.DataSource = data;
+
+			//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
+			
+		}
+
+		private void loadListView()
+		{
+			listView1.GridLines = true;
+			//listView1.View = View.Details;
+
+			listView1.Columns.Add("Mặt hàng",75);
+			listView1.Columns.Add("Đơn vị tính", 75);
+			listView1.Columns.Add("Đơn giá", 75);
+
+			ListViewItem lv = new ListViewItem("fdsfsdf");
+			lv.SubItems.Add("fsdf");
+			lv.SubItems.Add("fsdf");
+			lv.Tag = "6";
+
+			listView1.Items.Add(lv);
+
+			ListViewItem lv2 = new ListViewItem("fdsfsdf");
+			//lv2.SubItems.Add("fsdf");
+			//lv2.SubItems.Add("f");
+
+			lv2.Tag="5";
+			listView1.Items.Add(lv2);
+			
+
+		}
+
+		
+
+		
+
+		private void listView1_MouseClick(object sender, MouseEventArgs e)
+		{
+			//MessageBox.Show(listView1.SelectedIndices[0].ToString());
+			MessageBox.Show(listView1.SelectedItems[0].Tag.ToString());
 		}
 	}
 }

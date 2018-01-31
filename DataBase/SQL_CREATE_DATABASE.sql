@@ -40,7 +40,7 @@ GO
 CREATE TABLE PDT_FOOD
 (
 	idFood INT IDENTITY PRIMARY KEY,
-	FoodName NVARCHAR(50) NOT NULL,
+	foodName NVARCHAR(50) NOT NULL,
 	donViTinh NVARCHAR(20) NOT NULL,
 	gia FLOAT NOT NULL,
 	describeFood NVARCHAR(MAX) DEFAULT N'ĐÂY LÀ MÔ TẢ OR GHI CHÚ',
@@ -79,7 +79,7 @@ CREATE TABLE PDT_BILL
 	billDataCheckIn DATE NOT NULL,
 	billDateCheckOut DATE,
 	billNameAccount NVARCHAR DEFAULT 'NULL',	
-	status INT NOT NULL ,--1: da thanh toan, 0 chua thanh toan
+	billStatus INT NOT NULL ,--1: da thanh toan, 0 chua thanh toan
 	billTotal FLOAT DEFAULT 0,
 
 	idTable INT NOT NULL,
