@@ -16,7 +16,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new frmDoanhThu());
+			Application.Run(new frmTrangChu());
 		}
 	}
 }

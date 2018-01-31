@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Test_QLSV
+namespace QuanLiCoffeeCShapeDotNet.DTO
 {
-    class Sqlcommands
+    public class Sqlcommands
     {
 
 		private static Sqlcommands instances;

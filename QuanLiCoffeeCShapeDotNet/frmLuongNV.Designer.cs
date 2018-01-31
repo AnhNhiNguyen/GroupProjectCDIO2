@@ -239,7 +239,7 @@
             // 
             // button4
             // 
-            this.button4.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.if_button_blue_48574;
+            this.button4.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.button_blue;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(231, 12);
             this.button4.Name = "button4";
@@ -250,7 +250,7 @@
             // 
             // button3
             // 
-            this.button3.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.if_button_green_48575;
+            this.button3.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.button_green;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(445, 12);
             this.button3.Name = "button3";
@@ -261,7 +261,7 @@
             // 
             // button2
             // 
-            this.button2.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.if_button_red_48578;
+            this.button2.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.buttonred;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(664, 12);
             this.button2.Name = "button2";
@@ -272,7 +272,7 @@
             // 
             // button1
             // 
-            this.button1.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.if_button_white_48579;
+            this.button1.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.buttonwhite;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";

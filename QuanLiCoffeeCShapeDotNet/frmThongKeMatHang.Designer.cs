@@ -133,7 +133,7 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.if_view_refresh_118801;
+            this.toolStripButton1.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.viewrefresh;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
