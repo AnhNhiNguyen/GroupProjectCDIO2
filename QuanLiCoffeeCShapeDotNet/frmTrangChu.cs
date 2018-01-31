@@ -52,11 +52,6 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmThanhToan.ShowDialog();
 		}
 
-        private void cácDanhMụcKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
 		private void tBtnThoat_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
@@ -65,40 +60,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void frmTrangChu_Load(object sender, EventArgs e)
 		{
 			loadKhuVuc();
-		}
-
-		private void loadKhuVuc1()
-		{
-			DataTable dt=Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_KHUVUC");
-			
-			foreach (DataRow items in dt.Rows)
-			{
-				TabPage tabPage = new TabPage(
-					Text = items["khuVucName"].ToString()
-			
-					
-					 
-					) ;
-				tabPage.Tag = (int)items["idKhuVuc"];
-				DataTable dtTable = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE WHERE idKhuVuc = "+(int)tabPage.Tag);
-				foreach (DataRow itemTable in dtTable.Rows)
-				{
-					Button btnGoc = new Button();
-					btnGoc.Location = new Point(0, 0);
-					Button btn = new Button {
-						Text = itemTable["tableName"].ToString() + Environment.NewLine + itemTable["tableStatus"].ToString(),
-						Height=50,
-						Width=50,
-						
-
-					};
-					tabPage.Controls.Add(btn);
-					
-				}
-				
-				tabPage.UseVisualStyleBackColor = true;
-				tabControlKhuVuc.Controls.Add(tabPage);
-			}			
+			loadTreeViewFood();
 		}
 
 		private void loadKhuVuc()
@@ -110,7 +72,7 @@ namespace QuanLiCoffeeCShapeDotNet
 				{
 					AutoScroll = true,
 				};
-
+				tab.UseVisualStyleBackColor = true;
 				tab.Text = list[i].KhuVucName;
 
 				//Add ban vao tab
@@ -136,9 +98,11 @@ namespace QuanLiCoffeeCShapeDotNet
 						TextImageRelation = TextImageRelation.Overlay,
 
 						Location = new Point(btnBegin.Location.X + btnBegin.Width,
-						btnBegin.Location.Y)
+						btnBegin.Location.Y),
+						
 
 					};
+					btn.Click += btnClick;
 					switch (listTable[j].TableStatus)
 					{
 						case 1:
@@ -161,23 +125,38 @@ namespace QuanLiCoffeeCShapeDotNet
 						btnBegin.Location = new Point(0, btnBegin.Location.Y + btnBegin.Height);
 
 					}
+
+
 				}
 
 				tabControlKhuVuc.Controls.Add(tab);
 			}
 		}
 
-		private void loadTable()
+		private void btnClick(object sender, EventArgs e)
 		{
-			DataTable dt = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE");
-			foreach(DataRow items in dt.Rows)
+			Button btn = sender as Button;
+
+			MessageBox.Show(btn.Text);
+		}
+
+		public void loadTreeViewFood()
+		{
+			List<CategoryFood> listCFood = CategoryFoodDAO.Instances.loadCategory();
+			twFood.Nodes.Add("Tất cả");
+			for (int i = 0; i < listCFood.Count; i++)
 			{
-				Button btn = new Button();
-				btn.Text = items["tableName"].ToString()+ Environment.NewLine+items["tableStatus"];
-				
+				//twFood.Nodes.Add(listCFood[i].CategoryName);
+				twFood.Nodes[0].Nodes.Add(listCFood[i].CategoryName);
+				//twFood.Nodes[i].Tag = "1";
+
+				List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
+
+				for (int j = 0; j <listFood.Count; j++)
+				{
+					twFood.Nodes[0].Nodes[i].Nodes.Add(listFood[j].FoodName);
+				}
 			}
-
-
 		}
 	}
 }

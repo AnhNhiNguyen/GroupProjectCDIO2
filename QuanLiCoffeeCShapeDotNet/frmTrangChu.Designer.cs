@@ -28,32 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Tất Cả");
-			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cafe Đen");
-			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Cafe Sữa");
-			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Coffe", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3});
-			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("ST Vàng");
-			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Pesi");
-			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Revive");
-			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Bò Húc");
-			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Highland");
-			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Nước đóng chai", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
-			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("B52");
-			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Masala");
-			System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Bloody Caesar");
-			System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Pina Colada ");
-			System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Pha Chế", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14});
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
 			this.danhMụcNhàCungCấpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,7 +71,7 @@
 			this.thưViệnẢnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.xóaDữLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ngườiDùngPhânQuyềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.treeView2 = new System.Windows.Forms.TreeView();
+			this.twFood = new System.Windows.Forms.TreeView();
 			this.button9 = new System.Windows.Forms.Button();
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
 			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -467,48 +441,13 @@
 			this.ngườiDùngPhânQuyềnToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
 			this.ngườiDùngPhânQuyềnToolStripMenuItem.Text = "Người dùng , phân quyền";
 			// 
-			// treeView2
+			// twFood
 			// 
-			this.treeView2.Location = new System.Drawing.Point(827, 80);
-			this.treeView2.Margin = new System.Windows.Forms.Padding(2);
-			this.treeView2.Name = "treeView2";
-			treeNode1.Name = "Node16";
-			treeNode1.Text = "Tất Cả";
-			treeNode2.Name = "Node3";
-			treeNode2.Text = "Cafe Đen";
-			treeNode3.Name = "Node5";
-			treeNode3.Text = "Cafe Sữa";
-			treeNode4.Name = "Coffe";
-			treeNode4.Text = "Coffe";
-			treeNode5.Name = "Node7";
-			treeNode5.Text = "ST Vàng";
-			treeNode6.Name = "Node6";
-			treeNode6.Text = "Pesi";
-			treeNode7.Name = "Node8";
-			treeNode7.Text = "Revive";
-			treeNode8.Name = "Node9";
-			treeNode8.Text = "Bò Húc";
-			treeNode9.Name = "Node10";
-			treeNode9.Text = "Highland";
-			treeNode10.Name = "Node4";
-			treeNode10.Text = "Nước đóng chai";
-			treeNode11.Name = "Node12";
-			treeNode11.Text = "B52";
-			treeNode12.Name = "Node13";
-			treeNode12.Text = "Masala";
-			treeNode13.Name = "Node14";
-			treeNode13.Text = "Bloody Caesar";
-			treeNode14.Name = "Node15";
-			treeNode14.Text = "Pina Colada ";
-			treeNode15.Name = "Node11";
-			treeNode15.Text = "Pha Chế";
-			this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode4,
-            treeNode10,
-            treeNode15});
-			this.treeView2.Size = new System.Drawing.Size(233, 96);
-			this.treeView2.TabIndex = 80;
+			this.twFood.Location = new System.Drawing.Point(827, 80);
+			this.twFood.Margin = new System.Windows.Forms.Padding(2);
+			this.twFood.Name = "twFood";
+			this.twFood.Size = new System.Drawing.Size(233, 96);
+			this.twFood.TabIndex = 80;
 			// 
 			// button9
 			// 
@@ -1050,7 +989,7 @@
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.menuStrip1);
-			this.Controls.Add(this.treeView2);
+			this.Controls.Add(this.twFood);
 			this.Controls.Add(this.button9);
 			this.Controls.Add(this.dataGridView2);
 			this.Controls.Add(this.textBox7);
@@ -1142,7 +1081,7 @@
         private System.Windows.Forms.ToolStripMenuItem mẹoVặtKhiSửDụngPhầnMềmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thỏaThuậnKhiSửDụngPhầnMềmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cậpNhậpPhiênBảnToolStripMenuItem;
-        private System.Windows.Forms.TreeView treeView2;
+        private System.Windows.Forms.TreeView twFood;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;

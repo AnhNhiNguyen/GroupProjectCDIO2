@@ -59,11 +59,15 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\CategoryFoodDAO.cs" />
+    <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\KhuVucDAO.cs" />
     <Compile Include="DAO\Sqlcommands.cs" />
     <Compile Include="DAO\TableDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
+    <Compile Include="DTO\CategoryFood.cs" />
+    <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\KhuVuc.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="frmDanhMucMatHang.cs">
