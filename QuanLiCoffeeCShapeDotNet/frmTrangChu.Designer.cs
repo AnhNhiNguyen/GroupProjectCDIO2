@@ -123,7 +123,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.listView1 = new System.Windows.Forms.ListView();
+			this.lvFood = new System.Windows.Forms.ListView();
 			this.dgvListFood = new System.Windows.Forms.DataGridView();
 			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -982,7 +982,7 @@
 			// 
 			// panel3
 			// 
-			this.panel3.Controls.Add(this.listView1);
+			this.panel3.Controls.Add(this.lvFood);
 			this.panel3.Controls.Add(this.dgvListFood);
 			this.panel3.Controls.Add(this.twFood);
 			this.panel3.Controls.Add(this.button9);
@@ -993,16 +993,16 @@
 			this.panel3.Size = new System.Drawing.Size(232, 515);
 			this.panel3.TabIndex = 86;
 			// 
-			// listView1
+			// lvFood
 			// 
-			this.listView1.FullRowSelect = true;
-			this.listView1.Location = new System.Drawing.Point(2, 291);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(227, 224);
-			this.listView1.TabIndex = 85;
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			this.listView1.View = System.Windows.Forms.View.Details;
-			this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
+			this.lvFood.FullRowSelect = true;
+			this.lvFood.Location = new System.Drawing.Point(2, 291);
+			this.lvFood.Name = "lvFood";
+			this.lvFood.Size = new System.Drawing.Size(227, 224);
+			this.lvFood.TabIndex = 85;
+			this.lvFood.UseCompatibleStateImageBehavior = false;
+			this.lvFood.View = System.Windows.Forms.View.Details;
+			this.lvFood.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
 			// 
 			// dgvListFood
 			// 
@@ -1212,6 +1212,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-		private System.Windows.Forms.ListView listView1;
+		private System.Windows.Forms.ListView lvFood;
 	}
 }

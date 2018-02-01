@@ -61,7 +61,10 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			loadKhuVuc();
 			loadTreeViewFood();
-			loadListView();
+			//loadListViewByIdCategoryFood();
+			lvFood.Columns.Add("Mặt hàng", 75);
+			lvFood.Columns.Add("Đơn vị tính", 75);
+			lvFood.Columns.Add("Đơn giá", 75);
 		}
 
 		private void loadKhuVuc()
@@ -175,43 +178,58 @@ namespace QuanLiCoffeeCShapeDotNet
 			dgvListFood.DataSource = data;
 
 			//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
-			
+			loadListViewByIdCategoryFood((int)e.Node.Tag);
 		}
 
-		private void loadListView()
+		private void loadListView1()
 		{
-			listView1.GridLines = true;
+			lvFood.GridLines = true;
 			//listView1.View = View.Details;
 
-			listView1.Columns.Add("Mặt hàng",75);
-			listView1.Columns.Add("Đơn vị tính", 75);
-			listView1.Columns.Add("Đơn giá", 75);
+			lvFood.Columns.Add("Mặt hàng",75);
+			lvFood.Columns.Add("Đơn vị tính", 75);
+			lvFood.Columns.Add("Đơn giá", 75);
 
 			ListViewItem lv = new ListViewItem("fdsfsdf");
 			lv.SubItems.Add("fsdf");
 			lv.SubItems.Add("fsdf");
 			lv.Tag = "6";
 
-			listView1.Items.Add(lv);
+			lvFood.Items.Add(lv);
 
 			ListViewItem lv2 = new ListViewItem("fdsfsdf");
 			//lv2.SubItems.Add("fsdf");
 			//lv2.SubItems.Add("f");
 
 			lv2.Tag="5";
-			listView1.Items.Add(lv2);
+			lvFood.Items.Add(lv2);
 			
 
 		}
 
-		
+		private void loadListViewByIdCategoryFood(int idCategory)
+		{
+			lvFood.Items.Clear();
+			lvFood.GridLines = true;
+
+			List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(idCategory);
+			for(int i = 0; i < listFood.Count; i++)
+			{
+				ListViewItem lv = new ListViewItem(listFood[i].FoodName);
+				lv.SubItems.Add(listFood[i].DonViTinh);
+				lv.SubItems.Add(listFood[i].Gia.ToString());
+
+				lv.Tag = listFood[i].IdFood.ToString();
+				lvFood.Items.Add(lv);
+			}
+		}
 
 		
 
 		private void listView1_MouseClick(object sender, MouseEventArgs e)
 		{
 			//MessageBox.Show(listView1.SelectedIndices[0].ToString());
-			MessageBox.Show(listView1.SelectedItems[0].Tag.ToString());
+			MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
 		}
 	}
 }
