@@ -48,3 +48,16 @@ INSERT INTO PDT_FOOD(FoodName,donViTinh,gia,idCategoryFood) VALUES (N'Thuốc ng
 ---------------------
 USE QL_COFFEE_CS414BIS_PDT
 SELECT FoodName,donViTinh,gia FROM PDT_FOOD WHERE idCategoryFood=1
+--------------------------------
+SELECT * FROM PDT_BILL WHERE idTable=2
+--------------------------------
+
+INSERT INTO PDT_BILL(status,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE(),2)
+
+
+
+------------------
+SELECT * FROM PDT_BILLINFO WHERE idBill=4
+
+INSERT INTO PDT_BILLINFO(billInfoCount,idBill,idFood) VALUES (1,4,8)
+ 

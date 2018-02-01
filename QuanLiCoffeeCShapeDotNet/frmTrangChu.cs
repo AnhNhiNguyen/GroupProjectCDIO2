@@ -91,6 +91,7 @@ namespace QuanLiCoffeeCShapeDotNet
 						//Text = listTable[j].TableName + Environment.NewLine +
 						//listTable[j].TableStatus,
 						Text = listTable[j].TableName,
+						Tag=listTable[j].IdTable,
 						Width = 128,
 						Height = 150,
 
@@ -142,9 +143,13 @@ namespace QuanLiCoffeeCShapeDotNet
 
 			txtNameTable.Text = btn.Text.ToString();
 
-			List<Bill> list =BillDAO.Instances.loadBillByIdTable(2);
+			//List<Bill> list =BillDAO.Instances.loadBillByIdTable(2);
+			List<Bill> list = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
+			//Đang có lỗi chỗ này
 			//MessageBox.Show(list[0].IdBill.ToString());
+			if (list.Count==0) return;
 			loadLvBillInfoByIdBill(list[0].IdBill);
+			//MessageBox.Show(btn.Tag.ToString());
 		}
 
 		public void loadTreeViewFood()
@@ -179,32 +184,6 @@ namespace QuanLiCoffeeCShapeDotNet
 
 			//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
 			loadListViewByIdCategoryFood((int)e.Node.Tag);
-		}
-
-		private void loadListView1()
-		{
-			lvFood.GridLines = true;
-			//listView1.View = View.Details;
-
-			lvFood.Columns.Add("Mặt hàng",75);
-			lvFood.Columns.Add("Đơn vị tính", 75);
-			lvFood.Columns.Add("Đơn giá", 75);
-
-			ListViewItem lv = new ListViewItem("fdsfsdf");
-			lv.SubItems.Add("fsdf");
-			lv.SubItems.Add("fsdf");
-			lv.Tag = "6";
-
-			lvFood.Items.Add(lv);
-
-			ListViewItem lv2 = new ListViewItem("fdsfsdf");
-			//lv2.SubItems.Add("fsdf");
-			//lv2.SubItems.Add("f");
-
-			lv2.Tag="5";
-			lvFood.Items.Add(lv2);
-			
-
 		}
 
 		private void loadListViewByIdCategoryFood(int idCategory)
