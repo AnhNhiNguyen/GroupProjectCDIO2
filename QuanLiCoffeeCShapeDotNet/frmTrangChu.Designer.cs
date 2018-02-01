@@ -79,7 +79,7 @@
 			this.tBtnGhiChu = new System.Windows.Forms.ToolStripButton();
 			this.tBtnMeoVat = new System.Windows.Forms.ToolStripButton();
 			this.tBtnThoat = new System.Windows.Forms.ToolStripButton();
-			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tLbCSDL = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -89,6 +89,12 @@
 			this.pnLayoutTab = new System.Windows.Forms.FlowLayoutPanel();
 			this.tabControlKhuVuc = new System.Windows.Forms.TabControl();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.lvBillInfo = new System.Windows.Forms.ListView();
+			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.button8 = new System.Windows.Forms.Button();
 			this.btnThanhToan = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
@@ -96,12 +102,6 @@
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.textBox5 = new System.Windows.Forms.TextBox();
@@ -124,10 +124,9 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.lvFood = new System.Windows.Forms.ListView();
-			this.dgvListFood = new System.Windows.Forms.DataGridView();
-			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.twFood = new System.Windows.Forms.TreeView();
 			this.button9 = new System.Windows.Forms.Button();
 			this.textBox7 = new System.Windows.Forms.TextBox();
@@ -136,10 +135,8 @@
 			this.statusStrip1.SuspendLayout();
 			this.pnLayoutTab.SuspendLayout();
 			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.toolStrip2.SuspendLayout();
 			this.panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvListFood)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// danhMụcNhàCungCấpToolStripMenuItem
@@ -524,12 +521,13 @@
 			this.tBtnThoat.Text = "Thoát";
 			this.tBtnThoat.Click += new System.EventHandler(this.tBtnThoat_Click);
 			// 
-			// toolStripStatusLabel1
+			// tLbCSDL
 			// 
-			this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(41, 20);
-			this.toolStripStatusLabel1.Text = "CSDL:";
+			this.tLbCSDL.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tLbCSDL.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.database;
+			this.tLbCSDL.Name = "tLbCSDL";
+			this.tLbCSDL.Size = new System.Drawing.Size(61, 20);
+			this.tLbCSDL.Text = "CSDL:";
 			// 
 			// toolStripStatusLabel2
 			// 
@@ -569,7 +567,7 @@
 			// 
 			this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
+            this.tLbCSDL,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel4,
@@ -603,6 +601,7 @@
 			// panel1
 			// 
 			this.panel1.AutoSize = true;
+			this.panel1.Controls.Add(this.lvBillInfo);
 			this.panel1.Controls.Add(this.button8);
 			this.panel1.Controls.Add(this.btnThanhToan);
 			this.panel1.Controls.Add(this.button6);
@@ -610,7 +609,6 @@
 			this.panel1.Controls.Add(this.button4);
 			this.panel1.Controls.Add(this.button3);
 			this.panel1.Controls.Add(this.button2);
-			this.panel1.Controls.Add(this.dataGridView1);
 			this.panel1.Controls.Add(this.textBox3);
 			this.panel1.Controls.Add(this.textBox6);
 			this.panel1.Controls.Add(this.textBox5);
@@ -632,6 +630,49 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(660, 515);
 			this.panel1.TabIndex = 84;
+			// 
+			// lvBillInfo
+			// 
+			this.lvBillInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader8,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+			this.lvBillInfo.GridLines = true;
+			this.lvBillInfo.Location = new System.Drawing.Point(3, 82);
+			this.lvBillInfo.Name = "lvBillInfo";
+			this.lvBillInfo.Size = new System.Drawing.Size(343, 318);
+			this.lvBillInfo.TabIndex = 117;
+			this.lvBillInfo.UseCompatibleStateImageBehavior = false;
+			this.lvBillInfo.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader4
+			// 
+			this.columnHeader4.Text = "Mặt hàng";
+			this.columnHeader4.Width = 100;
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.Text = "Đơn giá";
+			this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader5.Width = 50;
+			// 
+			// columnHeader6
+			// 
+			this.columnHeader6.Text = "Số lượng";
+			this.columnHeader6.Width = 55;
+			// 
+			// columnHeader7
+			// 
+			this.columnHeader7.Text = "Thành tiền";
+			this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader7.Width = 70;
+			// 
+			// columnHeader8
+			// 
+			this.columnHeader8.Text = "Đơn vị tính";
+			this.columnHeader8.Width = 75;
 			// 
 			// button8
 			// 
@@ -737,57 +778,6 @@
 			this.button2.Text = "Gộp Bàn";
 			this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.button2.UseVisualStyleBackColor = false;
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column4,
-            this.Column2,
-            this.Column5,
-            this.Column3});
-			this.dataGridView1.Location = new System.Drawing.Point(5, 79);
-			this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.RowTemplate.Height = 24;
-			this.dataGridView1.Size = new System.Drawing.Size(341, 322);
-			this.dataGridView1.TabIndex = 109;
-			// 
-			// Column1
-			// 
-			this.Column1.HeaderText = "Mặt hàng";
-			this.Column1.Name = "Column1";
-			this.Column1.ReadOnly = true;
-			// 
-			// Column4
-			// 
-			this.Column4.HeaderText = "Đơn giá";
-			this.Column4.Name = "Column4";
-			this.Column4.ReadOnly = true;
-			// 
-			// Column2
-			// 
-			this.Column2.HeaderText = "Số lượng";
-			this.Column2.Name = "Column2";
-			this.Column2.ReadOnly = true;
-			this.Column2.Width = 50;
-			// 
-			// Column5
-			// 
-			this.Column5.HeaderText = "Thành tiền";
-			this.Column5.Name = "Column5";
-			this.Column5.ReadOnly = true;
-			// 
-			// Column3
-			// 
-			this.Column3.HeaderText = "ĐVT";
-			this.Column3.Name = "Column3";
-			this.Column3.ReadOnly = true;
-			this.Column3.Width = 70;
 			// 
 			// textBox3
 			// 
@@ -983,7 +973,6 @@
 			// panel3
 			// 
 			this.panel3.Controls.Add(this.lvFood);
-			this.panel3.Controls.Add(this.dgvListFood);
 			this.panel3.Controls.Add(this.twFood);
 			this.panel3.Controls.Add(this.button9);
 			this.panel3.Controls.Add(this.textBox7);
@@ -995,62 +984,44 @@
 			// 
 			// lvFood
 			// 
+			this.lvFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
 			this.lvFood.FullRowSelect = true;
-			this.lvFood.Location = new System.Drawing.Point(2, 291);
+			this.lvFood.GridLines = true;
+			this.lvFood.Location = new System.Drawing.Point(2, 227);
 			this.lvFood.Name = "lvFood";
-			this.lvFood.Size = new System.Drawing.Size(227, 224);
+			this.lvFood.Size = new System.Drawing.Size(227, 288);
 			this.lvFood.TabIndex = 85;
 			this.lvFood.UseCompatibleStateImageBehavior = false;
 			this.lvFood.View = System.Windows.Forms.View.Details;
 			this.lvFood.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
+			this.lvFood.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFood_MouseDoubleClick);
 			// 
-			// dgvListFood
+			// columnHeader1
 			// 
-			this.dgvListFood.AllowUserToAddRows = false;
-			this.dgvListFood.AllowUserToDeleteRows = false;
-			this.dgvListFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvListFood.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column6,
-            this.Column7,
-            this.Column8});
-			this.dgvListFood.Location = new System.Drawing.Point(2, 131);
-			this.dgvListFood.Margin = new System.Windows.Forms.Padding(2);
-			this.dgvListFood.Name = "dgvListFood";
-			this.dgvListFood.ReadOnly = true;
-			this.dgvListFood.RowTemplate.Height = 24;
-			this.dgvListFood.Size = new System.Drawing.Size(232, 155);
-			this.dgvListFood.TabIndex = 84;
+			this.columnHeader1.Text = "Mặt hàng";
+			this.columnHeader1.Width = 95;
 			// 
-			// Column6
+			// columnHeader2
 			// 
-			this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column6.DataPropertyName = "foodName";
-			this.Column6.HeaderText = "Mặt hàng";
-			this.Column6.Name = "Column6";
-			this.Column6.ReadOnly = true;
+			this.columnHeader2.Text = "Đơn vị tính";
+			this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader2.Width = 70;
 			// 
-			// Column7
+			// columnHeader3
 			// 
-			this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column7.DataPropertyName = "donViTinh";
-			this.Column7.HeaderText = "ĐVT";
-			this.Column7.Name = "Column7";
-			this.Column7.ReadOnly = true;
-			// 
-			// Column8
-			// 
-			this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column8.DataPropertyName = "gia";
-			this.Column8.HeaderText = "Giá";
-			this.Column8.Name = "Column8";
-			this.Column8.ReadOnly = true;
+			this.columnHeader3.Text = "Đơn giá";
+			this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader3.Width = 75;
 			// 
 			// twFood
 			// 
 			this.twFood.Location = new System.Drawing.Point(2, 34);
 			this.twFood.Margin = new System.Windows.Forms.Padding(2);
 			this.twFood.Name = "twFood";
-			this.twFood.Size = new System.Drawing.Size(229, 93);
+			this.twFood.Size = new System.Drawing.Size(229, 189);
 			this.twFood.TabIndex = 83;
 			this.twFood.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.twFood_NodeMouseClick);
 			// 
@@ -1098,12 +1069,10 @@
 			this.pnLayoutTab.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.toolStrip2.ResumeLayout(false);
 			this.toolStrip2.PerformLayout();
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvListFood)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1161,7 +1130,7 @@
         private System.Windows.Forms.ToolStripButton tBtnGhiChu;
         private System.Windows.Forms.ToolStripButton tBtnMeoVat;
         private System.Windows.Forms.ToolStripButton tBtnThoat;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+		private System.Windows.Forms.ToolStripStatusLabel tLbCSDL;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
@@ -1170,7 +1139,6 @@
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.FlowLayoutPanel pnLayoutTab;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.TextBox textBox3;
 		private System.Windows.Forms.TextBox textBox6;
 		private System.Windows.Forms.TextBox textBox5;
@@ -1202,16 +1170,16 @@
 		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
 		private System.Windows.Forms.TabControl tabControlKhuVuc;
-		private System.Windows.Forms.DataGridView dgvListFood;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
 		private System.Windows.Forms.ListView lvFood;
+		private System.Windows.Forms.ColumnHeader columnHeader1;
+		private System.Windows.Forms.ColumnHeader columnHeader2;
+		private System.Windows.Forms.ColumnHeader columnHeader3;
+		private System.Windows.Forms.ListView lvBillInfo;
+		private System.Windows.Forms.ColumnHeader columnHeader4;
+		private System.Windows.Forms.ColumnHeader columnHeader5;
+		private System.Windows.Forms.ColumnHeader columnHeader6;
+		private System.Windows.Forms.ColumnHeader columnHeader7;
+		private System.Windows.Forms.ColumnHeader columnHeader8;
 	}
 }

@@ -62,9 +62,6 @@ namespace QuanLiCoffeeCShapeDotNet
 			loadKhuVuc();
 			loadTreeViewFood();
 			//loadListViewByIdCategoryFood();
-			lvFood.Columns.Add("Mặt hàng", 75);
-			lvFood.Columns.Add("Đơn vị tính", 75);
-			lvFood.Columns.Add("Đơn giá", 75);
 		}
 
 		private void loadKhuVuc()
@@ -145,6 +142,9 @@ namespace QuanLiCoffeeCShapeDotNet
 
 			txtNameTable.Text = btn.Text.ToString();
 
+			List<Bill> list =BillDAO.Instances.loadBillByIdTable(2);
+			//MessageBox.Show(list[0].IdBill.ToString());
+			loadLvBillInfoByIdBill(list[0].IdBill);
 		}
 
 		public void loadTreeViewFood()
@@ -174,8 +174,8 @@ namespace QuanLiCoffeeCShapeDotNet
 			if (e.Node.Tag == null)
 				return;
 
-			DataTable data = FoodDAO.Instances.treeViewClickByIdCategoryFood((int)e.Node.Tag);
-			dgvListFood.DataSource = data;
+			//DataTable data = FoodDAO.Instances.treeViewClickByIdCategoryFood((int)e.Node.Tag);
+			//dgvListFood.DataSource = data;
 
 			//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
 			loadListViewByIdCategoryFood((int)e.Node.Tag);
@@ -224,12 +224,34 @@ namespace QuanLiCoffeeCShapeDotNet
 			}
 		}
 
-		
+		private void loadLvBillInfoByIdBill(int idBill)
+		{
+			lvBillInfo.Items.Clear();
+			List<BillInfo> listBillInfo = BillInfoDAO.Instances.loadBillInfoByIdBill(idBill);
+			for(int i = 0; i < listBillInfo.Count; i++)
+			{
+				List<Food> listFood=FoodDAO.Instances.loadFoodByIdFood(listBillInfo[i].IdFood);
+				ListViewItem lv = new ListViewItem(listFood[0].FoodName);
+				lv.SubItems.Add(listFood[0].DonViTinh);
+				lv.SubItems.Add(listFood[0].Gia.ToString());
+				lv.SubItems.Add( listBillInfo[i].BillInfoCount.ToString());
+				lv.SubItems.Add("5 triệu");
+				lv.Tag = "ni";
+				lvBillInfo.Items.Add(lv);
+			}
+			
+		}
 
 		private void listView1_MouseClick(object sender, MouseEventArgs e)
 		{
 			//MessageBox.Show(listView1.SelectedIndices[0].ToString());
+			//MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
+		}
+
+		private void lvFood_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
 			MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
+
 		}
 	}
 }

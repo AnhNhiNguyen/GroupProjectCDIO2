@@ -59,6 +59,8 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\BillInfoDAO.cs" />
     <Compile Include="DAO\CategoryFoodDAO.cs" />
     <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\KhuVucDAO.cs" />
