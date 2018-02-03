@@ -39,5 +39,10 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			return listBill;
 		}
 
+		public void insertBillToTableByIdTable(int idTable)
+		{
+			Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILL(status,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE(),"+idTable+")");
+		}
+
 	}
 }

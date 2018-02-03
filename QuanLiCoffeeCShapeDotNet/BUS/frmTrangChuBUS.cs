@@ -156,5 +156,10 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 		{
 
 		}
+
+		public void insertBillToTableByIdTable(int idTable)
+		{
+			BillDAO.Instances.insertBillToTableByIdTable(idTable);
+		}
 	}
 }

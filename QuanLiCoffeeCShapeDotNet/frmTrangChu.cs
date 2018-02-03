@@ -105,6 +105,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
 						Location = new Point(btnBegin.Location.X + btnBegin.Width,
 						btnBegin.Location.Y),
+						
 
 
 					};
@@ -144,7 +145,8 @@ namespace QuanLiCoffeeCShapeDotNet
 
 			//MessageBox.Show(btn.Text);
 
-			txtNameTable.Text = btn.Text.ToString();
+			cbbTableName.Text = btn.Text.ToString();
+			
 
 			//List<Bill> list =BillDAO.Instances.loadBillByIdTable(2);
 			List<Bill> list = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
@@ -153,10 +155,13 @@ namespace QuanLiCoffeeCShapeDotNet
 			if (list.Count == 0)
 			{
 				lvBillInfo.Items.Clear();
+				txtTimeOpenTable.Clear();
 				return;
 			}
 			frmTrangChuBUS.Instances.loadLvBillInfoByIdBill(list[0].IdBill,ref lvBillInfo);
 			//MessageBox.Show(btn.Tag.ToString());
+
+			txtTimeOpenTable.Text = list[0].BillDataCheckIn.ToString();
 		}
 
 		private void twFood_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -190,6 +195,9 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		}
 
-		
+		private void btnOpenTable_Click(object sender, EventArgs e)
+		{
+			frmTrangChuBUS.Instances.insertBillToTableByIdTable(2);
+		}
 	}
 }

@@ -117,9 +117,9 @@
 			this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
 			this.txtSTT = new System.Windows.Forms.TextBox();
-			this.txtNameTable = new System.Windows.Forms.TextBox();
+			this.txtTimeOpenTable = new System.Windows.Forms.TextBox();
 			this.btnOpenTable = new System.Windows.Forms.Button();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.cbbTableName = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
@@ -620,9 +620,9 @@
 			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.toolStrip2);
 			this.panel1.Controls.Add(this.txtSTT);
-			this.panel1.Controls.Add(this.txtNameTable);
+			this.panel1.Controls.Add(this.txtTimeOpenTable);
 			this.panel1.Controls.Add(this.btnOpenTable);
-			this.panel1.Controls.Add(this.comboBox1);
+			this.panel1.Controls.Add(this.cbbTableName);
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Controls.Add(this.label1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -922,33 +922,34 @@
 			this.txtSTT.Size = new System.Drawing.Size(48, 20);
 			this.txtSTT.TabIndex = 97;
 			// 
-			// txtNameTable
+			// txtTimeOpenTable
 			// 
-			this.txtNameTable.Location = new System.Drawing.Point(5, 25);
-			this.txtNameTable.Margin = new System.Windows.Forms.Padding(2);
-			this.txtNameTable.Name = "txtNameTable";
-			this.txtNameTable.ReadOnly = true;
-			this.txtNameTable.Size = new System.Drawing.Size(48, 20);
-			this.txtNameTable.TabIndex = 96;
+			this.txtTimeOpenTable.Location = new System.Drawing.Point(5, 25);
+			this.txtTimeOpenTable.Margin = new System.Windows.Forms.Padding(2);
+			this.txtTimeOpenTable.Name = "txtTimeOpenTable";
+			this.txtTimeOpenTable.ReadOnly = true;
+			this.txtTimeOpenTable.Size = new System.Drawing.Size(130, 20);
+			this.txtTimeOpenTable.TabIndex = 96;
 			// 
 			// btnOpenTable
 			// 
-			this.btnOpenTable.Location = new System.Drawing.Point(57, 3);
+			this.btnOpenTable.Location = new System.Drawing.Point(79, 2);
 			this.btnOpenTable.Margin = new System.Windows.Forms.Padding(2);
 			this.btnOpenTable.Name = "btnOpenTable";
 			this.btnOpenTable.Size = new System.Drawing.Size(56, 22);
 			this.btnOpenTable.TabIndex = 95;
 			this.btnOpenTable.Text = "Mở bàn";
 			this.btnOpenTable.UseVisualStyleBackColor = true;
+			this.btnOpenTable.Click += new System.EventHandler(this.btnOpenTable_Click);
 			// 
-			// comboBox1
+			// cbbTableName
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(5, 2);
-			this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(48, 21);
-			this.comboBox1.TabIndex = 94;
+			this.cbbTableName.FormattingEnabled = true;
+			this.cbbTableName.Location = new System.Drawing.Point(5, 2);
+			this.cbbTableName.Margin = new System.Windows.Forms.Padding(2);
+			this.cbbTableName.Name = "cbbTableName";
+			this.cbbTableName.Size = new System.Drawing.Size(70, 21);
+			this.cbbTableName.TabIndex = 94;
 			// 
 			// label2
 			// 
@@ -1154,9 +1155,9 @@
 		private System.Windows.Forms.ToolStripButton toolStripButton10;
 		private System.Windows.Forms.ToolStripButton toolStripButton11;
 		private System.Windows.Forms.TextBox txtSTT;
-		private System.Windows.Forms.TextBox txtNameTable;
+		private System.Windows.Forms.TextBox txtTimeOpenTable;
 		private System.Windows.Forms.Button btnOpenTable;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox cbbTableName;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel panel3;
