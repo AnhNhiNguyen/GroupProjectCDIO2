@@ -91,10 +91,10 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.lvBillInfo = new System.Windows.Forms.ListView();
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.button8 = new System.Windows.Forms.Button();
 			this.btnThanhToan = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
@@ -652,6 +652,11 @@
 			this.columnHeader4.Text = "Mặt hàng";
 			this.columnHeader4.Width = 100;
 			// 
+			// columnHeader8
+			// 
+			this.columnHeader8.Text = "Đơn vị tính";
+			this.columnHeader8.Width = 75;
+			// 
 			// columnHeader5
 			// 
 			this.columnHeader5.Text = "Đơn giá";
@@ -668,11 +673,6 @@
 			this.columnHeader7.Text = "Thành tiền";
 			this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.columnHeader7.Width = 70;
-			// 
-			// columnHeader8
-			// 
-			this.columnHeader8.Text = "Đơn vị tính";
-			this.columnHeader8.Width = 75;
 			// 
 			// button8
 			// 

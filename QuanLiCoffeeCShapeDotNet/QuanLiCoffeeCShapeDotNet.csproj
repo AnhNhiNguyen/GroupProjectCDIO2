@@ -59,6 +59,7 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="BUS\frmTrangChuBUS.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
     <Compile Include="DAO\CategoryFoodDAO.cs" />
@@ -230,9 +231,7 @@
     <Content Include="Resources\coffe.png" />
     <Content Include="Resources\coffeNull.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BUS\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

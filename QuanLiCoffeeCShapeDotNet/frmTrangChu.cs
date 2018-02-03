@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLiCoffeeCShapeDotNet.DAO;
 using QuanLiCoffeeCShapeDotNet.DTO;
+using QuanLiCoffeeCShapeDotNet.BUS;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
@@ -60,8 +61,11 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void frmTrangChu_Load(object sender, EventArgs e)
 		{
 			loadKhuVuc();
-			loadTreeViewFood();
+			//loadTreeViewFood();
 			//loadListViewByIdCategoryFood();
+
+			//frmTrangChuBUS.Instances.loadKhuVuc(ref tabControlKhuVuc);
+			frmTrangChuBUS.Instances.loadTreeViewFood(ref twFood);
 		}
 
 		private void loadKhuVuc()
@@ -130,7 +134,6 @@ namespace QuanLiCoffeeCShapeDotNet
 
 
 				}
-
 				tabControlKhuVuc.Controls.Add(tab);
 			}
 		}
@@ -147,28 +150,13 @@ namespace QuanLiCoffeeCShapeDotNet
 			List<Bill> list = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
 			//Đang có lỗi chỗ này
 			//MessageBox.Show(list[0].IdBill.ToString());
-			if (list.Count==0) return;
-			loadLvBillInfoByIdBill(list[0].IdBill);
-			//MessageBox.Show(btn.Tag.ToString());
-		}
-
-		public void loadTreeViewFood()
-		{
-			List<CategoryFood> listCFood = CategoryFoodDAO.Instances.loadCategory();
-			//twFood.Nodes.Add("Tất cả");
-			for (int i = 0; i < listCFood.Count; i++)
+			if (list.Count == 0)
 			{
-				twFood.Nodes.Add(listCFood[i].CategoryName);
-				twFood.Nodes[i].Tag = listCFood[i].IdCategory;
-
-				//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
-				//for (int j = 0; j <listFood.Count; j++)
-				//{
-				//	twFood.Nodes[i].Nodes.Add(listFood[j].FoodName);
-				//}
-
-
+				lvBillInfo.Items.Clear();
+				return;
 			}
+			frmTrangChuBUS.Instances.loadLvBillInfoByIdBill(list[0].IdBill,ref lvBillInfo);
+			//MessageBox.Show(btn.Tag.ToString());
 		}
 
 		private void twFood_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -183,43 +171,12 @@ namespace QuanLiCoffeeCShapeDotNet
 			//dgvListFood.DataSource = data;
 
 			//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
-			loadListViewByIdCategoryFood((int)e.Node.Tag);
+			frmTrangChuBUS.Instances.loadListViewByIdCategoryFood((int)e.Node.Tag,ref lvFood);
 		}
 
-		private void loadListViewByIdCategoryFood(int idCategory)
-		{
-			lvFood.Items.Clear();
-			lvFood.GridLines = true;
+		
 
-			List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(idCategory);
-			for(int i = 0; i < listFood.Count; i++)
-			{
-				ListViewItem lv = new ListViewItem(listFood[i].FoodName);
-				lv.SubItems.Add(listFood[i].DonViTinh);
-				lv.SubItems.Add(listFood[i].Gia.ToString());
-
-				lv.Tag = listFood[i].IdFood.ToString();
-				lvFood.Items.Add(lv);
-			}
-		}
-
-		private void loadLvBillInfoByIdBill(int idBill)
-		{
-			lvBillInfo.Items.Clear();
-			List<BillInfo> listBillInfo = BillInfoDAO.Instances.loadBillInfoByIdBill(idBill);
-			for(int i = 0; i < listBillInfo.Count; i++)
-			{
-				List<Food> listFood=FoodDAO.Instances.loadFoodByIdFood(listBillInfo[i].IdFood);
-				ListViewItem lv = new ListViewItem(listFood[0].FoodName);
-				lv.SubItems.Add(listFood[0].DonViTinh);
-				lv.SubItems.Add(listFood[0].Gia.ToString());
-				lv.SubItems.Add( listBillInfo[i].BillInfoCount.ToString());
-				lv.SubItems.Add("5 triệu");
-				lv.Tag = "ni";
-				lvBillInfo.Items.Add(lv);
-			}
-			
-		}
+		
 
 		private void listView1_MouseClick(object sender, MouseEventArgs e)
 		{
@@ -232,5 +189,7 @@ namespace QuanLiCoffeeCShapeDotNet
 			MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
 
 		}
+
+		
 	}
 }
