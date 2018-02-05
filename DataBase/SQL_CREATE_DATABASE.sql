@@ -76,9 +76,9 @@ GO
 CREATE TABLE PDT_BILL
 (
 	idBill INT IDENTITY PRIMARY KEY,
-	billDataCheckIn DATE NOT NULL,
+	billDataCheckIn DATETIME NOT NULL,
 	billDateCheckOut DATE,
-	billNameAccount NVARCHAR DEFAULT 'NULL',	
+	billNameAccount NVARCHAR(50) DEFAULT 'NULL',	
 	billStatus INT NOT NULL ,--1: da thanh toan, 0 chua thanh toan
 	billTotal FLOAT DEFAULT 0,
 

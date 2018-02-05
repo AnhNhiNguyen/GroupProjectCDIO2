@@ -60,4 +60,10 @@ INSERT INTO PDT_BILL(status,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1
 SELECT * FROM PDT_BILLINFO WHERE idBill=4
 
 INSERT INTO PDT_BILLINFO(billInfoCount,idBill,idFood) VALUES (1,4,8)
+-------------------------------------
+SELECT * FROM PDT_BILL
+
+INSERT INTO PDT_BILL(status,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE(),2)
+--------------------------
+SELECT idBill FROM PDT_BILL WHERE idTable=4
  

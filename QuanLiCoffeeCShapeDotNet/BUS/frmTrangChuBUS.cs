@@ -134,6 +134,15 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			}
 		}
 
+		public void loadComboboxTable(ref ComboBox cbbTable)
+		{
+			List<Table> listTable = TableDAO.Instances.loadTable();
+			foreach (Table items in listTable)
+			{
+				cbbTable.Items.Add(items.TableName);
+			}
+		}
+
 		public void loadLvBillInfoByIdBill(int idBill,ref ListView lvBillInfo)
 		{
 			lvBillInfo.Items.Clear();
@@ -152,14 +161,16 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 
 		}
 
-		public void insertFoodToBIllInfoByIdFood(int idFood)
+		public void insertFoodToBIllInfo(int idFood,int idBill)
 		{
-
+			BillInfoDAO.Instances.insertBillinfo(idFood,idBill);
 		}
 
 		public void insertBillToTableByIdTable(int idTable)
 		{
 			BillDAO.Instances.insertBillToTableByIdTable(idTable);
 		}
+
+		
 	}
 }

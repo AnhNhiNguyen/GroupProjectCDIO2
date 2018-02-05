@@ -39,5 +39,26 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			return listBillInfo;
 		}
 
+		/// <summary>
+		/// Thêm một món uống vào bàn
+		/// </summary>
+		/// <param name="idFood"></param>
+		/// <param name="idBill"></param>
+		public void insertBillinfo(int idFood,int idBill)
+		{
+			Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILLINFO(billInfoCount,idBill,idFood) VALUES (1,"+idBill+","+idFood+")");
+		}
+
+		/// <summary>
+		/// Thêm nhiều món uống vào bàn có số lượng 
+		/// </summary>
+		/// <param name="idFood"></param>
+		/// <param name="idBill"></param>
+		/// <param name="soLuong"></param>
+		public void insertBillinfoBySoLuong(int idFood, int idBill,int soLuong)
+		{
+			Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILLINFO(billInfoCount,idBill,idFood) VALUES ("+soLuong+"," + idBill + "," + idFood + ")");
+		}
+
 	}
 }

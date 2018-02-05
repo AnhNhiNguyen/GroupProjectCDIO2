@@ -15,7 +15,7 @@ namespace QuanLiCoffeeCShapeDotNet
 {
 	public partial class frmTrangChu : Form
 	{
-
+		private int idTableClicked=-1;
 		Form frmMatHang;
 		Form frmThanhToan;
 		public frmTrangChu()
@@ -60,12 +60,19 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void frmTrangChu_Load(object sender, EventArgs e)
 		{
+			loadData();
+		}
+
+		private void loadData()
+		{
 			loadKhuVuc();
 			//loadTreeViewFood();
 			//loadListViewByIdCategoryFood();
 
 			//frmTrangChuBUS.Instances.loadKhuVuc(ref tabControlKhuVuc);
 			frmTrangChuBUS.Instances.loadTreeViewFood(ref twFood);
+			//frmTrangChuBUS.Instances.loadComboboxTable(ref cbbTableName);
+			Sqlcommands.Instances.load_comboBox("SELECT * FROM PDT_TABLE",cbbTableName);
 		}
 
 		private void loadKhuVuc()
@@ -103,12 +110,13 @@ namespace QuanLiCoffeeCShapeDotNet
 						ImageAlign = ContentAlignment.TopCenter,
 						TextImageRelation = TextImageRelation.Overlay,
 
-						Location = new Point(btnBegin.Location.X + btnBegin.Width,
+						Location = new Point(btnBegin.Location.X + btnBegin.Width+5,
 						btnBegin.Location.Y),
 						
 
 
 					};
+					btn.ImageAlign = ContentAlignment.BottomCenter; 
 					btn.Click += btnClick;
 					switch (listTable[j].TableStatus)
 					{
@@ -129,11 +137,8 @@ namespace QuanLiCoffeeCShapeDotNet
 					btnBegin = btn;
 					if (j % 3 == 0 && j != 0)
 					{
-						btnBegin.Location = new Point(0, btnBegin.Location.Y + btnBegin.Height);
-
+						btnBegin.Location = new Point(5, btnBegin.Location.Y + btnBegin.Height+5);
 					}
-
-
 				}
 				tabControlKhuVuc.Controls.Add(tab);
 			}
@@ -160,7 +165,7 @@ namespace QuanLiCoffeeCShapeDotNet
 			}
 			frmTrangChuBUS.Instances.loadLvBillInfoByIdBill(list[0].IdBill,ref lvBillInfo);
 			//MessageBox.Show(btn.Tag.ToString());
-
+			idTableClicked =Convert.ToInt32(btn.Tag.ToString());
 			txtTimeOpenTable.Text = list[0].BillDataCheckIn.ToString();
 		}
 
@@ -179,10 +184,6 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmTrangChuBUS.Instances.loadListViewByIdCategoryFood((int)e.Node.Tag,ref lvFood);
 		}
 
-		
-
-		
-
 		private void listView1_MouseClick(object sender, MouseEventArgs e)
 		{
 			//MessageBox.Show(listView1.SelectedIndices[0].ToString());
@@ -191,13 +192,28 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void lvFood_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
-			MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
+			//MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
 
+			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
+				BillDAO.Instances.getIdBillByIdTable(idTableClicked));
+			loadData();
+			//selectTableByidTable(idTableClicked).Select();
 		}
 
 		private void btnOpenTable_Click(object sender, EventArgs e)
 		{
 			frmTrangChuBUS.Instances.insertBillToTableByIdTable(2);
+
+		}
+
+		private Button selectTableByidTable(int idTable)
+		{
+			foreach (Button items in tabControlKhuVuc.Controls)
+			{
+				if (Convert.ToInt32(items.Tag.ToString()) == idTable)
+					return items;
+			}
+			return null;
 		}
 	}
 }

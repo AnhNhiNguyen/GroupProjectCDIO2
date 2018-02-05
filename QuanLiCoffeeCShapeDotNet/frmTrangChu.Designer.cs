@@ -876,7 +876,7 @@
             this.toolStripButton11});
 			this.toolStrip2.Location = new System.Drawing.Point(3, 52);
 			this.toolStrip2.Name = "toolStrip2";
-			this.toolStrip2.Size = new System.Drawing.Size(230, 27);
+			this.toolStrip2.Size = new System.Drawing.Size(261, 27);
 			this.toolStrip2.TabIndex = 100;
 			this.toolStrip2.Text = "toolStrip2";
 			// 
@@ -887,7 +887,7 @@
 			this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton8.Name = "toolStripButton8";
 			this.toolStripButton8.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton8.Text = "toolStripButton8";
+			this.toolStripButton8.Text = "Tăng số lượng lên 1";
 			// 
 			// toolStripButton9
 			// 
@@ -896,7 +896,7 @@
 			this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton9.Name = "toolStripButton9";
 			this.toolStripButton9.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton9.Text = "toolStripButton9";
+			this.toolStripButton9.Text = "Giảm số lượng đi 1";
 			// 
 			// toolStripButton10
 			// 
