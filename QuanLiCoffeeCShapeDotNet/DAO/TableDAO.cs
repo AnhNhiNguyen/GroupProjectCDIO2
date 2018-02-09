@@ -40,18 +40,11 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			return list;
 		}
 
-		public List<Table> loadTable()
+		public DataTable loadTableToCbb()
 		{
-			List<Table> list = new List<Table>();
-			DataTable data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE");
-
-			foreach (DataRow items in data.Rows)
-			{
-				Table table = new Table(items);
-				list.Add(table);
-			}
-
-			return list;
+			DataTable data;
+			data= Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE");
+			return data;
 		}
 
 	}

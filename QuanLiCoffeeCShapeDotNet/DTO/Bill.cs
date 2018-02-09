@@ -34,7 +34,7 @@ namespace QuanLiCoffeeCShapeDotNet.DTO
 			this.billDataCheckIn =(DateTime?) row["billDataCheckIn"];
 			this.billDateCheckOut = (DateTime?)row["billDateCheckOut"];
 			this.billNameAccount = row["billNameAccount"].ToString();
-			this.status = row["status"].ToString();
+			this.status = row["billStatus"].ToString();
 			this.billTotal = Convert.ToDouble(row["billTotal"]);
 			this.idTable = (int)row["idTable"];
 		}

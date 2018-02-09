@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
 			this.danhMụcNhàCungCấpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,9 +81,7 @@
 			this.tBtnMeoVat = new System.Windows.Forms.ToolStripButton();
 			this.tBtnThoat = new System.Windows.Forms.ToolStripButton();
 			this.tLbCSDL = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tLbUse = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -130,6 +129,10 @@
 			this.twFood = new System.Windows.Forms.TreeView();
 			this.button9 = new System.Windows.Forms.Button();
 			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.btnTableMouseRight = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.chuyểnBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.gộpBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextBtnDeleteTable = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -137,6 +140,7 @@
 			this.panel1.SuspendLayout();
 			this.toolStrip2.SuspendLayout();
 			this.panel3.SuspendLayout();
+			this.btnTableMouseRight.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// danhMụcNhàCungCấpToolStripMenuItem
@@ -526,51 +530,37 @@
 			this.tLbCSDL.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tLbCSDL.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.database;
 			this.tLbCSDL.Name = "tLbCSDL";
-			this.tLbCSDL.Size = new System.Drawing.Size(61, 20);
-			this.tLbCSDL.Text = "CSDL:";
+			this.tLbCSDL.Size = new System.Drawing.Size(85, 20);
+			this.tLbCSDL.Text = "CSDL: null";
 			// 
-			// toolStripStatusLabel2
+			// tLbUse
 			// 
-			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-			this.toolStripStatusLabel2.Size = new System.Drawing.Size(27, 20);
-			this.toolStripStatusLabel2.Text = "null";
-			// 
-			// toolStripStatusLabel3
-			// 
-			this.toolStripStatusLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.toolStripStatusLabel3.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.use;
-			this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-			this.toolStripStatusLabel3.Size = new System.Drawing.Size(88, 20);
-			this.toolStripStatusLabel3.Text = "Tài Khoản:";
-			// 
-			// toolStripStatusLabel4
-			// 
-			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-			this.toolStripStatusLabel4.Size = new System.Drawing.Size(27, 20);
-			this.toolStripStatusLabel4.Text = "null";
+			this.tLbUse.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tLbUse.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.use;
+			this.tLbUse.Name = "tLbUse";
+			this.tLbUse.Size = new System.Drawing.Size(112, 20);
+			this.tLbUse.Text = "Tài Khoản: null";
 			// 
 			// toolStripStatusLabel5
 			// 
 			this.toolStripStatusLabel5.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.time;
 			this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-			this.toolStripStatusLabel5.Size = new System.Drawing.Size(83, 20);
-			this.toolStripStatusLabel5.Text = "Thời gian: ";
+			this.toolStripStatusLabel5.Size = new System.Drawing.Size(112, 20);
+			this.toolStripStatusLabel5.Text = "Thời gian: time?";
 			// 
 			// toolStripStatusLabel6
 			// 
 			this.toolStripStatusLabel6.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.version;
 			this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-			this.toolStripStatusLabel6.Size = new System.Drawing.Size(86, 20);
-			this.toolStripStatusLabel6.Text = "Phiên bản: ";
+			this.toolStripStatusLabel6.Size = new System.Drawing.Size(129, 20);
+			this.toolStripStatusLabel6.Text = "Phiên bản: version?";
 			// 
 			// statusStrip1
 			// 
 			this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tLbCSDL,
-            this.toolStripStatusLabel2,
-            this.toolStripStatusLabel3,
-            this.toolStripStatusLabel4,
+            this.tLbUse,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel6});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 566);
@@ -876,7 +866,7 @@
             this.toolStripButton11});
 			this.toolStrip2.Location = new System.Drawing.Point(3, 52);
 			this.toolStrip2.Name = "toolStrip2";
-			this.toolStrip2.Size = new System.Drawing.Size(261, 27);
+			this.toolStrip2.Size = new System.Drawing.Size(230, 27);
 			this.toolStrip2.TabIndex = 100;
 			this.toolStrip2.Text = "toolStrip2";
 			// 
@@ -1031,19 +1021,47 @@
 			this.button9.Location = new System.Drawing.Point(2, 6);
 			this.button9.Margin = new System.Windows.Forms.Padding(2);
 			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(52, 17);
+			this.button9.Size = new System.Drawing.Size(52, 21);
 			this.button9.TabIndex = 81;
 			this.button9.Text = "Tìm";
 			this.button9.UseVisualStyleBackColor = true;
 			// 
 			// textBox7
 			// 
-			this.textBox7.Location = new System.Drawing.Point(79, 7);
+			this.textBox7.Location = new System.Drawing.Point(58, 7);
 			this.textBox7.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox7.Multiline = true;
 			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(152, 17);
+			this.textBox7.Size = new System.Drawing.Size(171, 21);
 			this.textBox7.TabIndex = 82;
+			// 
+			// btnTableMouseRight
+			// 
+			this.btnTableMouseRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chuyểnBànToolStripMenuItem,
+            this.gộpBànToolStripMenuItem,
+            this.contextBtnDeleteTable});
+			this.btnTableMouseRight.Name = "btnTableMouseRight";
+			this.btnTableMouseRight.Size = new System.Drawing.Size(153, 92);
+			// 
+			// chuyểnBànToolStripMenuItem
+			// 
+			this.chuyểnBànToolStripMenuItem.Name = "chuyểnBànToolStripMenuItem";
+			this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.chuyểnBànToolStripMenuItem.Text = "Chuyển bàn";
+			// 
+			// gộpBànToolStripMenuItem
+			// 
+			this.gộpBànToolStripMenuItem.Name = "gộpBànToolStripMenuItem";
+			this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.gộpBànToolStripMenuItem.Text = "Gộp bàn";
+			// 
+			// contextBtnDeleteTable
+			// 
+			this.contextBtnDeleteTable.Name = "contextBtnDeleteTable";
+			this.contextBtnDeleteTable.Size = new System.Drawing.Size(152, 22);
+			this.contextBtnDeleteTable.Text = "Xóa bàn";
+			this.contextBtnDeleteTable.Click += new System.EventHandler(this.contextBtnDeleteTable_Click);
 			// 
 			// frmTrangChu
 			// 
@@ -1074,6 +1092,7 @@
 			this.toolStrip2.PerformLayout();
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
+			this.btnTableMouseRight.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1132,9 +1151,7 @@
         private System.Windows.Forms.ToolStripButton tBtnMeoVat;
         private System.Windows.Forms.ToolStripButton tBtnThoat;
 		private System.Windows.Forms.ToolStripStatusLabel tLbCSDL;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+		private System.Windows.Forms.ToolStripStatusLabel tLbUse;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
 		private System.Windows.Forms.StatusStrip statusStrip1;
@@ -1182,5 +1199,9 @@
 		private System.Windows.Forms.ColumnHeader columnHeader6;
 		private System.Windows.Forms.ColumnHeader columnHeader7;
 		private System.Windows.Forms.ColumnHeader columnHeader8;
+		private System.Windows.Forms.ContextMenuStrip btnTableMouseRight;
+		private System.Windows.Forms.ToolStripMenuItem chuyểnBànToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem gộpBànToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem contextBtnDeleteTable;
 	}
 }

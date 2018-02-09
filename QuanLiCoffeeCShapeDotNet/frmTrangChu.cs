@@ -16,11 +16,22 @@ namespace QuanLiCoffeeCShapeDotNet
 	public partial class frmTrangChu : Form
 	{
 		private int idTableClicked=-1;
+		private string useName="Chưa đăng nhập";
+		private string dataBaseName="Chưa kết nối";
 		Form frmMatHang;
 		Form frmThanhToan;
 		public frmTrangChu()
 		{
 			InitializeComponent();
+			infoSoftware();
+		}
+
+		private void infoSoftware()
+		{
+			dataBaseName = Sqlcommands.Instances.getConnection().Database.ToString();
+			tLbCSDL.Text = "Csdl: " + dataBaseName;
+			tLbUse.Text = "Tài khoản:  " + useName;
+			//MessageBox.Show(Sqlcommands.Instances.getConnection().Database.ToString());
 		}
 
 		public Boolean CheckForm(string frm)
@@ -70,13 +81,20 @@ namespace QuanLiCoffeeCShapeDotNet
 			//loadListViewByIdCategoryFood();
 
 			//frmTrangChuBUS.Instances.loadKhuVuc(ref tabControlKhuVuc);
-			frmTrangChuBUS.Instances.loadTreeViewFood(ref twFood);
-			//frmTrangChuBUS.Instances.loadComboboxTable(ref cbbTableName);
-			Sqlcommands.Instances.load_comboBox("SELECT * FROM PDT_TABLE",cbbTableName);
+			loadTreeView();
+			frmTrangChuBUS.Instances.loadComboboxTable(cbbTableName);
+			
+		}
+
+		private void loadTreeView()
+		{
+			twFood.Nodes.Clear();
+			frmTrangChuBUS.Instances.loadTreeViewFood(twFood);
 		}
 
 		private void loadKhuVuc()
 		{
+			tabControlKhuVuc.Controls.Clear();
 			List<KhuVuc> list = KhuVucDAO.Instances.loadKhuVuc();
 			for (int i = 0; i < list.Count; i++)
 			{
@@ -102,7 +120,7 @@ namespace QuanLiCoffeeCShapeDotNet
 						//Text = listTable[j].TableName + Environment.NewLine +
 						//listTable[j].TableStatus,
 						Text = listTable[j].TableName,
-						Tag=listTable[j].IdTable,
+						Tag = listTable[j].IdTable,
 						Width = 128,
 						Height = 150,
 
@@ -110,19 +128,18 @@ namespace QuanLiCoffeeCShapeDotNet
 						ImageAlign = ContentAlignment.TopCenter,
 						TextImageRelation = TextImageRelation.Overlay,
 
-						Location = new Point(btnBegin.Location.X + btnBegin.Width+5,
+						Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
 						btnBegin.Location.Y),
-						
-
-
 					};
 					btn.ImageAlign = ContentAlignment.BottomCenter; 
 					btn.Click += btnClick;
+					
 					switch (listTable[j].TableStatus)
 					{
 						case 1:
 							{
 								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
+								btn.ContextMenuStrip = btnTableMouseRight;
 								break;
 							}
 						default:
@@ -202,8 +219,9 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnOpenTable_Click(object sender, EventArgs e)
 		{
-			frmTrangChuBUS.Instances.insertBillToTableByIdTable(2);
-
+			frmTrangChuBUS.Instances.insertBillToTableByIdTable(1);
+			loadData();
+			//dateTimePicker1.Select();dateTimePicker1.Focus();
 		}
 
 		private Button selectTableByidTable(int idTable)
@@ -214,6 +232,12 @@ namespace QuanLiCoffeeCShapeDotNet
 					return items;
 			}
 			return null;
+		}
+
+		private void contextBtnDeleteTable_Click(object sender, EventArgs e)
+		{
+			frmTrangChuBUS.Instances.deleteBillByIdTable(1);
+			loadData();
 		}
 	}
 }

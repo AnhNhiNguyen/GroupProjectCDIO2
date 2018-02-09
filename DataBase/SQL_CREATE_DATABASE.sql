@@ -63,7 +63,7 @@ CREATE TABLE PDT_TABLE
 (
 	idTable INT IDENTITY PRIMARY KEY,
 	tableName NVARCHAR(50) NOT NULL,
-	tableStatus INT NOT NULL DEFAULT -1,
+	tableStatus INT NOT NULL DEFAULT -1,-- -1 bàn trống, 1 bàn có người
 	describeTable NVARCHAR(MAX) DEFAULT 'ĐÂY LÀ MÔ TẢ OR GHI CHÚ',
 
 	idKhuVuc INT NOT NULL,

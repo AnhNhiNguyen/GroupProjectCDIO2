@@ -2,6 +2,7 @@
 using QuanLiCoffeeCShapeDotNet.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			}
 		}
 
-		public void loadTreeViewFood(ref TreeView twFood)
+		public void loadTreeViewFood(TreeView twFood)
 		{
 			List<CategoryFood> listCFood = CategoryFoodDAO.Instances.loadCategory();
 			//twFood.Nodes.Add("Tất cả");
@@ -134,13 +135,13 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			}
 		}
 
-		public void loadComboboxTable(ref ComboBox cbbTable)
+		public void loadComboboxTable(ComboBox cbbTable)
 		{
-			List<Table> listTable = TableDAO.Instances.loadTable();
-			foreach (Table items in listTable)
-			{
-				cbbTable.Items.Add(items.TableName);
-			}
+			DataTable data = new DataTable();
+			data = TableDAO.Instances.loadTableToCbb();
+			cbbTable.DataSource = data;
+			cbbTable.DisplayMember = data.Columns[1].ToString();
+			cbbTable.ValueMember = data.Columns[0].ToString();
 		}
 
 		public void loadLvBillInfoByIdBill(int idBill,ref ListView lvBillInfo)
@@ -171,6 +172,9 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			BillDAO.Instances.insertBillToTableByIdTable(idTable);
 		}
 
-		
+		public void deleteBillByIdTable(int idTable)
+		{
+			BillDAO.Instances.deleteBillByIdTable(idTable);
+		}
 	}
 }

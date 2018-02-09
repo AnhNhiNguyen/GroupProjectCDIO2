@@ -1,5 +1,8 @@
 ﻿USE QL_COFFEE_CS414BIS_PDT
 --câu lệnh add record vào bảng
+-------------------
+SELECT * FROM PDT_KHUVUC
+-----------------
 DECLARE @i INT =0
 DECLARE @n INT =10
 
@@ -13,6 +16,10 @@ SET @i+=1
 END
 GO
 --------------------------
+INSERT INTO PDT_TABLE(tableName,tableStatus,idKhuVuc) VALUES ('Bàn 1',-1,1)
+------------------------
+SELECT * FROM PDT_TABLE
+------------------------
 SELECT * FROM PDT_CATEGORYFOOD
 ----------------------------
 INSERT INTO PDT_CATEGORYFOOD(categoryName) VALUES (N'COFFFEE')
@@ -52,8 +59,9 @@ SELECT FoodName,donViTinh,gia FROM PDT_FOOD WHERE idCategoryFood=1
 SELECT * FROM PDT_BILL WHERE idTable=2
 --------------------------------
 
-INSERT INTO PDT_BILL(status,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE(),2)
+INSERT INTO PDT_BILL(billStatus,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE(),1)
 
+DELETE PDT_BILL WHERE idTable=1
 
 
 ------------------

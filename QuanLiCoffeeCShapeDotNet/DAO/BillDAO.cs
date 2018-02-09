@@ -41,12 +41,11 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 
 		public void insertBillToTableByIdTable(int idTable)
 		{
-			Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILL(status,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE(),"+idTable+")");
+			Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILL(billStatus,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE()," + idTable+")");
 		}
 
 		public int getIdBillByIdTable(int idTable)
 		{
-			
 			DataTable data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_BILL WHERE idTable=" + idTable);
 			Bill bill;
 			foreach (DataRow items in data.Rows)
@@ -55,6 +54,11 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 				return bill.IdBill;
 			}
 			return -1;
+		}
+
+		public void deleteBillByIdTable(int idTable)
+		{
+			Sqlcommands.Instances.executeUpdateScalar("DELETE PDT_BILL WHERE idTable=" + idTable);
 		}
 	}
 }
