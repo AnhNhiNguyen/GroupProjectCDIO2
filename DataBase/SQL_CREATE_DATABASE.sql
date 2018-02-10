@@ -79,7 +79,7 @@ CREATE TABLE PDT_BILL
 	billDataCheckIn DATETIME NOT NULL,
 	billDateCheckOut DATE,
 	billNameAccount NVARCHAR(50) DEFAULT 'NULL',	
-	billStatus INT NOT NULL ,--1: da thanh toan, 0 chua thanh toan
+	billStatus INT NOT NULL DEFAULT -1,--1: da thanh toan, 0 chua thanh toan
 	billTotal FLOAT DEFAULT 0,
 
 	idTable INT NOT NULL,
@@ -97,6 +97,6 @@ CREATE TABLE PDT_BILLINFO
 	idFood INT NOT NULL,
 
 	FOREIGN KEY (idBill) REFERENCES PDT_Bill(idBill),
-	FOREIGN KEY (idFood) REFERENCES PDT_FOOD(idFood)	
+	FOREIGN KEY (idFood) REFERENCES PDT_FOOD(idFood) 
 )
 GO

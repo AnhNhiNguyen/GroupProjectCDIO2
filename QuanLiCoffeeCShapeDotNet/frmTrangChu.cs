@@ -219,8 +219,8 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
 				BillDAO.Instances.getIdBillByIdTable(idTableClicked));
 			//loadData();
-
 			//selectTableByidTable(idTableClicked).Select();
+			MessageBox.Show(idTableClicked.ToString());
 		}
 
 		private void btnOpenTable_Click(object sender, EventArgs e)

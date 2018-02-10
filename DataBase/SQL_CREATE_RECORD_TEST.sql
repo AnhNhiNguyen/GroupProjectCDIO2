@@ -79,5 +79,25 @@ SELECT idBill FROM PDT_BILL WHERE idTable=4
 --Date 10/02/2018
 
 EXEC USP_INSERTBILLINFO @idBill=86 ,@idFood=1,@countBillInfo=3
+SELECT COUNT(*)
+FROM PDT_BILL
+WHERE idBill=86
 ---------------------------- 
 EXEC USP_DELETEBILLINFO @idBillInfo=11
+-------------------------------
+EXEC USP_INSERTBILL @idTable=100,@billStatus=-1 , @billTotal=0 , @billNameAccount='FD'
+--------------------
+
+DECLARE @II INT EXEC @II=USP_DELETEBILL @idTable=1
+----------------------------
+DECLARE @B INT =-1
+SELECT @B= idBillInfo
+FROM PDT_BILLINFO
+WHERE idBill=0
+PRINT @B
+----------
+DECLARE @BB INT =-1
+SELECT @BB= COUNT(*)
+FROM PDT_BILLINFO
+WHERE idBill=123
+PRINT @BB

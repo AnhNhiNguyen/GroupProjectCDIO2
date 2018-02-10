@@ -41,7 +41,11 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 
 		public void insertBillToTableByIdTable(int idTable)
 		{
-			Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILL(billStatus,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE()," + idTable+")");
+			//Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILL(billStatus,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE()," + idTable+")");
+			Sqlcommands.Instances.executeNonQueryStoredProcedure(new object[]
+				{"idTable","billStatus","billTotal","billNameAccount"},
+				new object[] {idTable,-1,0,"..."},
+				"USP_INSERTBILL");
 		}
 
 		public int getIdBillByIdTable(int idTable)
@@ -58,7 +62,11 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 
 		public void deleteBillByIdTable(int idTable)
 		{
-			Sqlcommands.Instances.executeUpdateScalar("DELETE PDT_BILL WHERE idTable=" + idTable);
+			//Sqlcommands.Instances.executeUpdateScalar("DELETE PDT_BILL WHERE idTable=" + idTable);
+			Sqlcommands.Instances.executeNonQueryStoredProcedure(
+				new object[] { "idTable" }
+				, new object[] { idTable }
+				, "USP_DELETEBILL");
 		}
 	}
 }
