@@ -131,20 +131,24 @@ namespace QuanLiCoffeeCShapeDotNet
 						Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
 						btnBegin.Location.Y),
 					};
+					btn.Cursor = Cursors.Hand;
+					btn.FlatStyle = FlatStyle.Popup;
 					btn.ImageAlign = ContentAlignment.BottomCenter; 
 					btn.Click += btnClick;
+					btn.MouseDown += btnClick;
 					
 					switch (listTable[j].TableStatus)
 					{
 						case 1:
 							{
 								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
-								btn.ContextMenuStrip = btnTableMouseRight;
+								btn.ContextMenuStrip = btnTableMouseRight;								
 								break;
 							}
 						default:
 							{
 								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
+								btn.ContextMenuStrip = btnTableNullMouseRight;
 								break;
 							}
 					}
@@ -164,11 +168,11 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void btnClick(object sender, EventArgs e)
 		{
 			Button btn = sender as Button;
+			//btn.BackColor = Color.Green;
 
 			//MessageBox.Show(btn.Text);
 
-			cbbTableName.Text = btn.Text.ToString();
-			
+			cbbTableName.SelectedValue= Convert.ToInt32(btn.Tag.ToString());
 
 			//List<Bill> list =BillDAO.Instances.loadBillByIdTable(2);
 			List<Bill> list = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
@@ -180,10 +184,11 @@ namespace QuanLiCoffeeCShapeDotNet
 				txtTimeOpenTable.Clear();
 				return;
 			}
-			frmTrangChuBUS.Instances.loadLvBillInfoByIdBill(list[0].IdBill,ref lvBillInfo);
+			frmTrangChuBUS.Instances.loadLvBillInfoByIdBill(list[0].IdBill,lvBillInfo);
 			//MessageBox.Show(btn.Tag.ToString());
 			idTableClicked =Convert.ToInt32(btn.Tag.ToString());
 			txtTimeOpenTable.Text = list[0].BillDataCheckIn.ToString();
+			//btn.ContextMenuStrip = btnTableMouseRight;
 		}
 
 		private void twFood_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -198,7 +203,7 @@ namespace QuanLiCoffeeCShapeDotNet
 			//dgvListFood.DataSource = data;
 
 			//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
-			frmTrangChuBUS.Instances.loadListViewByIdCategoryFood((int)e.Node.Tag,ref lvFood);
+			frmTrangChuBUS.Instances.loadListViewByIdCategoryFood((int)e.Node.Tag,lvFood);
 		}
 
 		private void listView1_MouseClick(object sender, MouseEventArgs e)
@@ -213,31 +218,44 @@ namespace QuanLiCoffeeCShapeDotNet
 
 			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
 				BillDAO.Instances.getIdBillByIdTable(idTableClicked));
-			loadData();
+			//loadData();
+
 			//selectTableByidTable(idTableClicked).Select();
 		}
 
 		private void btnOpenTable_Click(object sender, EventArgs e)
 		{
-			frmTrangChuBUS.Instances.insertBillToTableByIdTable(1);
-			loadData();
+			int idTable = -1;
+			idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
+			frmTrangChuBUS.Instances.insertBillToTableByIdTable(idTable                              );
+			loadKhuVuc();
 			//dateTimePicker1.Select();dateTimePicker1.Focus();
-		}
-
-		private Button selectTableByidTable(int idTable)
-		{
-			foreach (Button items in tabControlKhuVuc.Controls)
-			{
-				if (Convert.ToInt32(items.Tag.ToString()) == idTable)
-					return items;
-			}
-			return null;
 		}
 
 		private void contextBtnDeleteTable_Click(object sender, EventArgs e)
 		{
-			frmTrangChuBUS.Instances.deleteBillByIdTable(1);
-			loadData();
+			if (MessageBox.Show("Bạn có muốn đóng bàn này ?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				int idTable = -1;
+				idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
+				frmTrangChuBUS.Instances.deleteBillByIdTable(idTable);
+				loadData();
+			}
+		}
+
+		private void btnDeleteFood_Click(object sender, EventArgs e)
+		{
+			if(MessageBox.Show("Bạn có muốn xóa món này ra khỏi hóa đơn ? ","Cảnh báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+			{
+				int idBillInfo = -1;
+				idBillInfo= Convert.ToInt32(lvBillInfo.SelectedItems[0].Tag.ToString());
+				frmTrangChuBUS.Instances.deleteBillInfoByBillInfo(idBillInfo); 				
+			}
+		}
+
+		private void btnThongKe_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("Click roi");
 		}
 	}
 }

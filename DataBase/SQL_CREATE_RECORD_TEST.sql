@@ -74,4 +74,10 @@ SELECT * FROM PDT_BILL
 INSERT INTO PDT_BILL(status,billDataCheckIn,billDateCheckOut,idTable) VALUES (-1,GETDATE(),GETDATE(),2)
 --------------------------
 SELECT idBill FROM PDT_BILL WHERE idTable=4
- 
+---------------------------
+--Update by NguyenVanPhuc
+--Date 10/02/2018
+
+EXEC USP_INSERTBILLINFO @idBill=86 ,@idFood=1,@countBillInfo=3
+---------------------------- 
+EXEC USP_DELETEBILLINFO @idBillInfo=11

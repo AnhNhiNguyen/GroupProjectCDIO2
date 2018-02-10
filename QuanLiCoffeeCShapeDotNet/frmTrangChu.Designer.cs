@@ -94,9 +94,9 @@
 			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.button8 = new System.Windows.Forms.Button();
+			this.btnThongKe = new System.Windows.Forms.Button();
 			this.btnThanhToan = new System.Windows.Forms.Button();
-			this.button6 = new System.Windows.Forms.Button();
+			this.btnDeleteFood = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
@@ -133,6 +133,8 @@
 			this.chuyểnBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.gộpBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextBtnDeleteTable = new System.Windows.Forms.ToolStripMenuItem();
+			this.btnTableNullMouseRight = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.contextBtnOpenTable = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -141,6 +143,7 @@
 			this.toolStrip2.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.btnTableMouseRight.SuspendLayout();
+			this.btnTableNullMouseRight.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// danhMụcNhàCungCấpToolStripMenuItem
@@ -592,9 +595,9 @@
 			// 
 			this.panel1.AutoSize = true;
 			this.panel1.Controls.Add(this.lvBillInfo);
-			this.panel1.Controls.Add(this.button8);
+			this.panel1.Controls.Add(this.btnThongKe);
 			this.panel1.Controls.Add(this.btnThanhToan);
-			this.panel1.Controls.Add(this.button6);
+			this.panel1.Controls.Add(this.btnDeleteFood);
 			this.panel1.Controls.Add(this.button5);
 			this.panel1.Controls.Add(this.button4);
 			this.panel1.Controls.Add(this.button3);
@@ -629,6 +632,7 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
+			this.lvBillInfo.FullRowSelect = true;
 			this.lvBillInfo.GridLines = true;
 			this.lvBillInfo.Location = new System.Drawing.Point(3, 82);
 			this.lvBillInfo.Name = "lvBillInfo";
@@ -664,20 +668,21 @@
 			this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.columnHeader7.Width = 70;
 			// 
-			// button8
+			// btnThongKe
 			// 
-			this.button8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-			this.button8.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.button8.Location = new System.Drawing.Point(350, 445);
-			this.button8.Margin = new System.Windows.Forms.Padding(2);
-			this.button8.Name = "button8";
-			this.button8.Size = new System.Drawing.Size(68, 57);
-			this.button8.TabIndex = 116;
-			this.button8.Text = "Thống kê";
-			this.button8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button8.UseVisualStyleBackColor = false;
+			this.btnThongKe.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
+			this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.btnThongKe.Location = new System.Drawing.Point(350, 445);
+			this.btnThongKe.Margin = new System.Windows.Forms.Padding(2);
+			this.btnThongKe.Name = "btnThongKe";
+			this.btnThongKe.Size = new System.Drawing.Size(68, 57);
+			this.btnThongKe.TabIndex = 116;
+			this.btnThongKe.Text = "Thống kê";
+			this.btnThongKe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.btnThongKe.UseVisualStyleBackColor = false;
+			this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
 			// 
 			// btnThanhToan
 			// 
@@ -693,21 +698,23 @@
 			this.btnThanhToan.Text = "Thanh toán";
 			this.btnThanhToan.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.btnThanhToan.UseVisualStyleBackColor = false;
+			this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
 			// 
-			// button6
+			// btnDeleteFood
 			// 
-			this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-			this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button6.Location = new System.Drawing.Point(350, 227);
-			this.button6.Margin = new System.Windows.Forms.Padding(2);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(68, 28);
-			this.button6.TabIndex = 114;
-			this.button6.Text = "Xóa";
-			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button6.UseVisualStyleBackColor = false;
+			this.btnDeleteFood.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnDeleteFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnDeleteFood.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteFood.Image")));
+			this.btnDeleteFood.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnDeleteFood.Location = new System.Drawing.Point(350, 227);
+			this.btnDeleteFood.Margin = new System.Windows.Forms.Padding(2);
+			this.btnDeleteFood.Name = "btnDeleteFood";
+			this.btnDeleteFood.Size = new System.Drawing.Size(68, 28);
+			this.btnDeleteFood.TabIndex = 114;
+			this.btnDeleteFood.Text = "Xóa";
+			this.btnDeleteFood.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnDeleteFood.UseVisualStyleBackColor = false;
+			this.btnDeleteFood.Click += new System.EventHandler(this.btnDeleteFood_Click);
 			// 
 			// button5
 			// 
@@ -727,7 +734,9 @@
 			// button4
 			// 
 			this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button4.Cursor = System.Windows.Forms.Cursors.Default;
 			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
 			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.button4.Location = new System.Drawing.Point(350, 164);
@@ -1042,26 +1051,40 @@
             this.gộpBànToolStripMenuItem,
             this.contextBtnDeleteTable});
 			this.btnTableMouseRight.Name = "btnTableMouseRight";
-			this.btnTableMouseRight.Size = new System.Drawing.Size(153, 92);
+			this.btnTableMouseRight.Size = new System.Drawing.Size(139, 70);
 			// 
 			// chuyểnBànToolStripMenuItem
 			// 
 			this.chuyểnBànToolStripMenuItem.Name = "chuyểnBànToolStripMenuItem";
-			this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
 			this.chuyểnBànToolStripMenuItem.Text = "Chuyển bàn";
 			// 
 			// gộpBànToolStripMenuItem
 			// 
 			this.gộpBànToolStripMenuItem.Name = "gộpBànToolStripMenuItem";
-			this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
 			this.gộpBànToolStripMenuItem.Text = "Gộp bàn";
 			// 
 			// contextBtnDeleteTable
 			// 
 			this.contextBtnDeleteTable.Name = "contextBtnDeleteTable";
-			this.contextBtnDeleteTable.Size = new System.Drawing.Size(152, 22);
+			this.contextBtnDeleteTable.Size = new System.Drawing.Size(138, 22);
 			this.contextBtnDeleteTable.Text = "Xóa bàn";
 			this.contextBtnDeleteTable.Click += new System.EventHandler(this.contextBtnDeleteTable_Click);
+			// 
+			// btnTableNullMouseRight
+			// 
+			this.btnTableNullMouseRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextBtnOpenTable});
+			this.btnTableNullMouseRight.Name = "btnTableNullMouseRight";
+			this.btnTableNullMouseRight.Size = new System.Drawing.Size(116, 26);
+			// 
+			// contextBtnOpenTable
+			// 
+			this.contextBtnOpenTable.Name = "contextBtnOpenTable";
+			this.contextBtnOpenTable.Size = new System.Drawing.Size(115, 22);
+			this.contextBtnOpenTable.Text = "Mở bàn";
+			this.contextBtnOpenTable.Click += new System.EventHandler(this.btnOpenTable_Click);
 			// 
 			// frmTrangChu
 			// 
@@ -1093,6 +1116,7 @@
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
 			this.btnTableMouseRight.ResumeLayout(false);
+			this.btnTableNullMouseRight.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1181,9 +1205,9 @@
 		private System.Windows.Forms.TreeView twFood;
 		private System.Windows.Forms.Button button9;
 		private System.Windows.Forms.TextBox textBox7;
-		private System.Windows.Forms.Button button8;
+		private System.Windows.Forms.Button btnThongKe;
 		private System.Windows.Forms.Button btnThanhToan;
-		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Button btnDeleteFood;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Button button3;
@@ -1203,5 +1227,7 @@
 		private System.Windows.Forms.ToolStripMenuItem chuyểnBànToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem gộpBànToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem contextBtnDeleteTable;
+		private System.Windows.Forms.ContextMenuStrip btnTableNullMouseRight;
+		private System.Windows.Forms.ToolStripMenuItem contextBtnOpenTable;
 	}
 }

@@ -44,9 +44,12 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 		/// </summary>
 		/// <param name="idFood"></param>
 		/// <param name="idBill"></param>
-		public void insertBillinfo(int idFood,int idBill)
+		public void insertBillinfo(int idFood, int idBill)
 		{
-			Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILLINFO(billInfoCount,idBill,idFood) VALUES (1,"+idBill+","+idFood+")");
+			//Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILLINFO(billInfoCount,idBill,idFood) VALUES (1,"+idBill+","+idFood+")");
+			Sqlcommands.Instances.executeNonQueryStoredProcedure(new object[]
+			{ "idBill", "idFood","countBillInfo" }, new object[]
+				{ idBill,idFood,1}, "USP_INSERTBILLINFO");
 		}
 
 		/// <summary>
@@ -57,8 +60,18 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 		/// <param name="soLuong"></param>
 		public void insertBillinfoBySoLuong(int idFood, int idBill,int soLuong)
 		{
-			Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILLINFO(billInfoCount,idBill,idFood) VALUES ("+soLuong+"," + idBill + "," + idFood + ")");
+			//Sqlcommands.Instances.executeUpdateScalar("INSERT INTO PDT_BILLINFO(billInfoCount,idBill,idFood) VALUES ("+soLuong+"," + idBill + "," + idFood + ")");
+
+			Sqlcommands.Instances.executeNonQueryStoredProcedure(new object[]
+			{ "idBill", "idFood","countBillInfo" }, new object[]
+				{ idBill,idFood,soLuong}, "USP_INSERTBILLINFO");
 		}
 
+		public void deleteBillinfoByidBillInfo(int idBillInfo)
+		{
+			Sqlcommands.Instances.executeNonQueryStoredProcedure(new object[]
+				{"idBillInfo" }, new object[] { idBillInfo }
+				, "USP_DELETEBILLINFO");
+		}
 	}
 }

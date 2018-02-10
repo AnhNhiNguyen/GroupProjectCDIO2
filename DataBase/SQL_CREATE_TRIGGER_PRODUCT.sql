@@ -1,3 +1,7 @@
+--Create by NguyenVanPhuc
+--Date: 09/02/2018
+
+
 --CREATE TRIGGER UTG_UPDATEBILLINFO
 --ON PDT_BILLINFO FOR INSERT, UPDATE
 --AS
@@ -27,5 +31,44 @@ BEGIN
 	DECLARE @IDTABLE INT
 	SELECT @IDTABLE=idTable FROM DELETED
 	UPDATE PDT_TABLE SET tableStatus=-1 WHERE idTable=@IDTABLE
+END
+GO
+--------------------------
+--Update by NguyenVanPhuc
+--Date 10/02/2018
+
+CREATE PROC USP_INSERTBILLINFO
+@idBill INT, @idFood INT ,@countBillInfo INT
+AS
+BEGIN
+	DECLARE @isExitFood INT
+	DECLARE @countFood INT =0
+
+	SELECT @isExitFood =idFood,@countFood=billInfoCount 
+	FROM PDT_BILLINFO
+	WHERE idBill=@idBill AND idFood=@idFood
+
+	IF(@isExitFood>0)
+	BEGIN
+		UPDATE PDT_BILLINFO 
+		SET billInfoCount =@countBillInfo+@countFood
+		WHERE idBill=@idBill AND idFood=@idFood
+	END
+
+	ELSE
+	BEGIN
+		INSERT INTO PDT_BILLINFO(idBill,idFood,billInfoCount)
+		VALUES (@idBill,@idFood,@countBillInfo)
+	END
+
+END
+GO
+----------------------------
+CREATE PROC USP_DELETEBILLINFO
+@idBillInfo INT
+AS
+BEGIN
+	DELETE PDT_BILLINFO
+	WHERE idBillInfo=@idBillInfo
 END
 GO

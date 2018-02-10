@@ -48,7 +48,7 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			}
 		}
 
-		public void loadKhuVuc(ref TabControl tabControlKhuVuc,ref EventHandler btnClick)
+		public void loadKhuVuc(TabControl tabControlKhuVuc,EventHandler btnClick)
 		{
 			List<KhuVuc> list = KhuVucDAO.Instances.loadKhuVuc();
 			for (int i = 0; i < list.Count; i++)
@@ -118,7 +118,7 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			}
 		}
 
-		public void loadListViewByIdCategoryFood(int idCategory,ref ListView lvFood)
+		public void loadListViewByIdCategoryFood(int idCategory,ListView lvFood)
 		{
 			lvFood.Items.Clear();
 			lvFood.GridLines = true;
@@ -144,7 +144,7 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			cbbTable.ValueMember = data.Columns[0].ToString();
 		}
 
-		public void loadLvBillInfoByIdBill(int idBill,ref ListView lvBillInfo)
+		public void loadLvBillInfoByIdBill(int idBill,ListView lvBillInfo)
 		{
 			lvBillInfo.Items.Clear();
 			List<BillInfo> listBillInfo = BillInfoDAO.Instances.loadBillInfoByIdBill(idBill);
@@ -156,7 +156,7 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				lv.SubItems.Add(listFood[0].Gia.ToString());
 				lv.SubItems.Add(listBillInfo[i].BillInfoCount.ToString());
 				lv.SubItems.Add("5 triệu");
-				lv.Tag = "ni";
+				lv.Tag = listBillInfo[i].IdBillInfo;
 				lvBillInfo.Items.Add(lv);
 			}
 
@@ -175,6 +175,11 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 		public void deleteBillByIdTable(int idTable)
 		{
 			BillDAO.Instances.deleteBillByIdTable(idTable);
+		}
+
+		public void deleteBillInfoByBillInfo(int idBillInfo)
+		{
+			BillInfoDAO.Instances.deleteBillinfoByidBillInfo(idBillInfo);
 		}
 	}
 }
