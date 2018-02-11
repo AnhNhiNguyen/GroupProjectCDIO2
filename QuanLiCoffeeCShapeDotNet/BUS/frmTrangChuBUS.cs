@@ -150,16 +150,33 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			List<BillInfo> listBillInfo = BillInfoDAO.Instances.loadBillInfoByIdBill(idBill);
 			for (int i = 0; i < listBillInfo.Count; i++)
 			{
-				List<Food> listFood = FoodDAO.Instances.loadFoodByIdFood(listBillInfo[i].IdFood);
-				ListViewItem lv = new ListViewItem(listFood[0].FoodName);
-				lv.SubItems.Add(listFood[0].DonViTinh);
-				lv.SubItems.Add(listFood[0].Gia.ToString());
-				lv.SubItems.Add(listBillInfo[i].BillInfoCount.ToString());
-				lv.SubItems.Add("5 triệu");
+				Food food = FoodDAO.Instances.loadFoodByIdFood(listBillInfo[i].IdFood);
+				ListViewItem lv = new ListViewItem(food.FoodName);
+				lv.SubItems.Add(food.DonViTinh);
+				lv.SubItems.Add(food.Gia.ToString());
+
+				int soLuong = listBillInfo[i].BillInfoCount;
+				lv.SubItems.Add(soLuong.ToString());
+
+				double thanhTien = food.Gia * soLuong;
+				lv.SubItems.Add(thanhTien.ToString());
 				lv.Tag = listBillInfo[i].IdBillInfo;
 				lvBillInfo.Items.Add(lv);
 			}
 
+		}
+
+		public double getTotalCostBillByidBill(int idBill)
+		{
+			double totalCost = 0;
+
+			List<BillInfo> listBill = BillInfoDAO.Instances.loadBillInfoByIdBill(idBill);
+			for(int i = 0; i < listBill.Count; i++)
+			{
+				Food food = FoodDAO.Instances.loadFoodByIdFood(listBill[i].IdFood);
+				totalCost = totalCost + listBill[i].BillInfoCount * food.Gia;
+			}
+			return totalCost;
 		}
 
 		public void insertFoodToBIllInfo(int idFood,int idBill)

@@ -26,17 +26,14 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			}
 		}
 
-		public List<Bill> loadBillByIdTable(int idTable)
+		public Bill loadBillByIdTable(int idTable)
 		{
-			List < Bill > listBill= new List<Bill>();
 			DataTable data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_BILL WHERE idTable="+idTable);
-
-			foreach (DataRow items in data.Rows)
+			foreach(DataRow item in data.Rows)
 			{
-				Bill bill= new Bill(items);
-				listBill.Add(bill);
-			}
-			return listBill;
+				return new Bill(item);
+			}			
+			return null;
 		}
 
 		public void insertBillToTableByIdTable(int idTable)

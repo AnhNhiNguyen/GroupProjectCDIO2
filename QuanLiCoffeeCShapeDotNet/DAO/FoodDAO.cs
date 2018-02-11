@@ -68,18 +68,14 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			return data;
 		}
 
-		public List<Food> loadFoodByIdFood(int idFood)
+		public Food loadFoodByIdFood(int idFood)
 		{
-			List<Food> list = new List<Food>();
 			DataTable data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_FOOD WHERE idFood=" + idFood);
-
 			foreach (DataRow items in data.Rows)
 			{
-				Food food = new Food(items);
-				list.Add(food);
+				return new Food(items);
 			}
-
-			return list;
+			return null;
 		}
 	}
 }

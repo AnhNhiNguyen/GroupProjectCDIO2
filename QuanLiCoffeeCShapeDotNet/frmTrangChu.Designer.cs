@@ -101,10 +101,10 @@
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.txtTienHang = new System.Windows.Forms.TextBox();
+			this.txtTongTien = new System.Windows.Forms.TextBox();
+			this.txtGiamGia = new System.Windows.Forms.TextBox();
+			this.txtPhiDichVu = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -602,10 +602,10 @@
 			this.panel1.Controls.Add(this.button4);
 			this.panel1.Controls.Add(this.button3);
 			this.panel1.Controls.Add(this.button2);
-			this.panel1.Controls.Add(this.textBox3);
-			this.panel1.Controls.Add(this.textBox6);
-			this.panel1.Controls.Add(this.textBox5);
-			this.panel1.Controls.Add(this.textBox4);
+			this.panel1.Controls.Add(this.txtTienHang);
+			this.panel1.Controls.Add(this.txtTongTien);
+			this.panel1.Controls.Add(this.txtGiamGia);
+			this.panel1.Controls.Add(this.txtPhiDichVu);
 			this.panel1.Controls.Add(this.label6);
 			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.label4);
@@ -778,38 +778,46 @@
 			this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.button2.UseVisualStyleBackColor = false;
 			// 
-			// textBox3
+			// txtTienHang
 			// 
-			this.textBox3.Location = new System.Drawing.Point(213, 405);
-			this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(133, 20);
-			this.textBox3.TabIndex = 108;
+			this.txtTienHang.Location = new System.Drawing.Point(213, 405);
+			this.txtTienHang.Margin = new System.Windows.Forms.Padding(2);
+			this.txtTienHang.Name = "txtTienHang";
+			this.txtTienHang.ReadOnly = true;
+			this.txtTienHang.Size = new System.Drawing.Size(133, 20);
+			this.txtTienHang.TabIndex = 108;
+			this.txtTienHang.Text = "0";
 			// 
-			// textBox6
+			// txtTongTien
 			// 
-			this.textBox6.Location = new System.Drawing.Point(213, 479);
-			this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox6.Multiline = true;
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(133, 32);
-			this.textBox6.TabIndex = 107;
+			this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtTongTien.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.txtTongTien.Location = new System.Drawing.Point(213, 479);
+			this.txtTongTien.Margin = new System.Windows.Forms.Padding(2);
+			this.txtTongTien.Multiline = true;
+			this.txtTongTien.Name = "txtTongTien";
+			this.txtTongTien.ReadOnly = true;
+			this.txtTongTien.Size = new System.Drawing.Size(133, 32);
+			this.txtTongTien.TabIndex = 107;
+			this.txtTongTien.Text = "0";
 			// 
-			// textBox5
+			// txtGiamGia
 			// 
-			this.textBox5.Location = new System.Drawing.Point(213, 454);
-			this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(133, 20);
-			this.textBox5.TabIndex = 106;
+			this.txtGiamGia.Location = new System.Drawing.Point(213, 454);
+			this.txtGiamGia.Margin = new System.Windows.Forms.Padding(2);
+			this.txtGiamGia.Name = "txtGiamGia";
+			this.txtGiamGia.Size = new System.Drawing.Size(133, 20);
+			this.txtGiamGia.TabIndex = 106;
+			this.txtGiamGia.Text = "0";
 			// 
-			// textBox4
+			// txtPhiDichVu
 			// 
-			this.textBox4.Location = new System.Drawing.Point(213, 428);
-			this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(133, 20);
-			this.textBox4.TabIndex = 105;
+			this.txtPhiDichVu.Location = new System.Drawing.Point(213, 428);
+			this.txtPhiDichVu.Margin = new System.Windows.Forms.Padding(2);
+			this.txtPhiDichVu.Name = "txtPhiDichVu";
+			this.txtPhiDichVu.Size = new System.Drawing.Size(133, 20);
+			this.txtPhiDichVu.TabIndex = 105;
+			this.txtPhiDichVu.Text = "0";
 			// 
 			// label6
 			// 
@@ -1181,10 +1189,10 @@
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.FlowLayoutPanel pnLayoutTab;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox6;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox txtTienHang;
+		private System.Windows.Forms.TextBox txtTongTien;
+		private System.Windows.Forms.TextBox txtGiamGia;
+		private System.Windows.Forms.TextBox txtPhiDichVu;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;

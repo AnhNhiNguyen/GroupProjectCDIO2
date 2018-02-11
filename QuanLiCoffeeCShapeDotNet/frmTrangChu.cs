@@ -168,27 +168,43 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void btnClick(object sender, EventArgs e)
 		{
 			Button btn = sender as Button;
-			//btn.BackColor = Color.Green;
 
-			//MessageBox.Show(btn.Text);
+			setInfoTable(btn);
+			setInfoBillofTable(btn);
+			setCost(btn);
+		}
 
-			cbbTableName.SelectedValue= Convert.ToInt32(btn.Tag.ToString());
+		private void setCost(Button btn)
+		{
+			Bill bill = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
+			if (bill == null)//Trường hợp bàn này không có bill
+			{
+				txtTienHang.Text = 0.ToString();
+				txtTongTien.Text = 0.ToString();
+				return;
+			}
+			txtTienHang.Text = frmTrangChuBUS.Instances.getTotalCostBillByidBill(bill.IdBill).ToString();
+	
+			txtTongTien.Text = txtTienHang.Text;
+		}
 
-			//List<Bill> list =BillDAO.Instances.loadBillByIdTable(2);
-			List<Bill> list = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
-			//Đang có lỗi chỗ này
-			//MessageBox.Show(list[0].IdBill.ToString());
-			if (list.Count == 0)
+		private void setInfoTable(Button btn)
+		{
+			cbbTableName.SelectedValue = Convert.ToInt32(btn.Tag.ToString());
+			idTableClicked = Convert.ToInt32(btn.Tag.ToString());
+		}
+
+		private void setInfoBillofTable(Button btn)
+		{
+			Bill bill = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
+			if (bill==null)//Trường hợp bàn này không có bill
 			{
 				lvBillInfo.Items.Clear();
 				txtTimeOpenTable.Clear();
 				return;
 			}
-			frmTrangChuBUS.Instances.loadLvBillInfoByIdBill(list[0].IdBill,lvBillInfo);
-			//MessageBox.Show(btn.Tag.ToString());
-			idTableClicked =Convert.ToInt32(btn.Tag.ToString());
-			txtTimeOpenTable.Text = list[0].BillDataCheckIn.ToString();
-			//btn.ContextMenuStrip = btnTableMouseRight;
+			frmTrangChuBUS.Instances.loadLvBillInfoByIdBill(bill.IdBill, lvBillInfo);
+			txtTimeOpenTable.Text = bill.BillDataCheckIn.ToString();
 		}
 
 		private void twFood_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -215,7 +231,11 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void lvFood_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
 			//MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
-
+			if (lvFood.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("Vui lòng chọn một món cần thêm","Cảnh báo");
+				return;
+			}
 			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
 				BillDAO.Instances.getIdBillByIdTable(idTableClicked));
 			//loadData();
@@ -235,7 +255,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void contextBtnDeleteTable_Click(object sender, EventArgs e)
 		{
 			if (MessageBox.Show("Bạn có muốn đóng bàn này ?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-			{
+			{			
 				int idTable = -1;
 				idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
 				frmTrangChuBUS.Instances.deleteBillByIdTable(idTable);
@@ -245,10 +265,16 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnDeleteFood_Click(object sender, EventArgs e)
 		{
-			if(MessageBox.Show("Bạn có muốn xóa món này ra khỏi hóa đơn ? ","Cảnh báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+			if (lvBillInfo.SelectedItems.Count==0)
 			{
-				int idBillInfo = -1;
-				idBillInfo= Convert.ToInt32(lvBillInfo.SelectedItems[0].Tag.ToString());
+				MessageBox.Show("Vui lòng chọn một item trên hóa đơn ","Cảnh báo");
+				return;
+			}
+
+			if (MessageBox.Show("Bạn có muốn xóa món này ra khỏi hóa đơn ? ","Cảnh báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+			{
+				int idBillInfo = -1;				
+				idBillInfo= Convert.ToInt32(lvBillInfo.SelectedItems[0].Tag.ToString());				
 				frmTrangChuBUS.Instances.deleteBillInfoByBillInfo(idBillInfo); 				
 			}
 		}
