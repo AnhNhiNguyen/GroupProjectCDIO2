@@ -47,5 +47,12 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			return data;
 		}
 
+		public DataTable loadTableTrongToCbb()
+		{
+			DataTable data;
+			data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE WHERE tableStatus=-1");
+			return data;
+		}
+
 	}
 }

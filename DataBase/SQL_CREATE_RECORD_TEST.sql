@@ -95,9 +95,10 @@ SELECT @B= idBillInfo
 FROM PDT_BILLINFO
 WHERE idBill=0
 PRINT @B
-----------
+---------------------
 DECLARE @BB INT =-1
 SELECT @BB= COUNT(*)
 FROM PDT_BILLINFO
 WHERE idBill=123
 PRINT @BB
+--------------------------

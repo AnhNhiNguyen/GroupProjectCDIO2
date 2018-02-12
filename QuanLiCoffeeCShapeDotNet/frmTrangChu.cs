@@ -18,8 +18,13 @@ namespace QuanLiCoffeeCShapeDotNet
 		private int idTableClicked=-1;
 		private string useName="Chưa đăng nhập";
 		private string dataBaseName="Chưa kết nối";
+
+		private double tienHang=0;
+		private double tongTien=0;
+
 		Form frmMatHang;
 		Form frmThanhToan;
+
 		public frmTrangChu()
 		{
 			InitializeComponent();
@@ -72,6 +77,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void frmTrangChu_Load(object sender, EventArgs e)
 		{
 			loadData();
+			
 		}
 
 		private void loadData()
@@ -83,7 +89,12 @@ namespace QuanLiCoffeeCShapeDotNet
 			//frmTrangChuBUS.Instances.loadKhuVuc(ref tabControlKhuVuc);
 			loadTreeView();
 			frmTrangChuBUS.Instances.loadComboboxTable(cbbTableName);
-			
+			loadCBBListBanTrong();
+		}
+
+		private void loadCBBListBanTrong()
+		{
+			frmTrangChuBUS.Instances.loadTableTrong(cbbListBanTrong);
 		}
 
 		private void loadTreeView()
@@ -94,6 +105,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void loadKhuVuc()
 		{
+			
 			tabControlKhuVuc.Controls.Clear();
 			List<KhuVuc> list = KhuVucDAO.Instances.loadKhuVuc();
 			for (int i = 0; i < list.Count; i++)
@@ -136,19 +148,19 @@ namespace QuanLiCoffeeCShapeDotNet
 					btn.ImageAlign = ContentAlignment.BottomCenter; 
 					btn.Click += btnClick;
 					btn.MouseDown += btnClick;
-					
+
 					switch (listTable[j].TableStatus)
 					{
 						case 1:
 							{
-								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
-								btn.ContextMenuStrip = btnTableMouseRight;								
+								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;								
+								btn.ContextMenuStrip = btnTableMouseRight;
 								break;
 							}
 						default:
 							{
-								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
-								btn.ContextMenuStrip = btnTableNullMouseRight;
+								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;								
+								btn.ContextMenuStrip = btnTableMouseRight2;
 								break;
 							}
 					}
@@ -183,9 +195,18 @@ namespace QuanLiCoffeeCShapeDotNet
 				txtTongTien.Text = 0.ToString();
 				return;
 			}
-			txtTienHang.Text = frmTrangChuBUS.Instances.getTotalCostBillByidBill(bill.IdBill).ToString();
-	
-			txtTongTien.Text = txtTienHang.Text;
+			tienHang = frmTrangChuBUS.Instances.getTotalCostBillByidBill(bill.IdBill);
+			txtGiamGia.Value = 0;
+			txtPhiDichVu.Value = 0;
+			txtTienHang.Text = tienHang.ToString();	
+			txtTongTien.Text = cacluterCost().ToString();
+		}
+
+		private double cacluterCost()
+		{
+			return (tienHang + Convert.ToDouble(txtPhiDichVu.Value.ToString())) -
+				((tienHang + Convert.ToDouble(txtPhiDichVu.Value.ToString()))
+				* Convert.ToDouble(txtGiamGia.Value.ToString()) / 100);
 		}
 
 		private void setInfoTable(Button btn)
@@ -282,6 +303,21 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void btnThongKe_Click(object sender, EventArgs e)
 		{
 			MessageBox.Show("Click roi");
+		}
+
+		private void txtPhiDichVu_ValueChanged(object sender, EventArgs e)
+		{
+			txtTongTien.Text = cacluterCost().ToString();
+		}
+
+		private void txtGiamGia_ValueChanged(object sender, EventArgs e)
+		{
+			txtTongTien.Text = cacluterCost().ToString();
+		}
+
+		private void btnChuyenBan_Click(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }

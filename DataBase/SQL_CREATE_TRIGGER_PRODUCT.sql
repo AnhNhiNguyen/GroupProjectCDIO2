@@ -181,3 +181,14 @@ BEGIN
 
 END
 GO
+-----------------------------------
+--UPDATE BY NGUYENVANPHUC 
+--DATE: 12/02/2018
+CREATE PROC USP_CHUYENBAN
+@idTableOld INT,@idTableNew INT
+AS
+BEGIN
+	UPDATE PDT_BILL
+	SET idTable=@idTableNew
+	WHERE idTable=@idTableOld
+END

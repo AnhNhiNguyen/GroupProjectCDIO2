@@ -99,12 +99,10 @@
 			this.btnDeleteFood = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
+			this.btnChuyenBan = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.txtTienHang = new System.Windows.Forms.TextBox();
 			this.txtTongTien = new System.Windows.Forms.TextBox();
-			this.txtGiamGia = new System.Windows.Forms.TextBox();
-			this.txtPhiDichVu = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -128,13 +126,21 @@
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.twFood = new System.Windows.Forms.TreeView();
 			this.button9 = new System.Windows.Forms.Button();
-			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.txtSearchFood = new System.Windows.Forms.TextBox();
 			this.btnTableMouseRight = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.chuyểnBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.gộpBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.contextBtnDeleteTable = new System.Windows.Forms.ToolStripMenuItem();
-			this.btnTableNullMouseRight = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.contextBtnOpenTable = new System.Windows.Forms.ToolStripMenuItem();
+			this.ctBtnDeleteTable = new System.Windows.Forms.ToolStripMenuItem();
+			this.txtPhiDichVu = new System.Windows.Forms.NumericUpDown();
+			this.txtGiamGia = new System.Windows.Forms.NumericUpDown();
+			this.label7 = new System.Windows.Forms.Label();
+			this.ctBtnMoban = new System.Windows.Forms.ToolStripMenuItem();
+			this.btnTableMouseRight2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+			this.cbbListBanTrong = new System.Windows.Forms.ToolStripComboBox();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -143,7 +149,9 @@
 			this.toolStrip2.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.btnTableMouseRight.SuspendLayout();
-			this.btnTableNullMouseRight.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.txtPhiDichVu)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtGiamGia)).BeginInit();
+			this.btnTableMouseRight2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// danhMụcNhàCungCấpToolStripMenuItem
@@ -594,18 +602,19 @@
 			// panel1
 			// 
 			this.panel1.AutoSize = true;
+			this.panel1.Controls.Add(this.label7);
+			this.panel1.Controls.Add(this.txtGiamGia);
+			this.panel1.Controls.Add(this.txtPhiDichVu);
 			this.panel1.Controls.Add(this.lvBillInfo);
 			this.panel1.Controls.Add(this.btnThongKe);
 			this.panel1.Controls.Add(this.btnThanhToan);
 			this.panel1.Controls.Add(this.btnDeleteFood);
 			this.panel1.Controls.Add(this.button5);
 			this.panel1.Controls.Add(this.button4);
-			this.panel1.Controls.Add(this.button3);
+			this.panel1.Controls.Add(this.btnChuyenBan);
 			this.panel1.Controls.Add(this.button2);
 			this.panel1.Controls.Add(this.txtTienHang);
 			this.panel1.Controls.Add(this.txtTongTien);
-			this.panel1.Controls.Add(this.txtGiamGia);
-			this.panel1.Controls.Add(this.txtPhiDichVu);
 			this.panel1.Controls.Add(this.label6);
 			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.label4);
@@ -748,20 +757,21 @@
 			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button4.UseVisualStyleBackColor = false;
 			// 
-			// button3
+			// btnChuyenBan
 			// 
-			this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-			this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button3.Location = new System.Drawing.Point(350, 84);
-			this.button3.Margin = new System.Windows.Forms.Padding(2);
-			this.button3.Name = "button3";
-			this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button3.Size = new System.Drawing.Size(68, 63);
-			this.button3.TabIndex = 111;
-			this.button3.Text = "Chuyển bàn";
-			this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.button3.UseVisualStyleBackColor = false;
+			this.btnChuyenBan.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnChuyenBan.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenBan.Image")));
+			this.btnChuyenBan.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.btnChuyenBan.Location = new System.Drawing.Point(350, 84);
+			this.btnChuyenBan.Margin = new System.Windows.Forms.Padding(2);
+			this.btnChuyenBan.Name = "btnChuyenBan";
+			this.btnChuyenBan.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.btnChuyenBan.Size = new System.Drawing.Size(68, 63);
+			this.btnChuyenBan.TabIndex = 111;
+			this.btnChuyenBan.Text = "Chuyển bàn";
+			this.btnChuyenBan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.btnChuyenBan.UseVisualStyleBackColor = false;
+			this.btnChuyenBan.Click += new System.EventHandler(this.btnChuyenBan_Click);
 			// 
 			// button2
 			// 
@@ -800,24 +810,6 @@
 			this.txtTongTien.Size = new System.Drawing.Size(133, 32);
 			this.txtTongTien.TabIndex = 107;
 			this.txtTongTien.Text = "0";
-			// 
-			// txtGiamGia
-			// 
-			this.txtGiamGia.Location = new System.Drawing.Point(213, 454);
-			this.txtGiamGia.Margin = new System.Windows.Forms.Padding(2);
-			this.txtGiamGia.Name = "txtGiamGia";
-			this.txtGiamGia.Size = new System.Drawing.Size(133, 20);
-			this.txtGiamGia.TabIndex = 106;
-			this.txtGiamGia.Text = "0";
-			// 
-			// txtPhiDichVu
-			// 
-			this.txtPhiDichVu.Location = new System.Drawing.Point(213, 428);
-			this.txtPhiDichVu.Margin = new System.Windows.Forms.Padding(2);
-			this.txtPhiDichVu.Name = "txtPhiDichVu";
-			this.txtPhiDichVu.Size = new System.Drawing.Size(133, 20);
-			this.txtPhiDichVu.TabIndex = 105;
-			this.txtPhiDichVu.Text = "0";
 			// 
 			// label6
 			// 
@@ -983,7 +975,7 @@
 			this.panel3.Controls.Add(this.lvFood);
 			this.panel3.Controls.Add(this.twFood);
 			this.panel3.Controls.Add(this.button9);
-			this.panel3.Controls.Add(this.textBox7);
+			this.panel3.Controls.Add(this.txtSearchFood);
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
 			this.panel3.Location = new System.Drawing.Point(840, 51);
 			this.panel3.Name = "panel3";
@@ -1043,28 +1035,31 @@
 			this.button9.Text = "Tìm";
 			this.button9.UseVisualStyleBackColor = true;
 			// 
-			// textBox7
+			// txtSearchFood
 			// 
-			this.textBox7.Location = new System.Drawing.Point(58, 7);
-			this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox7.Multiline = true;
-			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(171, 21);
-			this.textBox7.TabIndex = 82;
+			this.txtSearchFood.Location = new System.Drawing.Point(58, 7);
+			this.txtSearchFood.Margin = new System.Windows.Forms.Padding(2);
+			this.txtSearchFood.Multiline = true;
+			this.txtSearchFood.Name = "txtSearchFood";
+			this.txtSearchFood.Size = new System.Drawing.Size(171, 21);
+			this.txtSearchFood.TabIndex = 82;
 			// 
 			// btnTableMouseRight
 			// 
 			this.btnTableMouseRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctBtnMoban,
             this.chuyểnBànToolStripMenuItem,
             this.gộpBànToolStripMenuItem,
-            this.contextBtnDeleteTable});
+            this.ctBtnDeleteTable});
 			this.btnTableMouseRight.Name = "btnTableMouseRight";
-			this.btnTableMouseRight.Size = new System.Drawing.Size(139, 70);
+			this.btnTableMouseRight.Size = new System.Drawing.Size(153, 114);
 			// 
 			// chuyểnBànToolStripMenuItem
 			// 
+			this.chuyểnBànToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cbbListBanTrong});
 			this.chuyểnBànToolStripMenuItem.Name = "chuyểnBànToolStripMenuItem";
-			this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+			this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.chuyểnBànToolStripMenuItem.Text = "Chuyển bàn";
 			// 
 			// gộpBànToolStripMenuItem
@@ -1073,26 +1068,90 @@
 			this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
 			this.gộpBànToolStripMenuItem.Text = "Gộp bàn";
 			// 
-			// contextBtnDeleteTable
+			// ctBtnDeleteTable
 			// 
-			this.contextBtnDeleteTable.Name = "contextBtnDeleteTable";
-			this.contextBtnDeleteTable.Size = new System.Drawing.Size(138, 22);
-			this.contextBtnDeleteTable.Text = "Xóa bàn";
-			this.contextBtnDeleteTable.Click += new System.EventHandler(this.contextBtnDeleteTable_Click);
+			this.ctBtnDeleteTable.Name = "ctBtnDeleteTable";
+			this.ctBtnDeleteTable.Size = new System.Drawing.Size(138, 22);
+			this.ctBtnDeleteTable.Text = "Đóng bàn";
+			this.ctBtnDeleteTable.Click += new System.EventHandler(this.contextBtnDeleteTable_Click);
 			// 
-			// btnTableNullMouseRight
+			// txtPhiDichVu
 			// 
-			this.btnTableNullMouseRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contextBtnOpenTable});
-			this.btnTableNullMouseRight.Name = "btnTableNullMouseRight";
-			this.btnTableNullMouseRight.Size = new System.Drawing.Size(116, 26);
+			this.txtPhiDichVu.Location = new System.Drawing.Point(213, 430);
+			this.txtPhiDichVu.Name = "txtPhiDichVu";
+			this.txtPhiDichVu.Size = new System.Drawing.Size(132, 20);
+			this.txtPhiDichVu.TabIndex = 118;
+			this.txtPhiDichVu.ValueChanged += new System.EventHandler(this.txtPhiDichVu_ValueChanged);
 			// 
-			// contextBtnOpenTable
+			// txtGiamGia
 			// 
-			this.contextBtnOpenTable.Name = "contextBtnOpenTable";
-			this.contextBtnOpenTable.Size = new System.Drawing.Size(115, 22);
-			this.contextBtnOpenTable.Text = "Mở bàn";
-			this.contextBtnOpenTable.Click += new System.EventHandler(this.btnOpenTable_Click);
+			this.txtGiamGia.Location = new System.Drawing.Point(213, 456);
+			this.txtGiamGia.Name = "txtGiamGia";
+			this.txtGiamGia.Size = new System.Drawing.Size(104, 20);
+			this.txtGiamGia.TabIndex = 119;
+			this.txtGiamGia.ValueChanged += new System.EventHandler(this.txtGiamGia_ValueChanged);
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.Location = new System.Drawing.Point(321, 456);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(24, 20);
+			this.label7.TabIndex = 120;
+			this.label7.Text = "%";
+			// 
+			// ctBtnMoban
+			// 
+			this.ctBtnMoban.Enabled = false;
+			this.ctBtnMoban.Name = "ctBtnMoban";
+			this.ctBtnMoban.Size = new System.Drawing.Size(138, 22);
+			this.ctBtnMoban.Text = "Mở bàn";
+			// 
+			// btnTableMouseRight2
+			// 
+			this.btnTableMouseRight2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem3});
+			this.btnTableMouseRight2.Name = "btnTableMouseRight2";
+			this.btnTableMouseRight2.Size = new System.Drawing.Size(139, 92);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
+			this.toolStripMenuItem1.Text = "Mở bàn";
+			this.toolStripMenuItem1.Click += new System.EventHandler(this.btnOpenTable_Click);
+			// 
+			// toolStripMenuItem2
+			// 
+			this.toolStripMenuItem2.Enabled = false;
+			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(138, 22);
+			this.toolStripMenuItem2.Text = "Chuyển bàn";
+			// 
+			// toolStripMenuItem3
+			// 
+			this.toolStripMenuItem3.Enabled = false;
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(138, 22);
+			this.toolStripMenuItem3.Text = "Đóng bàn";
+			// 
+			// toolStripMenuItem4
+			// 
+			this.toolStripMenuItem4.Enabled = false;
+			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(138, 22);
+			this.toolStripMenuItem4.Text = "Gộp bàn";
+			// 
+			// cbbListBanTrong
+			// 
+			this.cbbListBanTrong.DropDownWidth = 150;
+			this.cbbListBanTrong.Name = "cbbListBanTrong";
+			this.cbbListBanTrong.Size = new System.Drawing.Size(185, 23);
+			this.cbbListBanTrong.Text = "Click để chọn bàn";
 			// 
 			// frmTrangChu
 			// 
@@ -1124,7 +1183,9 @@
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
 			this.btnTableMouseRight.ResumeLayout(false);
-			this.btnTableNullMouseRight.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.txtPhiDichVu)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtGiamGia)).EndInit();
+			this.btnTableMouseRight2.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1191,8 +1252,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TextBox txtTienHang;
 		private System.Windows.Forms.TextBox txtTongTien;
-		private System.Windows.Forms.TextBox txtGiamGia;
-		private System.Windows.Forms.TextBox txtPhiDichVu;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
@@ -1212,13 +1271,13 @@
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.TreeView twFood;
 		private System.Windows.Forms.Button button9;
-		private System.Windows.Forms.TextBox textBox7;
+		private System.Windows.Forms.TextBox txtSearchFood;
 		private System.Windows.Forms.Button btnThongKe;
 		private System.Windows.Forms.Button btnThanhToan;
 		private System.Windows.Forms.Button btnDeleteFood;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button btnChuyenBan;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.TabControl tabControlKhuVuc;
 		private System.Windows.Forms.ListView lvFood;
@@ -1234,8 +1293,16 @@
 		private System.Windows.Forms.ContextMenuStrip btnTableMouseRight;
 		private System.Windows.Forms.ToolStripMenuItem chuyểnBànToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem gộpBànToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem contextBtnDeleteTable;
-		private System.Windows.Forms.ContextMenuStrip btnTableNullMouseRight;
-		private System.Windows.Forms.ToolStripMenuItem contextBtnOpenTable;
+		private System.Windows.Forms.ToolStripMenuItem ctBtnDeleteTable;
+		private System.Windows.Forms.NumericUpDown txtGiamGia;
+		private System.Windows.Forms.NumericUpDown txtPhiDichVu;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.ToolStripMenuItem ctBtnMoban;
+		private System.Windows.Forms.ContextMenuStrip btnTableMouseRight2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+		private System.Windows.Forms.ToolStripComboBox cbbListBanTrong;
 	}
 }

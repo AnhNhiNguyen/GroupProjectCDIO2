@@ -179,6 +179,14 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			return totalCost;
 		}
 
+		public void loadTableTrong(ToolStripComboBox cbb)
+		{
+			DataTable data = TableDAO.Instances.loadTableTrongToCbb();
+			cbb.ComboBox.DataSource = data;
+			cbb.ComboBox.DisplayMember = data.Columns[1].ToString();
+			cbb.ComboBox.ValueMember = data.Columns[0].ToString();
+		}
+
 		public void insertFoodToBIllInfo(int idFood,int idBill)
 		{
 			BillInfoDAO.Instances.insertBillinfo(idFood,idBill);
