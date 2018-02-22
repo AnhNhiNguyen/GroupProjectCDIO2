@@ -82,7 +82,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void loadData()
 		{
-			loadKhuVuc();
+			showKhuVuc();
 			//loadTreeViewFood();
 			//loadListViewByIdCategoryFood();
 
@@ -94,7 +94,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void loadCBBListBanTrong()
 		{
-			frmTrangChuBUS.Instances.loadTableTrong(cbbListBanTrong);
+			//frmTrangChuBUS.Instances.loadTableTrong(cbbListBanTrong);
 		}
 
 		private void loadTreeView()
@@ -103,10 +103,20 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmTrangChuBUS.Instances.loadTreeViewFood(twFood);
 		}
 
-		private void loadKhuVuc()
+		private void showTableTrong()
 		{
-			
+			//
+		}
+
+		private void refreshKhuVuc()
+		{
+			showKhuVuc();
+		}
+
+		private void showKhuVuc()
+		{			
 			tabControlKhuVuc.Controls.Clear();
+
 			List<KhuVuc> list = KhuVucDAO.Instances.loadKhuVuc();
 			for (int i = 0; i < list.Count; i++)
 			{
@@ -116,64 +126,138 @@ namespace QuanLiCoffeeCShapeDotNet
 				};
 				tab.UseVisualStyleBackColor = true;
 				tab.Text = list[i].KhuVucName;
+				tab.Name =list[i].IdKhuVuc.ToString();
 
-				//Add ban vao tab
-				List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(list[i].IdKhuVuc);
-				Button btnBegin = new Button
-				{
-					Width = 0,
-					Height = 0,
-					Location = new Point(0, 0)
-				};
-				for (int j = 0; j < listTable.Count; j++)
-				{
-					Button btn = new Button
-					{
-						//Text = listTable[j].TableName + Environment.NewLine +
-						//listTable[j].TableStatus,
-						Text = listTable[j].TableName,
-						Tag = listTable[j].IdTable,
-						Width = 128,
-						Height = 150,
-
-						TextAlign = ContentAlignment.BottomCenter,
-						ImageAlign = ContentAlignment.TopCenter,
-						TextImageRelation = TextImageRelation.Overlay,
-
-						Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
-						btnBegin.Location.Y),
-					};
-					btn.Cursor = Cursors.Hand;
-					btn.FlatStyle = FlatStyle.Popup;
-					btn.ImageAlign = ContentAlignment.BottomCenter; 
-					btn.Click += btnClick;
-					btn.MouseDown += btnClick;
-
-					switch (listTable[j].TableStatus)
-					{
-						case 1:
-							{
-								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;								
-								btn.ContextMenuStrip = btnTableMouseRight;
-								break;
-							}
-						default:
-							{
-								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;								
-								btn.ContextMenuStrip = btnTableMouseRight2;
-								break;
-							}
-					}
-
-					tab.Controls.Add(btn);
-
-					btnBegin = btn;
-					if (j % 3 == 0 && j != 0)
-					{
-						btnBegin.Location = new Point(5, btnBegin.Location.Y + btnBegin.Height+5);
-					}
-				}
+				//showTableByidKhuVucc(tab, list[i].IdKhuVuc);
 				tabControlKhuVuc.Controls.Add(tab);
+				showTableByidKhuVuc(tabControlKhuVuc,list[i].IdKhuVuc);
+			}
+		}
+
+		private void showTableByidKhuVuc(TabControl tabControl,int idKhuVuc)
+		{
+			tabControl.TabPages[idKhuVuc.ToString()].Controls.Clear();
+
+			//Add ban vao tab
+			List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(idKhuVuc);
+			Button btnBegin = new Button
+			{
+				Width = 0,
+				Height = 0,
+				Location = new Point(0, 0)
+			};
+			for (int j = 0; j < listTable.Count; j++)
+			{
+				Button btn = new Button
+				{
+					//Text = listTable[j].TableName + Environment.NewLine +
+					//listTable[j].TableStatus,
+					Text = listTable[j].TableName,
+					Tag = listTable[j].IdTable,
+					Width = 128,
+					Height = 150,
+
+					TextAlign = ContentAlignment.BottomCenter,
+					ImageAlign = ContentAlignment.TopCenter,
+					TextImageRelation = TextImageRelation.Overlay,
+
+					Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
+					btnBegin.Location.Y),
+				};
+				btn.Cursor = Cursors.Hand;
+				btn.FlatStyle = FlatStyle.Popup;
+				btn.ImageAlign = ContentAlignment.BottomCenter;
+				btn.Click += btnClick;
+				btn.MouseDown += btnClick;
+
+				switch (listTable[j].TableStatus)
+				{
+					case 1:
+						{
+							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
+							btn.ContextMenuStrip = btnTableMouseRight;
+							break;
+						}
+					default:
+						{
+							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
+							btn.ContextMenuStrip = btnTableMouseRight2;
+							break;
+						}
+				}
+
+				tabControl.TabPages[idKhuVuc.ToString()].Controls.Add(btn);
+
+				btnBegin = btn;
+				if (j % 3 == 0 && j != 0)
+				{
+					btnBegin.Location = new Point(5, btnBegin.Location.Y + btnBegin.Height + 5);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Hàm chưa được tối ưu
+		/// </summary>
+		/// <param name="tab"></param>
+		/// <param name="idKhuVuc"></param>
+		private void showTableByidKhuVucc(TabPage tab,int idKhuVuc)
+		{
+			//Add ban vao tab
+			List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(idKhuVuc);
+			Button btnBegin = new Button
+			{
+				Width = 0,
+				Height = 0,
+				Location = new Point(0, 0)
+			};
+			for (int j = 0; j < listTable.Count; j++)
+			{
+				Button btn = new Button
+				{
+					//Text = listTable[j].TableName + Environment.NewLine +
+					//listTable[j].TableStatus,
+					Text = listTable[j].TableName,
+					Tag = listTable[j].IdTable,
+					Width = 128,
+					Height = 150,
+
+					TextAlign = ContentAlignment.BottomCenter,
+					ImageAlign = ContentAlignment.TopCenter,
+					TextImageRelation = TextImageRelation.Overlay,
+
+					Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
+					btnBegin.Location.Y),
+				};
+				btn.Cursor = Cursors.Hand;
+				btn.FlatStyle = FlatStyle.Popup;
+				btn.ImageAlign = ContentAlignment.BottomCenter;
+				btn.Click += btnClick;
+				btn.MouseDown += btnClick;
+
+				switch (listTable[j].TableStatus)
+				{
+					case 1:
+						{
+							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
+							btn.ContextMenuStrip = btnTableMouseRight;
+							break;
+						}
+					default:
+						{
+							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
+							btn.ContextMenuStrip = btnTableMouseRight2;
+							break;
+						}
+				}
+
+				tab.Controls.Add(btn);
+
+				btnBegin = btn;
+				if (j % 3 == 0 && j != 0)
+				{
+					btnBegin.Location = new Point(5, btnBegin.Location.Y + btnBegin.Height + 5);
+				}
 			}
 		}
 
@@ -268,8 +352,11 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			int idTable = -1;
 			idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
-			frmTrangChuBUS.Instances.insertBillToTableByIdTable(idTable                              );
-			loadKhuVuc();
+			frmTrangChuBUS.Instances.insertBillToTableByIdTable(idTable);
+			//showKhuVuc();//Hiển thị không đẹp mắt khi dùng hàm này vì phải load cả khu vực và table
+			showTableByidKhuVuc(tabControlKhuVuc,TableDAO.Instances.getIdKhuVucByIdTable(idTable));//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
+			
+
 			//dateTimePicker1.Select();dateTimePicker1.Focus();
 		}
 
@@ -280,7 +367,8 @@ namespace QuanLiCoffeeCShapeDotNet
 				int idTable = -1;
 				idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
 				frmTrangChuBUS.Instances.deleteBillByIdTable(idTable);
-				loadData();
+				//loadData();//tương tự như hàm mở bàn
+				showTableByidKhuVuc(tabControlKhuVuc, TableDAO.Instances.getIdKhuVucByIdTable(idTable));//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
 			}
 		}
 

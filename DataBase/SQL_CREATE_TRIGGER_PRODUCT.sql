@@ -15,7 +15,7 @@
 --GO
 -------------------
 CREATE TRIGGER UTG_UPDATEBILL
-ON PDT_BILL FOR INSERT,DELETE
+ON PDT_BILL FOR INSERT,UPDATE,DELETE
 AS
 BEGIN
 	DECLARE @IDTABLE INT
@@ -23,9 +23,11 @@ BEGIN
 	UPDATE PDT_TABLE SET tableStatus=1 WHERE idTable=@IDTABLE
 END
 GO
+--Update by NguyenVanPhuc
+--Date 12/02/2018
 --------------------
 CREATE TRIGGER UTG_UPDATEBILLDELETE
-ON PDT_BILL FOR DELETE
+ON PDT_BILL FOR INSERT,UPDATE,DELETE
 AS
 BEGIN
 	DECLARE @IDTABLE INT
@@ -33,6 +35,8 @@ BEGIN
 	UPDATE PDT_TABLE SET tableStatus=-1 WHERE idTable=@IDTABLE
 END
 GO
+--Update by NguyenVanPhuc
+--Date 12/02/2018
 --------------------------
 --Update by NguyenVanPhuc
 --Date 10/02/2018
@@ -188,7 +192,28 @@ CREATE PROC USP_CHUYENBAN
 @idTableOld INT,@idTableNew INT
 AS
 BEGIN
+	--Kiểm tra bàn cũ có tồn tại?
+	DECLARE @countExitTableOll INT=-1
+
+	SELECT @countExitTableOll=COUNT(*) 
+	FROM PDT_TABLE
+	WHERE idTable=@idTableOld
+
+	--Kiểm tra bàn mới có tồn tại?
+	DECLARE @countExitTablenNew INT=-1
+
+	SELECT @countExitTablenNew=COUNT(*) 
+	FROM PDT_TABLE
+	WHERE idTable=@idTableNew
+
+	--Nếu bạn không tồn tại thì nothing
+	IF(@countExitTablenNew<1 OR @countExitTableOll<1)
+	BEGIN
+		PRINT N'Bàn không tồn tại'
+		RETURN
+	END
 	UPDATE PDT_BILL
 	SET idTable=@idTableNew
 	WHERE idTable=@idTableOld
 END
+GO

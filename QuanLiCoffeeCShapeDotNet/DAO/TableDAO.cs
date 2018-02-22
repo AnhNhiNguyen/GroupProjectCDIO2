@@ -54,5 +54,16 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			return data;
 		}
 
+		public int getIdKhuVucByIdTable(int idTable)
+		{
+			DataTable data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE WHERE idTable=" + idTable);
+
+			foreach (DataRow items in data.Rows)
+			{
+				Table table = new Table(items);
+				return table.IdKhuVuc;
+			}
+			return -1;
+		}
 	}
 }

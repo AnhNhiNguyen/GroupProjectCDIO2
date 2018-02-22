@@ -88,6 +88,9 @@
 			this.pnLayoutTab = new System.Windows.Forms.FlowLayoutPanel();
 			this.tabControlKhuVuc = new System.Windows.Forms.TabControl();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.label7 = new System.Windows.Forms.Label();
+			this.txtGiamGia = new System.Windows.Forms.NumericUpDown();
+			this.txtPhiDichVu = new System.Windows.Forms.NumericUpDown();
 			this.lvBillInfo = new System.Windows.Forms.ListView();
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -128,29 +131,25 @@
 			this.button9 = new System.Windows.Forms.Button();
 			this.txtSearchFood = new System.Windows.Forms.TextBox();
 			this.btnTableMouseRight = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.chuyểnBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.ctBtnMoban = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsBtnChuyenBan = new System.Windows.Forms.ToolStripMenuItem();
 			this.gộpBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ctBtnDeleteTable = new System.Windows.Forms.ToolStripMenuItem();
-			this.txtPhiDichVu = new System.Windows.Forms.NumericUpDown();
-			this.txtGiamGia = new System.Windows.Forms.NumericUpDown();
-			this.label7 = new System.Windows.Forms.Label();
-			this.ctBtnMoban = new System.Windows.Forms.ToolStripMenuItem();
 			this.btnTableMouseRight2 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-			this.cbbListBanTrong = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.pnLayoutTab.SuspendLayout();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.txtGiamGia)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtPhiDichVu)).BeginInit();
 			this.toolStrip2.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.btnTableMouseRight.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.txtPhiDichVu)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.txtGiamGia)).BeginInit();
 			this.btnTableMouseRight2.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -633,6 +632,32 @@
 			this.panel1.Size = new System.Drawing.Size(660, 515);
 			this.panel1.TabIndex = 84;
 			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.Location = new System.Drawing.Point(321, 456);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(24, 20);
+			this.label7.TabIndex = 120;
+			this.label7.Text = "%";
+			// 
+			// txtGiamGia
+			// 
+			this.txtGiamGia.Location = new System.Drawing.Point(213, 456);
+			this.txtGiamGia.Name = "txtGiamGia";
+			this.txtGiamGia.Size = new System.Drawing.Size(104, 20);
+			this.txtGiamGia.TabIndex = 119;
+			this.txtGiamGia.ValueChanged += new System.EventHandler(this.txtGiamGia_ValueChanged);
+			// 
+			// txtPhiDichVu
+			// 
+			this.txtPhiDichVu.Location = new System.Drawing.Point(213, 430);
+			this.txtPhiDichVu.Name = "txtPhiDichVu";
+			this.txtPhiDichVu.Size = new System.Drawing.Size(132, 20);
+			this.txtPhiDichVu.TabIndex = 118;
+			this.txtPhiDichVu.ValueChanged += new System.EventHandler(this.txtPhiDichVu_ValueChanged);
+			// 
 			// lvBillInfo
 			// 
 			this.lvBillInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -1048,65 +1073,37 @@
 			// 
 			this.btnTableMouseRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctBtnMoban,
-            this.chuyểnBànToolStripMenuItem,
+            this.tsBtnChuyenBan,
             this.gộpBànToolStripMenuItem,
             this.ctBtnDeleteTable});
 			this.btnTableMouseRight.Name = "btnTableMouseRight";
 			this.btnTableMouseRight.Size = new System.Drawing.Size(153, 114);
 			// 
-			// chuyểnBànToolStripMenuItem
+			// ctBtnMoban
 			// 
-			this.chuyểnBànToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cbbListBanTrong});
-			this.chuyểnBànToolStripMenuItem.Name = "chuyểnBànToolStripMenuItem";
-			this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.chuyểnBànToolStripMenuItem.Text = "Chuyển bàn";
+			this.ctBtnMoban.Enabled = false;
+			this.ctBtnMoban.Name = "ctBtnMoban";
+			this.ctBtnMoban.Size = new System.Drawing.Size(152, 22);
+			this.ctBtnMoban.Text = "Mở bàn";
+			// 
+			// tsBtnChuyenBan
+			// 
+			this.tsBtnChuyenBan.Name = "tsBtnChuyenBan";
+			this.tsBtnChuyenBan.Size = new System.Drawing.Size(152, 22);
+			this.tsBtnChuyenBan.Text = "Chuyển bàn";
 			// 
 			// gộpBànToolStripMenuItem
 			// 
 			this.gộpBànToolStripMenuItem.Name = "gộpBànToolStripMenuItem";
-			this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+			this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.gộpBànToolStripMenuItem.Text = "Gộp bàn";
 			// 
 			// ctBtnDeleteTable
 			// 
 			this.ctBtnDeleteTable.Name = "ctBtnDeleteTable";
-			this.ctBtnDeleteTable.Size = new System.Drawing.Size(138, 22);
+			this.ctBtnDeleteTable.Size = new System.Drawing.Size(152, 22);
 			this.ctBtnDeleteTable.Text = "Đóng bàn";
 			this.ctBtnDeleteTable.Click += new System.EventHandler(this.contextBtnDeleteTable_Click);
-			// 
-			// txtPhiDichVu
-			// 
-			this.txtPhiDichVu.Location = new System.Drawing.Point(213, 430);
-			this.txtPhiDichVu.Name = "txtPhiDichVu";
-			this.txtPhiDichVu.Size = new System.Drawing.Size(132, 20);
-			this.txtPhiDichVu.TabIndex = 118;
-			this.txtPhiDichVu.ValueChanged += new System.EventHandler(this.txtPhiDichVu_ValueChanged);
-			// 
-			// txtGiamGia
-			// 
-			this.txtGiamGia.Location = new System.Drawing.Point(213, 456);
-			this.txtGiamGia.Name = "txtGiamGia";
-			this.txtGiamGia.Size = new System.Drawing.Size(104, 20);
-			this.txtGiamGia.TabIndex = 119;
-			this.txtGiamGia.ValueChanged += new System.EventHandler(this.txtGiamGia_ValueChanged);
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(321, 456);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(24, 20);
-			this.label7.TabIndex = 120;
-			this.label7.Text = "%";
-			// 
-			// ctBtnMoban
-			// 
-			this.ctBtnMoban.Enabled = false;
-			this.ctBtnMoban.Name = "ctBtnMoban";
-			this.ctBtnMoban.Size = new System.Drawing.Size(138, 22);
-			this.ctBtnMoban.Text = "Mở bàn";
 			// 
 			// btnTableMouseRight2
 			// 
@@ -1132,13 +1129,6 @@
 			this.toolStripMenuItem2.Size = new System.Drawing.Size(138, 22);
 			this.toolStripMenuItem2.Text = "Chuyển bàn";
 			// 
-			// toolStripMenuItem3
-			// 
-			this.toolStripMenuItem3.Enabled = false;
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(138, 22);
-			this.toolStripMenuItem3.Text = "Đóng bàn";
-			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Enabled = false;
@@ -1146,12 +1136,12 @@
 			this.toolStripMenuItem4.Size = new System.Drawing.Size(138, 22);
 			this.toolStripMenuItem4.Text = "Gộp bàn";
 			// 
-			// cbbListBanTrong
+			// toolStripMenuItem3
 			// 
-			this.cbbListBanTrong.DropDownWidth = 150;
-			this.cbbListBanTrong.Name = "cbbListBanTrong";
-			this.cbbListBanTrong.Size = new System.Drawing.Size(185, 23);
-			this.cbbListBanTrong.Text = "Click để chọn bàn";
+			this.toolStripMenuItem3.Enabled = false;
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(138, 22);
+			this.toolStripMenuItem3.Text = "Đóng bàn";
 			// 
 			// frmTrangChu
 			// 
@@ -1178,13 +1168,13 @@
 			this.pnLayoutTab.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.txtGiamGia)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtPhiDichVu)).EndInit();
 			this.toolStrip2.ResumeLayout(false);
 			this.toolStrip2.PerformLayout();
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
 			this.btnTableMouseRight.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.txtPhiDichVu)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.txtGiamGia)).EndInit();
 			this.btnTableMouseRight2.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -1291,7 +1281,7 @@
 		private System.Windows.Forms.ColumnHeader columnHeader7;
 		private System.Windows.Forms.ColumnHeader columnHeader8;
 		private System.Windows.Forms.ContextMenuStrip btnTableMouseRight;
-		private System.Windows.Forms.ToolStripMenuItem chuyểnBànToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem tsBtnChuyenBan;
 		private System.Windows.Forms.ToolStripMenuItem gộpBànToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem ctBtnDeleteTable;
 		private System.Windows.Forms.NumericUpDown txtGiamGia;
@@ -1303,6 +1293,5 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-		private System.Windows.Forms.ToolStripComboBox cbbListBanTrong;
 	}
 }

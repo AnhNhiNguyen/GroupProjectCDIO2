@@ -102,3 +102,6 @@ FROM PDT_BILLINFO
 WHERE idBill=123
 PRINT @BB
 --------------------------
+EXEC USP_CHUYENBAN 3,1
+------
+SELECT * FROM PDT_TABLE WHERE tableStatus=-1
