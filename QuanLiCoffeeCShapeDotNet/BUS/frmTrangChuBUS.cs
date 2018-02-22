@@ -31,6 +31,7 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 
 		public void loadTreeViewFood(TreeView twFood)
 		{
+			twFood.Nodes.Clear();
 			List<CategoryFood> listCFood = CategoryFoodDAO.Instances.loadCategory();
 			//twFood.Nodes.Add("Tất cả");
 			for (int i = 0; i < listCFood.Count; i++)
@@ -43,13 +44,13 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				//{
 				//	twFood.Nodes[i].Nodes.Add(listFood[j].FoodName);
 				//}
-
-
 			}
 		}
 
-		public void loadKhuVuc(TabControl tabControlKhuVuc,EventHandler btnClick)
+		public void loadKhuVucAndTableFromDatabase(TabControl tabControlKhuVuc)
 		{
+			tabControlKhuVuc.Controls.Clear();
+
 			List<KhuVuc> list = KhuVucDAO.Instances.loadKhuVuc();
 			for (int i = 0; i < list.Count; i++)
 			{
@@ -59,62 +60,148 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				};
 				tab.UseVisualStyleBackColor = true;
 				tab.Text = list[i].KhuVucName;
+				tab.Name = list[i].IdKhuVuc.ToString();
 
-				//Add ban vao tab
-				List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(list[i].IdKhuVuc);
-				Button btnBegin = new Button
-				{
-					Width = 0,
-					Height = 0,
-					Location = new Point(0, 0)
-				};
-				for (int j = 0; j < listTable.Count; j++)
-				{
-					Button btn = new Button
-					{
-						//Text = listTable[j].TableName + Environment.NewLine +
-						//listTable[j].TableStatus,
-						Text = listTable[j].TableName,
-						Tag = listTable[j].IdTable,
-						Width = 128,
-						Height = 150,
-
-						TextAlign = ContentAlignment.BottomCenter,
-						ImageAlign = ContentAlignment.TopCenter,
-						TextImageRelation = TextImageRelation.Overlay,
-
-						Location = new Point(btnBegin.Location.X + btnBegin.Width,
-						btnBegin.Location.Y),
-
-
-					};
-					btn.Click += btnClick;
-					switch (listTable[j].TableStatus)
-					{
-						case 1:
-							{
-								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
-								break;
-							}
-						default:
-							{
-								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
-								break;
-							}
-					}
-
-					tab.Controls.Add(btn);
-
-					btnBegin = btn;
-					if (j % 3 == 0 && j != 0)
-					{
-						btnBegin.Location = new Point(0, btnBegin.Location.Y + btnBegin.Height);
-
-					}
-
-
-				}
+				//showTableByidKhuVucc(tab, list[i].IdKhuVuc);
 				tabControlKhuVuc.Controls.Add(tab);
+				loadTableFromDatabase(tabControlKhuVuc, list[i].IdKhuVuc);
+			}
+		}
+
+		public void loadTableFromDatabase(TabControl tabControl,int idKhuVuc)
+		{
+			tabControl.TabPages[idKhuVuc.ToString()].Controls.Clear();
+
+			//Add ban vao tab
+			List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(idKhuVuc);
+			Button btnBegin = new Button
+			{
+				Width = 0,
+				Height = 0,
+				Location = new Point(0, 0)
+			};
+			for (int j = 0; j < listTable.Count; j++)
+			{
+				Button btn = new Button
+				{
+					//Text = listTable[j].TableName + Environment.NewLine +
+					//listTable[j].TableStatus,
+					Text = listTable[j].TableName,
+					Name = listTable[j].IdTable.ToString(),
+					//Tag = listTable[j].IdTable,
+					Width = 128,
+					Height = 150,
+
+					TextAlign = ContentAlignment.BottomCenter,
+					ImageAlign = ContentAlignment.TopCenter,
+					TextImageRelation = TextImageRelation.Overlay,
+
+					Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
+					btnBegin.Location.Y),
+				};
+				btn.Cursor = Cursors.Hand;
+				btn.FlatStyle = FlatStyle.Popup;
+				btn.ImageAlign = ContentAlignment.BottomCenter;
+				btn.Click += btnClick;
+				btn.MouseDown += btnClick;
+
+				switch (listTable[j].TableStatus)
+				{
+					case 1:
+						{
+							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
+							//btn.ContextMenuStrip = btnTableMouseRight;
+							break;
+						}
+					default:
+						{
+							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
+							//btn.ContextMenuStrip = btnTableMouseRight2;
+							break;
+						}
+				}
+
+				tabControl.TabPages[idKhuVuc.ToString()].Controls.Add(btn);
+
+				btnBegin = btn;
+				if (j % 3 == 0 && j != 0)
+				{
+					btnBegin.Location = new Point(5, btnBegin.Location.Y + btnBegin.Height + 5);
+				}
+			}
+		}
+
+		private void btnClick(object sender, EventArgs e)
+		{
+			Button btn = sender as Button;
+
+			//showInfoTable(btn);
+			//showInfoBillofTable(btn);
+			//showCost(btn);
+		}
+
+		/// <summary>
+		/// Hàm chưa được tối ưu
+		/// </summary>
+		/// <param name="tab"></param>
+		/// <param name="idKhuVuc"></param>
+		private void showTableByidKhuVucc(TabPage tab, int idKhuVuc)
+		{
+			//Add ban vao tab
+			List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(idKhuVuc);
+			Button btnBegin = new Button
+			{
+				Width = 0,
+				Height = 0,
+				Location = new Point(0, 0)
+			};
+			for (int j = 0; j < listTable.Count; j++)
+			{
+				Button btn = new Button
+				{
+					//Text = listTable[j].TableName + Environment.NewLine +
+					//listTable[j].TableStatus,
+					Text = listTable[j].TableName,
+					Tag = listTable[j].IdTable,
+					Width = 128,
+					Height = 150,
+
+					TextAlign = ContentAlignment.BottomCenter,
+					ImageAlign = ContentAlignment.TopCenter,
+					TextImageRelation = TextImageRelation.Overlay,
+
+					Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
+					btnBegin.Location.Y),
+				};
+				btn.Cursor = Cursors.Hand;
+				btn.FlatStyle = FlatStyle.Popup;
+				btn.ImageAlign = ContentAlignment.BottomCenter;
+				btn.Click += btnClick;
+				btn.MouseDown += btnClick;
+
+				//switch (listTable[j].TableStatus)
+				//{
+				//	case 1:
+				//		{
+				//			btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
+				//			btn.ContextMenuStrip = btnTableMouseRight;
+				//			break;
+				//		}
+				//	default:
+				//		{
+				//			btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
+				//			btn.ContextMenuStrip = btnTableMouseRight2;
+				//			break;
+				//		}
+				//}
+
+				tab.Controls.Add(btn);
+
+				btnBegin = btn;
+				if (j % 3 == 0 && j != 0)
+				{
+					btnBegin.Location = new Point(5, btnBegin.Location.Y + btnBegin.Height + 5);
+				}
 			}
 		}
 
@@ -177,14 +264,6 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				totalCost = totalCost + listBill[i].BillInfoCount * food.Gia;
 			}
 			return totalCost;
-		}
-
-		public void loadTableTrong(ToolStripComboBox cbb)
-		{
-			DataTable data = TableDAO.Instances.loadTableTrongToCbb();
-			cbb.ComboBox.DataSource = data;
-			cbb.ComboBox.DisplayMember = data.Columns[1].ToString();
-			cbb.ComboBox.ValueMember = data.Columns[0].ToString();
 		}
 
 		public void insertFoodToBIllInfo(int idFood,int idBill)

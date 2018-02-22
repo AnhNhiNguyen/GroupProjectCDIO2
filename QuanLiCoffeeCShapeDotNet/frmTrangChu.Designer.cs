@@ -1021,7 +1021,6 @@
 			this.lvFood.TabIndex = 85;
 			this.lvFood.UseCompatibleStateImageBehavior = false;
 			this.lvFood.View = System.Windows.Forms.View.Details;
-			this.lvFood.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
 			this.lvFood.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFood_MouseDoubleClick);
 			// 
 			// columnHeader1
@@ -1077,31 +1076,31 @@
             this.gộpBànToolStripMenuItem,
             this.ctBtnDeleteTable});
 			this.btnTableMouseRight.Name = "btnTableMouseRight";
-			this.btnTableMouseRight.Size = new System.Drawing.Size(153, 114);
+			this.btnTableMouseRight.Size = new System.Drawing.Size(139, 92);
 			// 
 			// ctBtnMoban
 			// 
 			this.ctBtnMoban.Enabled = false;
 			this.ctBtnMoban.Name = "ctBtnMoban";
-			this.ctBtnMoban.Size = new System.Drawing.Size(152, 22);
+			this.ctBtnMoban.Size = new System.Drawing.Size(138, 22);
 			this.ctBtnMoban.Text = "Mở bàn";
 			// 
 			// tsBtnChuyenBan
 			// 
 			this.tsBtnChuyenBan.Name = "tsBtnChuyenBan";
-			this.tsBtnChuyenBan.Size = new System.Drawing.Size(152, 22);
+			this.tsBtnChuyenBan.Size = new System.Drawing.Size(138, 22);
 			this.tsBtnChuyenBan.Text = "Chuyển bàn";
 			// 
 			// gộpBànToolStripMenuItem
 			// 
 			this.gộpBànToolStripMenuItem.Name = "gộpBànToolStripMenuItem";
-			this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
 			this.gộpBànToolStripMenuItem.Text = "Gộp bàn";
 			// 
 			// ctBtnDeleteTable
 			// 
 			this.ctBtnDeleteTable.Name = "ctBtnDeleteTable";
-			this.ctBtnDeleteTable.Size = new System.Drawing.Size(152, 22);
+			this.ctBtnDeleteTable.Size = new System.Drawing.Size(138, 22);
 			this.ctBtnDeleteTable.Text = "Đóng bàn";
 			this.ctBtnDeleteTable.Click += new System.EventHandler(this.contextBtnDeleteTable_Click);
 			// 

@@ -105,3 +105,11 @@ PRINT @BB
 EXEC USP_CHUYENBAN 3,1
 ------
 SELECT * FROM PDT_TABLE WHERE tableStatus=-1
+-------------
+DECLARE @I INT= 1
+WHILE(@I<100)
+BEGIN
+	INSERT INTO PDT_TABLE(tableName,tableStatus,idKhuVuc) VALUES ('Bàn '+CAST(@I AS nvarchar(10)),-1,3)
+	SET @I=@I+1
+END
+GO

@@ -83,29 +83,14 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void loadData()
 		{
 			showKhuVuc();
-			//loadTreeViewFood();
-			//loadListViewByIdCategoryFood();
-
-			//frmTrangChuBUS.Instances.loadKhuVuc(ref tabControlKhuVuc);
+						
 			loadTreeView();
 			frmTrangChuBUS.Instances.loadComboboxTable(cbbTableName);
-			loadCBBListBanTrong();
-		}
-
-		private void loadCBBListBanTrong()
-		{
-			//frmTrangChuBUS.Instances.loadTableTrong(cbbListBanTrong);
 		}
 
 		private void loadTreeView()
-		{
-			twFood.Nodes.Clear();
+		{			
 			frmTrangChuBUS.Instances.loadTreeViewFood(twFood);
-		}
-
-		private void showTableTrong()
-		{
-			//
 		}
 
 		private void refreshKhuVuc()
@@ -114,165 +99,28 @@ namespace QuanLiCoffeeCShapeDotNet
 		}
 
 		private void showKhuVuc()
-		{			
-			tabControlKhuVuc.Controls.Clear();
-
-			List<KhuVuc> list = KhuVucDAO.Instances.loadKhuVuc();
-			for (int i = 0; i < list.Count; i++)
-			{
-				TabPage tab = new TabPage
-				{
-					AutoScroll = true,
-				};
-				tab.UseVisualStyleBackColor = true;
-				tab.Text = list[i].KhuVucName;
-				tab.Name =list[i].IdKhuVuc.ToString();
-
-				//showTableByidKhuVucc(tab, list[i].IdKhuVuc);
-				tabControlKhuVuc.Controls.Add(tab);
-				showTableByidKhuVuc(tabControlKhuVuc,list[i].IdKhuVuc);
-			}
+		{
+			frmTrangChuBUS.Instances.loadKhuVucAndTableFromDatabase(tabControlKhuVuc);
 		}
 
 		private void showTableByidKhuVuc(TabControl tabControl,int idKhuVuc)
 		{
-			tabControl.TabPages[idKhuVuc.ToString()].Controls.Clear();
-
-			//Add ban vao tab
-			List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(idKhuVuc);
-			Button btnBegin = new Button
-			{
-				Width = 0,
-				Height = 0,
-				Location = new Point(0, 0)
-			};
-			for (int j = 0; j < listTable.Count; j++)
-			{
-				Button btn = new Button
-				{
-					//Text = listTable[j].TableName + Environment.NewLine +
-					//listTable[j].TableStatus,
-					Text = listTable[j].TableName,
-					Tag = listTable[j].IdTable,
-					Width = 128,
-					Height = 150,
-
-					TextAlign = ContentAlignment.BottomCenter,
-					ImageAlign = ContentAlignment.TopCenter,
-					TextImageRelation = TextImageRelation.Overlay,
-
-					Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
-					btnBegin.Location.Y),
-				};
-				btn.Cursor = Cursors.Hand;
-				btn.FlatStyle = FlatStyle.Popup;
-				btn.ImageAlign = ContentAlignment.BottomCenter;
-				btn.Click += btnClick;
-				btn.MouseDown += btnClick;
-
-				switch (listTable[j].TableStatus)
-				{
-					case 1:
-						{
-							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
-							btn.ContextMenuStrip = btnTableMouseRight;
-							break;
-						}
-					default:
-						{
-							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
-							btn.ContextMenuStrip = btnTableMouseRight2;
-							break;
-						}
-				}
-
-				tabControl.TabPages[idKhuVuc.ToString()].Controls.Add(btn);
-
-				btnBegin = btn;
-				if (j % 3 == 0 && j != 0)
-				{
-					btnBegin.Location = new Point(5, btnBegin.Location.Y + btnBegin.Height + 5);
-				}
-			}
+			frmTrangChuBUS.Instances.loadTableFromDatabase(tabControl,idKhuVuc);
 		}
 
-		/// <summary>
-		/// Hàm chưa được tối ưu
-		/// </summary>
-		/// <param name="tab"></param>
-		/// <param name="idKhuVuc"></param>
-		private void showTableByidKhuVucc(TabPage tab,int idKhuVuc)
-		{
-			//Add ban vao tab
-			List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(idKhuVuc);
-			Button btnBegin = new Button
-			{
-				Width = 0,
-				Height = 0,
-				Location = new Point(0, 0)
-			};
-			for (int j = 0; j < listTable.Count; j++)
-			{
-				Button btn = new Button
-				{
-					//Text = listTable[j].TableName + Environment.NewLine +
-					//listTable[j].TableStatus,
-					Text = listTable[j].TableName,
-					Tag = listTable[j].IdTable,
-					Width = 128,
-					Height = 150,
-
-					TextAlign = ContentAlignment.BottomCenter,
-					ImageAlign = ContentAlignment.TopCenter,
-					TextImageRelation = TextImageRelation.Overlay,
-
-					Location = new Point(btnBegin.Location.X + btnBegin.Width + 5,
-					btnBegin.Location.Y),
-				};
-				btn.Cursor = Cursors.Hand;
-				btn.FlatStyle = FlatStyle.Popup;
-				btn.ImageAlign = ContentAlignment.BottomCenter;
-				btn.Click += btnClick;
-				btn.MouseDown += btnClick;
-
-				switch (listTable[j].TableStatus)
-				{
-					case 1:
-						{
-							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
-							btn.ContextMenuStrip = btnTableMouseRight;
-							break;
-						}
-					default:
-						{
-							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
-							btn.ContextMenuStrip = btnTableMouseRight2;
-							break;
-						}
-				}
-
-				tab.Controls.Add(btn);
-
-				btnBegin = btn;
-				if (j % 3 == 0 && j != 0)
-				{
-					btnBegin.Location = new Point(5, btnBegin.Location.Y + btnBegin.Height + 5);
-				}
-			}
-		}
 
 		private void btnClick(object sender, EventArgs e)
 		{
 			Button btn = sender as Button;
 
-			setInfoTable(btn);
-			setInfoBillofTable(btn);
-			setCost(btn);
+			showInfoTable(btn);
+			showInfoBillofTable(btn);
+			showCost(btn);
 		}
 
-		private void setCost(Button btn)
+		private void showCost(Button btn)
 		{
-			Bill bill = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
+			Bill bill = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Name.ToString()));
 			if (bill == null)//Trường hợp bàn này không có bill
 			{
 				txtTienHang.Text = 0.ToString();
@@ -293,15 +141,15 @@ namespace QuanLiCoffeeCShapeDotNet
 				* Convert.ToDouble(txtGiamGia.Value.ToString()) / 100);
 		}
 
-		private void setInfoTable(Button btn)
+		private void showInfoTable(Button btn)
 		{
-			cbbTableName.SelectedValue = Convert.ToInt32(btn.Tag.ToString());
-			idTableClicked = Convert.ToInt32(btn.Tag.ToString());
+			cbbTableName.SelectedValue = Convert.ToInt32(btn.Name.ToString());
+			idTableClicked = Convert.ToInt32(btn.Name.ToString());
 		}
 
-		private void setInfoBillofTable(Button btn)
+		private void showInfoBillofTable(Button btn)
 		{
-			Bill bill = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Tag.ToString()));
+			Bill bill = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Name.ToString()));
 			if (bill==null)//Trường hợp bàn này không có bill
 			{
 				lvBillInfo.Items.Clear();
@@ -314,28 +162,13 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void twFood_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
-			//MessageBox.Show(twFood.Nodes[].ToString());
-			//MessageBox.Show(e.ToString());
-			//MessageBox.Show(e.Node.Tag.ToString());
 			if (e.Node.Tag == null)
 				return;
-
-			//DataTable data = FoodDAO.Instances.treeViewClickByIdCategoryFood((int)e.Node.Tag);
-			//dgvListFood.DataSource = data;
-
-			//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
 			frmTrangChuBUS.Instances.loadListViewByIdCategoryFood((int)e.Node.Tag,lvFood);
-		}
-
-		private void listView1_MouseClick(object sender, MouseEventArgs e)
-		{
-			//MessageBox.Show(listView1.SelectedIndices[0].ToString());
-			//MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
 		}
 
 		private void lvFood_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
-			//MessageBox.Show(lvFood.SelectedItems[0].Tag.ToString());
 			if (lvFood.SelectedItems.Count == 0)
 			{
 				MessageBox.Show("Vui lòng chọn một món cần thêm","Cảnh báo");
@@ -343,10 +176,10 @@ namespace QuanLiCoffeeCShapeDotNet
 			}
 			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
 				BillDAO.Instances.getIdBillByIdTable(idTableClicked));
-			//loadData();
-			//selectTableByidTable(idTableClicked).Select();
 			MessageBox.Show(idTableClicked.ToString());
 		}
+
+		
 
 		private void btnOpenTable_Click(object sender, EventArgs e)
 		{
