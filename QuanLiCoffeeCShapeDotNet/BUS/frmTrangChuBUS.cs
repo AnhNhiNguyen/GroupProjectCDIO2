@@ -29,21 +29,43 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			}
 		}
 
+		public Button BtnClicked
+		{
+			get
+			{
+				return btnClicked;
+			}
+
+			set
+			{
+				btnClicked = value;
+			}
+		}
+
+		private event EventHandler tableClick;
+		public event EventHandler TableClick
+		{
+			add
+			{
+				tableClick += value;
+			}
+			remove
+			{
+				tableClick -= value;
+			}
+		}
+
+		private Button btnClicked;
+
 		public void loadTreeViewFood(TreeView twFood)
 		{
 			twFood.Nodes.Clear();
 			List<CategoryFood> listCFood = CategoryFoodDAO.Instances.loadCategory();
-			//twFood.Nodes.Add("Tất cả");
 			for (int i = 0; i < listCFood.Count; i++)
 			{
 				twFood.Nodes.Add(listCFood[i].CategoryName);
 				twFood.Nodes[i].Tag = listCFood[i].IdCategory;
 
-				//List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
-				//for (int j = 0; j <listFood.Count; j++)
-				//{
-				//	twFood.Nodes[i].Nodes.Add(listFood[j].FoodName);
-				//}
 			}
 		}
 
@@ -134,10 +156,11 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 		private void btnClick(object sender, EventArgs e)
 		{
 			Button btn = sender as Button;
+			btnClicked = sender as Button;
+			//Truyền dữ liệu vào event trên form kế
+			if (tableClick != null)
+				tableClick(sender,e);
 
-			//showInfoTable(btn);
-			//showInfoBillofTable(btn);
-			//showCost(btn);
 		}
 
 		/// <summary>

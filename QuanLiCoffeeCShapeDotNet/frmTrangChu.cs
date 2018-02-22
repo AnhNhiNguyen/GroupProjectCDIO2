@@ -76,14 +76,14 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void frmTrangChu_Load(object sender, EventArgs e)
 		{
-			loadData();
+			connectData();
 			
 		}
 
-		private void loadData()
+		private void connectData()
 		{
-			showKhuVuc();
-						
+			frmTrangChuBUS.Instances.TableClick += tableClick;
+			showKhuVuc();					
 			loadTreeView();
 			frmTrangChuBUS.Instances.loadComboboxTable(cbbTableName);
 		}
@@ -108,11 +108,10 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmTrangChuBUS.Instances.loadTableFromDatabase(tabControl,idKhuVuc);
 		}
 
-
-		private void btnClick(object sender, EventArgs e)
+		private void tableClick(object sender, EventArgs e)
 		{
 			Button btn = sender as Button;
-
+			
 			showInfoTable(btn);
 			showInfoBillofTable(btn);
 			showCost(btn);
@@ -221,9 +220,11 @@ namespace QuanLiCoffeeCShapeDotNet
 			}
 		}
 
+
 		private void btnThongKe_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Click roi");
+			//MessageBox.Show(frmTrangChuBUS.Instances.BtnClicked.Name);
+
 		}
 
 		private void txtPhiDichVu_ValueChanged(object sender, EventArgs e)
