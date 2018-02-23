@@ -77,12 +77,14 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void frmTrangChu_Load(object sender, EventArgs e)
 		{
 			connectData();
-			
 		}
 
 		private void connectData()
 		{
 			frmTrangChuBUS.Instances.TableClick += tableClick;
+			frmTrangChuBUS.Instances.BtnTableMouseRight = btnTableMouseRight;
+			frmTrangChuBUS.Instances.BtnTableMouseRight2 = btnTableMouseRight2;
+
 			showKhuVuc();					
 			loadTreeView();
 			frmTrangChuBUS.Instances.loadComboboxTable(cbbTableName);
@@ -168,17 +170,17 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void lvFood_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
+			Button btn = frmTrangChuBUS.Instances.BtnClicked;
+
 			if (lvFood.SelectedItems.Count == 0)
 			{
 				MessageBox.Show("Vui lòng chọn một món cần thêm","Cảnh báo");
 				return;
 			}
 			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
-				BillDAO.Instances.getIdBillByIdTable(idTableClicked));
-			MessageBox.Show(idTableClicked.ToString());
+				BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16(btn.Name.ToString())));
+			showInfoBillofTable(btn);
 		}
-
-		
 
 		private void btnOpenTable_Click(object sender, EventArgs e)
 		{
@@ -188,7 +190,6 @@ namespace QuanLiCoffeeCShapeDotNet
 			//showKhuVuc();//Hiển thị không đẹp mắt khi dùng hàm này vì phải load cả khu vực và table
 			showTableByidKhuVuc(tabControlKhuVuc,TableDAO.Instances.getIdKhuVucByIdTable(idTable));//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
 			
-
 			//dateTimePicker1.Select();dateTimePicker1.Focus();
 		}
 
@@ -220,11 +221,10 @@ namespace QuanLiCoffeeCShapeDotNet
 			}
 		}
 
-
 		private void btnThongKe_Click(object sender, EventArgs e)
 		{
 			//MessageBox.Show(frmTrangChuBUS.Instances.BtnClicked.Name);
-
+			
 		}
 
 		private void txtPhiDichVu_ValueChanged(object sender, EventArgs e)
@@ -237,9 +237,19 @@ namespace QuanLiCoffeeCShapeDotNet
 			txtTongTien.Text = cacluterCost().ToString();
 		}
 
-		private void btnChuyenBan_Click(object sender, EventArgs e)
+		private void btnGopBan_Click(object sender, EventArgs e)
 		{
 			
+		}
+
+		private void showTableEmpty()
+		{
+			
+		}
+
+		private void txtSearchFood_TextChanged(object sender, EventArgs e)
+		{
+			frmTrangChuBUS.Instances.showFoodSearch(txtSearchFood.Text.ToString(),lvFood);
 		}
 	}
 }

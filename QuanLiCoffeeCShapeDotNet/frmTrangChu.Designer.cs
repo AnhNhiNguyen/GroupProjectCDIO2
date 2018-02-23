@@ -88,7 +88,6 @@
 			this.pnLayoutTab = new System.Windows.Forms.FlowLayoutPanel();
 			this.tabControlKhuVuc = new System.Windows.Forms.TabControl();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.label7 = new System.Windows.Forms.Label();
 			this.txtGiamGia = new System.Windows.Forms.NumericUpDown();
 			this.txtPhiDichVu = new System.Windows.Forms.NumericUpDown();
 			this.lvBillInfo = new System.Windows.Forms.ListView();
@@ -103,7 +102,7 @@
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.btnChuyenBan = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.btnGopBan = new System.Windows.Forms.Button();
 			this.txtTienHang = new System.Windows.Forms.TextBox();
 			this.txtTongTien = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
@@ -601,7 +600,6 @@
 			// panel1
 			// 
 			this.panel1.AutoSize = true;
-			this.panel1.Controls.Add(this.label7);
 			this.panel1.Controls.Add(this.txtGiamGia);
 			this.panel1.Controls.Add(this.txtPhiDichVu);
 			this.panel1.Controls.Add(this.lvBillInfo);
@@ -611,7 +609,7 @@
 			this.panel1.Controls.Add(this.button5);
 			this.panel1.Controls.Add(this.button4);
 			this.panel1.Controls.Add(this.btnChuyenBan);
-			this.panel1.Controls.Add(this.button2);
+			this.panel1.Controls.Add(this.btnGopBan);
 			this.panel1.Controls.Add(this.txtTienHang);
 			this.panel1.Controls.Add(this.txtTongTien);
 			this.panel1.Controls.Add(this.label6);
@@ -631,16 +629,6 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(660, 515);
 			this.panel1.TabIndex = 84;
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(321, 456);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(24, 20);
-			this.label7.TabIndex = 120;
-			this.label7.Text = "%";
 			// 
 			// txtGiamGia
 			// 
@@ -796,22 +784,22 @@
 			this.btnChuyenBan.Text = "Chuyển bàn";
 			this.btnChuyenBan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.btnChuyenBan.UseVisualStyleBackColor = false;
-			this.btnChuyenBan.Click += new System.EventHandler(this.btnChuyenBan_Click);
 			// 
-			// button2
+			// btnGopBan
 			// 
-			this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-			this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button2.Location = new System.Drawing.Point(350, 16);
-			this.button2.Margin = new System.Windows.Forms.Padding(2);
-			this.button2.Name = "button2";
-			this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.button2.Size = new System.Drawing.Size(68, 63);
-			this.button2.TabIndex = 110;
-			this.button2.Text = "Gộp Bàn";
-			this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.button2.UseVisualStyleBackColor = false;
+			this.btnGopBan.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnGopBan.Image = ((System.Drawing.Image)(resources.GetObject("btnGopBan.Image")));
+			this.btnGopBan.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.btnGopBan.Location = new System.Drawing.Point(350, 16);
+			this.btnGopBan.Margin = new System.Windows.Forms.Padding(2);
+			this.btnGopBan.Name = "btnGopBan";
+			this.btnGopBan.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.btnGopBan.Size = new System.Drawing.Size(68, 63);
+			this.btnGopBan.TabIndex = 110;
+			this.btnGopBan.Text = "Gộp Bàn";
+			this.btnGopBan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.btnGopBan.UseVisualStyleBackColor = false;
+			this.btnGopBan.Click += new System.EventHandler(this.btnGopBan_Click);
 			// 
 			// txtTienHang
 			// 
@@ -1067,6 +1055,7 @@
 			this.txtSearchFood.Name = "txtSearchFood";
 			this.txtSearchFood.Size = new System.Drawing.Size(171, 21);
 			this.txtSearchFood.TabIndex = 82;
+			this.txtSearchFood.TextChanged += new System.EventHandler(this.txtSearchFood_TextChanged);
 			// 
 			// btnTableMouseRight
 			// 
@@ -1267,7 +1256,7 @@
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Button btnChuyenBan;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btnGopBan;
 		private System.Windows.Forms.TabControl tabControlKhuVuc;
 		private System.Windows.Forms.ListView lvFood;
 		private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -1285,7 +1274,6 @@
 		private System.Windows.Forms.ToolStripMenuItem ctBtnDeleteTable;
 		private System.Windows.Forms.NumericUpDown txtGiamGia;
 		private System.Windows.Forms.NumericUpDown txtPhiDichVu;
-		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.ToolStripMenuItem ctBtnMoban;
 		private System.Windows.Forms.ContextMenuStrip btnTableMouseRight2;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;

@@ -29,6 +29,11 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			}
 		}
 
+		private ContextMenuStrip btnTableMouseRight;
+
+		private ContextMenuStrip btnTableMouseRight2;
+
+
 		public Button BtnClicked
 		{
 			get
@@ -39,6 +44,32 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			set
 			{
 				btnClicked = value;
+			}
+		}
+
+		public ContextMenuStrip BtnTableMouseRight
+		{
+			get
+			{
+				return btnTableMouseRight;
+			}
+
+			set
+			{
+				btnTableMouseRight = value;
+			}
+		}
+
+		public ContextMenuStrip BtnTableMouseRight2
+		{
+			get
+			{
+				return btnTableMouseRight2;
+			}
+
+			set
+			{
+				btnTableMouseRight2 = value;
 			}
 		}
 
@@ -132,13 +163,13 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 					case 1:
 						{
 							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
-							//btn.ContextMenuStrip = btnTableMouseRight;
+							btn.ContextMenuStrip = BtnTableMouseRight;
 							break;
 						}
 					default:
 						{
 							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
-							//btn.ContextMenuStrip = btnTableMouseRight2;
+							btn.ContextMenuStrip = BtnTableMouseRight2;
 							break;
 						}
 				}
@@ -307,6 +338,22 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 		public void deleteBillInfoByBillInfo(int idBillInfo)
 		{
 			BillInfoDAO.Instances.deleteBillinfoByidBillInfo(idBillInfo);
+		}
+
+		public void showFoodSearch(string name,ListView viewFood)
+		{
+			viewFood.Items.Clear();
+
+			List<Food> listFood = FoodDAO.Instances.loadFoodByNameFood(name);
+			for (int i = 0; i < listFood.Count; i++)
+			{
+				ListViewItem lv = new ListViewItem(listFood[i].FoodName);
+				lv.SubItems.Add(listFood[i].DonViTinh);
+				lv.SubItems.Add(listFood[i].Gia.ToString());
+
+				lv.Tag = listFood[i].IdFood.ToString();
+				viewFood.Items.Add(lv);
+			}
 		}
 	}
 }
