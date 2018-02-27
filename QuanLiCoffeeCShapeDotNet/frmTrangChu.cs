@@ -158,5 +158,10 @@ namespace QuanLiCoffeeCShapeDotNet
 				}
 			}
 		}
-	}
+
+        private void tabControlKhuVuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
