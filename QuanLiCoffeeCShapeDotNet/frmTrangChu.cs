@@ -251,5 +251,10 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			frmTrangChuBUS.Instances.showFoodSearch(txtSearchFood.Text.ToString(),lvFood);
 		}
-	}
+
+        private void lvBillInfo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

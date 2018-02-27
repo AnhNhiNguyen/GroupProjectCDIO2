@@ -60,9 +60,11 @@
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
     <Compile Include="BUS\frmTrangChuBUS.cs" />
+    <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
     <Compile Include="DAO\CategoryFoodDAO.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\KhuVucDAO.cs" />
     <Compile Include="DAO\Sqlcommands.cs" />
@@ -84,6 +86,12 @@
     </Compile>
     <Compile Include="frmDoanhThu.Designer.cs">
       <DependentUpon>frmDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLuongNV.cs">
       <SubType>Form</SubType>
@@ -143,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoanhThu.resx">
       <DependentUpon>frmDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLuongNV.resx">
       <DependentUpon>frmLuongNV.cs</DependentUpon>
@@ -231,6 +242,7 @@
     <Content Include="Resources\coffe.png" />
     <Content Include="Resources\coffeNull.png" />
     <Content Include="Resources\if_Coffee_132088.png" />
+    <None Include="Resources\TZcL7Cc1.gif" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

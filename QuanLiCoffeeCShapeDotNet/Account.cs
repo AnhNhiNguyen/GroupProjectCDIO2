@@ -20,7 +20,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text.Equals("Username") || txtPassword.Text.Equals("Password"))
+            if (txtUsername.Text.Equals("useName") || txtPassword.Text.Equals("passWord"))
             {
                 MessageBox.Show( "Do not enter account or password!");
             }
@@ -31,7 +31,7 @@ namespace QuanLiCoffeeCShapeDotNet
                     if (AccountDAO.Instance.Login(txtUsername.Text, txtPassword.Text) == true)
                     {
                         this.Hide();
-                        Loading loading = new Loading();
+                        frmLoading loading = new frmLoading();
                         loading.Show();
                     }
                     else MessageBox.Show( "Username or Password no value!");
@@ -55,6 +55,11 @@ namespace QuanLiCoffeeCShapeDotNet
         }
 
         private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
