@@ -37,7 +37,6 @@ namespace QuanLiCoffeeCShapeDotNet.DTO
         public Sqlcommands()
         {
             dataConnection.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_COFFEE_CS414BIS_PDT;Integrated Security=True";
-       
         }
         /// <summary>
         /// Procedure Open()

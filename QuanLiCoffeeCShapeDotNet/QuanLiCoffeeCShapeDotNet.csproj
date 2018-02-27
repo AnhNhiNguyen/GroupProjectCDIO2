@@ -59,9 +59,10 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAO\AcountDAO.cs" />
+    <Compile Include="BUS\frmTrangChuBUS.cs" />
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\BillInfoDAO.cs" />
     <Compile Include="DAO\CategoryFoodDAO.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\KhuVucDAO.cs" />
     <Compile Include="DAO\Sqlcommands.cs" />
@@ -132,12 +133,6 @@
     <Compile Include="frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loading.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Loading.Designer.cs">
-      <DependentUpon>Loading.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Account.resx">
@@ -172,9 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Loading.resx">
-      <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -238,8 +230,9 @@
   <ItemGroup>
     <Content Include="Resources\coffe.png" />
     <Content Include="Resources\coffeNull.png" />
-    <None Include="Resources\TZcL7Cc.gif" />
+    <Content Include="Resources\if_Coffee_132088.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

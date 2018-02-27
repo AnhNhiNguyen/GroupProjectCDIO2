@@ -38,6 +38,32 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			}
 
 			return list;
-		} 
+		}
+
+		public DataTable loadTableToCbb()
+		{
+			DataTable data;
+			data= Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE");
+			return data;
+		}
+
+		public DataTable loadTableTrongToCbb()
+		{
+			DataTable data;
+			data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE WHERE tableStatus=-1");
+			return data;
+		}
+
+		public int getIdKhuVucByIdTable(int idTable)
+		{
+			DataTable data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_TABLE WHERE idTable=" + idTable);
+
+			foreach (DataRow items in data.Rows)
+			{
+				Table table = new Table(items);
+				return table.IdKhuVuc;
+			}
+			return -1;
+		}
 	}
 }

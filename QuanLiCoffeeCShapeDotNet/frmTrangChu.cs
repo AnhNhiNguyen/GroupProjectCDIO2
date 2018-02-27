@@ -9,18 +9,35 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLiCoffeeCShapeDotNet.DAO;
 using QuanLiCoffeeCShapeDotNet.DTO;
+using QuanLiCoffeeCShapeDotNet.BUS;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
-    public partial class frmTrangChu : Form
-    {
+	public partial class frmTrangChu : Form
+	{
+		private int idTableClicked=-1;
+		private string useName="Chưa đăng nhập";
+		private string dataBaseName="Chưa kết nối";
+
+		private double tienHang=0;
+		private double tongTien=0;
 
 		Form frmMatHang;
 		Form frmThanhToan;
-        public frmTrangChu()
-        {
-            InitializeComponent();
-        }
+
+		public frmTrangChu()
+		{
+			InitializeComponent();
+			infoSoftware();
+		}
+
+		private void infoSoftware()
+		{
+			dataBaseName = Sqlcommands.Instances.getConnection().Database.ToString();
+			tLbCSDL.Text = "Csdl: " + dataBaseName;
+			tLbUse.Text = "Tài khoản:  " + useName;
+			//MessageBox.Show(Sqlcommands.Instances.getConnection().Database.ToString());
+		}
 
 		public Boolean CheckForm(string frm)
 		{
@@ -36,9 +53,9 @@ namespace QuanLiCoffeeCShapeDotNet
 		}
 
 		private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+		{
 
-        }
+		}
 
 		private void tbtnQLBanHang_Click(object sender, EventArgs e)
 		{
@@ -59,109 +76,180 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void frmTrangChu_Load(object sender, EventArgs e)
 		{
-			loadKhuVuc();
-			loadTreeViewFood();
+			connectData();
 		}
 
-		private void loadKhuVuc()
+		private void connectData()
 		{
-			List<KhuVuc> list = KhuVucDAO.Instances.loadKhuVuc();
-			for (int i = 0; i < list.Count; i++)
-			{
-				TabPage tab = new TabPage
-				{
-					AutoScroll = true,
-				};
-				tab.UseVisualStyleBackColor = true;
-				tab.Text = list[i].KhuVucName;
+			frmTrangChuBUS.Instances.TableClick += tableClick;
+			frmTrangChuBUS.Instances.BtnTableMouseRight = btnTableMouseRight;
+			frmTrangChuBUS.Instances.BtnTableMouseRight2 = btnTableMouseRight2;
 
-				//Add ban vao tab
-				List<Table> listTable = TableDAO.Instances.loadTableByIdKhuVuc(list[i].IdKhuVuc);
-				Button btnBegin = new Button
-				{
-					Width = 0,
-					Height = 0,
-					Location = new Point(0, 0)
-				};
-				for (int j = 0; j < listTable.Count; j++)
-				{
-					Button btn = new Button
-					{
-						//Text = listTable[j].TableName + Environment.NewLine +
-						//listTable[j].TableStatus,
-						Text = listTable[j].TableName,
-						Width = 128,
-						Height = 150,
-
-						TextAlign = ContentAlignment.BottomCenter,
-						ImageAlign = ContentAlignment.TopCenter,
-						TextImageRelation = TextImageRelation.Overlay,
-
-						Location = new Point(btnBegin.Location.X + btnBegin.Width,
-						btnBegin.Location.Y),
-						
-
-					};
-					btn.Click += btnClick;
-					switch (listTable[j].TableStatus)
-					{
-						case 1:
-							{
-								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
-								break;
-							}
-						default:
-							{
-								btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
-								break;
-							}
-					}
-
-					tab.Controls.Add(btn);
-
-					btnBegin = btn;
-					if (j % 3 == 0 && j != 0)
-					{
-						btnBegin.Location = new Point(0, btnBegin.Location.Y + btnBegin.Height);
-
-					}
-
-
-				}
-
-				tabControlKhuVuc.Controls.Add(tab);
-			}
+			showKhuVuc();					
+			loadTreeView();
+			frmTrangChuBUS.Instances.loadComboboxTable(cbbTableName);
 		}
 
-		private void btnClick(object sender, EventArgs e)
+		private void loadTreeView()
+		{			
+			frmTrangChuBUS.Instances.loadTreeViewFood(twFood);
+		}
+
+		private void refreshKhuVuc()
+		{
+			showKhuVuc();
+		}
+
+		private void showKhuVuc()
+		{
+			frmTrangChuBUS.Instances.loadKhuVucAndTableFromDatabase(tabControlKhuVuc);
+		}
+
+		private void showTableByidKhuVuc(TabControl tabControl,int idKhuVuc)
+		{
+			frmTrangChuBUS.Instances.loadTableFromDatabase(tabControl,idKhuVuc);
+		}
+
+		private void tableClick(object sender, EventArgs e)
 		{
 			Button btn = sender as Button;
-
-			MessageBox.Show(btn.Text);
+			
+			showInfoTable(btn);
+			showInfoBillofTable(btn);
+			showCost(btn);
 		}
 
-		public void loadTreeViewFood()
+		private void showCost(Button btn)
 		{
-			List<CategoryFood> listCFood = CategoryFoodDAO.Instances.loadCategory();
-			twFood.Nodes.Add("Tất cả");
-			for (int i = 0; i < listCFood.Count; i++)
+			Bill bill = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Name.ToString()));
+			if (bill == null)//Trường hợp bàn này không có bill
 			{
-				//twFood.Nodes.Add(listCFood[i].CategoryName);
-				twFood.Nodes[0].Nodes.Add(listCFood[i].CategoryName);
-				//twFood.Nodes[i].Tag = "1";
+				txtTienHang.Text = 0.ToString();
+				txtTongTien.Text = 0.ToString();
+				return;
+			}
+			tienHang = frmTrangChuBUS.Instances.getTotalCostBillByidBill(bill.IdBill);
+			txtGiamGia.Value = 0;
+			txtPhiDichVu.Value = 0;
+			txtTienHang.Text = tienHang.ToString();	
+			txtTongTien.Text = cacluterCost().ToString();
+		}
 
-				List<Food> listFood = FoodDAO.Instances.loadFoodByIdCategoryFood(listCFood[i].IdCategory);
+		private double cacluterCost()
+		{
+			return (tienHang + Convert.ToDouble(txtPhiDichVu.Value.ToString())) -
+				((tienHang + Convert.ToDouble(txtPhiDichVu.Value.ToString()))
+				* Convert.ToDouble(txtGiamGia.Value.ToString()) / 100);
+		}
 
-				for (int j = 0; j <listFood.Count; j++)
-				{
-					twFood.Nodes[0].Nodes[i].Nodes.Add(listFood[j].FoodName);
-				}
+		private void showInfoTable(Button btn)
+		{
+			cbbTableName.SelectedValue = Convert.ToInt32(btn.Name.ToString());
+			idTableClicked = Convert.ToInt32(btn.Name.ToString());
+		}
+
+		private void showInfoBillofTable(Button btn)
+		{
+			Bill bill = BillDAO.Instances.loadBillByIdTable(Convert.ToInt16(btn.Name.ToString()));
+			if (bill==null)//Trường hợp bàn này không có bill
+			{
+				lvBillInfo.Items.Clear();
+				txtTimeOpenTable.Clear();
+				return;
+			}
+			frmTrangChuBUS.Instances.loadLvBillInfoByIdBill(bill.IdBill, lvBillInfo);
+			txtTimeOpenTable.Text = bill.BillDataCheckIn.ToString();
+		}
+
+		private void twFood_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+		{
+			if (e.Node.Tag == null)
+				return;
+			frmTrangChuBUS.Instances.loadListViewByIdCategoryFood((int)e.Node.Tag,lvFood);
+		}
+
+		private void lvFood_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			Button btn = frmTrangChuBUS.Instances.BtnClicked;
+
+			if (lvFood.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("Vui lòng chọn một món cần thêm","Cảnh báo");
+				return;
+			}
+			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
+				BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16(btn.Name.ToString())));
+			showInfoBillofTable(btn);
+		}
+
+		private void btnOpenTable_Click(object sender, EventArgs e)
+		{
+			int idTable = -1;
+			idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
+			frmTrangChuBUS.Instances.insertBillToTableByIdTable(idTable);
+			//showKhuVuc();//Hiển thị không đẹp mắt khi dùng hàm này vì phải load cả khu vực và table
+			showTableByidKhuVuc(tabControlKhuVuc,TableDAO.Instances.getIdKhuVucByIdTable(idTable));//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
+			
+			//dateTimePicker1.Select();dateTimePicker1.Focus();
+		}
+
+		private void contextBtnDeleteTable_Click(object sender, EventArgs e)
+		{
+			if (MessageBox.Show("Bạn có muốn đóng bàn này ?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{			
+				int idTable = -1;
+				idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
+				frmTrangChuBUS.Instances.deleteBillByIdTable(idTable);
+				//loadData();//tương tự như hàm mở bàn
+				showTableByidKhuVuc(tabControlKhuVuc, TableDAO.Instances.getIdKhuVucByIdTable(idTable));//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
 			}
 		}
 
-        private void tabControlKhuVuc_SelectedIndexChanged(object sender, EventArgs e)
-        {
+		private void btnDeleteFood_Click(object sender, EventArgs e)
+		{
+			if (lvBillInfo.SelectedItems.Count==0)
+			{
+				MessageBox.Show("Vui lòng chọn một item trên hóa đơn ","Cảnh báo");
+				return;
+			}
 
-        }
-    }
+			if (MessageBox.Show("Bạn có muốn xóa món này ra khỏi hóa đơn ? ","Cảnh báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+			{
+				int idBillInfo = -1;				
+				idBillInfo= Convert.ToInt32(lvBillInfo.SelectedItems[0].Tag.ToString());				
+				frmTrangChuBUS.Instances.deleteBillInfoByBillInfo(idBillInfo); 				
+			}
+		}
+
+		private void btnThongKe_Click(object sender, EventArgs e)
+		{
+			//MessageBox.Show(frmTrangChuBUS.Instances.BtnClicked.Name);
+			
+		}
+
+		private void txtPhiDichVu_ValueChanged(object sender, EventArgs e)
+		{
+			txtTongTien.Text = cacluterCost().ToString();
+		}
+
+		private void txtGiamGia_ValueChanged(object sender, EventArgs e)
+		{
+			txtTongTien.Text = cacluterCost().ToString();
+		}
+
+		private void btnGopBan_Click(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void showTableEmpty()
+		{
+			
+		}
+
+		private void txtSearchFood_TextChanged(object sender, EventArgs e)
+		{
+			frmTrangChuBUS.Instances.showFoodSearch(txtSearchFood.Text.ToString(),lvFood);
+		}
+	}
 }

@@ -40,7 +40,5 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 
 			return listKhuVuc;
 		}
-
-		
 	}
 }

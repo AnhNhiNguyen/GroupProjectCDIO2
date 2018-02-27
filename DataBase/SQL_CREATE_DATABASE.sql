@@ -40,7 +40,7 @@ GO
 CREATE TABLE PDT_FOOD
 (
 	idFood INT IDENTITY PRIMARY KEY,
-	FoodName NVARCHAR(50) NOT NULL,
+	foodName NVARCHAR(50) NOT NULL,
 	donViTinh NVARCHAR(20) NOT NULL,
 	gia FLOAT NOT NULL,
 	describeFood NVARCHAR(MAX) DEFAULT N'ĐÂY LÀ MÔ TẢ OR GHI CHÚ',
@@ -63,7 +63,7 @@ CREATE TABLE PDT_TABLE
 (
 	idTable INT IDENTITY PRIMARY KEY,
 	tableName NVARCHAR(50) NOT NULL,
-	tableStatus INT NOT NULL DEFAULT -1,
+	tableStatus INT NOT NULL DEFAULT -1,-- -1 bàn trống, 1 bàn có người
 	describeTable NVARCHAR(MAX) DEFAULT 'ĐÂY LÀ MÔ TẢ OR GHI CHÚ',
 
 	idKhuVuc INT NOT NULL,
@@ -76,10 +76,10 @@ GO
 CREATE TABLE PDT_BILL
 (
 	idBill INT IDENTITY PRIMARY KEY,
-	billDataCheckIn DATE NOT NULL,
+	billDataCheckIn DATETIME NOT NULL,
 	billDateCheckOut DATE,
-	billNameAccount NVARCHAR DEFAULT 'NULL',	
-	status INT NOT NULL ,--1: da thanh toan, 0 chua thanh toan
+	billNameAccount NVARCHAR(50) DEFAULT 'NULL',	
+	billStatus INT NOT NULL DEFAULT -1,--1: da thanh toan, 0 chua thanh toan
 	billTotal FLOAT DEFAULT 0,
 
 	idTable INT NOT NULL,
@@ -91,12 +91,12 @@ GO
 CREATE TABLE PDT_BILLINFO
 (
 	idBillInfo INT IDENTITY PRIMARY KEY,
-	billInfoCount int NOT NULL DEFAULT 0,
+	billInfoCount INT NOT NULL DEFAULT 0,
 
 	idBill INT NOT NULL,
 	idFood INT NOT NULL,
 
 	FOREIGN KEY (idBill) REFERENCES PDT_Bill(idBill),
-	FOREIGN KEY (idFood) REFERENCES PDT_FOOD(idFood)	
+	FOREIGN KEY (idFood) REFERENCES PDT_FOOD(idFood) 
 )
 GO
