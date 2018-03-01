@@ -63,6 +63,11 @@ namespace QuanLiCoffeeCShapeDotNet
         {
 
         }
+
+        private void groupbox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

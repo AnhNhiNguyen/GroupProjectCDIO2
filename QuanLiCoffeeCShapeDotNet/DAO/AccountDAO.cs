@@ -23,13 +23,15 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
         private AccountDAO() {}
        public bool Login(string user, string pass)
         {
-            string query = "SELECT UserName,PassWord FROM dbo.PDT_ACCOUNT";
+            string query = "SELECT useName,passWork FROM dbo.PDT_ACCOUNT";
             DataTable dataTable = new DataTable();
             dataTable = DataProvider.Instance.ExecuteQuery(query);
             bool t = false;
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                if (dataTable.Rows[i][1].ToString() == user && dataTable.Rows[i][2].ToString() == pass)
+                //Console.WriteLine(dataTable.Rows[i][0].ToString().Trim());
+
+                if (dataTable.Rows[i][0].ToString().Trim() == user && dataTable.Rows[i][1].ToString().Trim() == pass)
                 {
                     t = true;
                     break;

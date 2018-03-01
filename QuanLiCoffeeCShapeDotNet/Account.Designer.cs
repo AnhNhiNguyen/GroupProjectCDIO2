@@ -118,6 +118,7 @@
             this.groupbox1.TabIndex = 6;
             this.groupbox1.TabStop = false;
             this.groupbox1.Text = "                Coffee House         ";
+            this.groupbox1.Enter += new System.EventHandler(this.groupbox1_Enter);
             // 
             // label3
             // 

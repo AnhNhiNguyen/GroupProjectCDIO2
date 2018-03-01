@@ -210,6 +210,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1429, 28);
             this.menuStrip1.TabIndex = 50;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // hệThốngToolStripMenuItem
             // 
@@ -584,7 +585,7 @@
             this.pnLayoutTab.Controls.Add(this.tabControlKhuVuc);
             this.pnLayoutTab.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnLayoutTab.Location = new System.Drawing.Point(0, 55);
-            this.pnLayoutTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnLayoutTab.Margin = new System.Windows.Forms.Padding(4);
             this.pnLayoutTab.Name = "pnLayoutTab";
             this.pnLayoutTab.Size = new System.Drawing.Size(549, 644);
             this.pnLayoutTab.TabIndex = 83;
@@ -628,7 +629,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(549, 55);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(880, 644);
             this.panel1.TabIndex = 84;
@@ -636,7 +637,7 @@
             // txtGiamGia
             // 
             this.txtGiamGia.Location = new System.Drawing.Point(284, 561);
-            this.txtGiamGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGiamGia.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiamGia.Name = "txtGiamGia";
             this.txtGiamGia.Size = new System.Drawing.Size(139, 22);
             this.txtGiamGia.TabIndex = 119;
@@ -645,7 +646,7 @@
             // txtPhiDichVu
             // 
             this.txtPhiDichVu.Location = new System.Drawing.Point(284, 529);
-            this.txtPhiDichVu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhiDichVu.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhiDichVu.Name = "txtPhiDichVu";
             this.txtPhiDichVu.Size = new System.Drawing.Size(176, 22);
             this.txtPhiDichVu.TabIndex = 118;
@@ -662,7 +663,7 @@
             this.lvBillInfo.FullRowSelect = true;
             this.lvBillInfo.GridLines = true;
             this.lvBillInfo.Location = new System.Drawing.Point(4, 101);
-            this.lvBillInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvBillInfo.Margin = new System.Windows.Forms.Padding(4);
             this.lvBillInfo.Name = "lvBillInfo";
             this.lvBillInfo.Size = new System.Drawing.Size(456, 390);
             this.lvBillInfo.TabIndex = 117;
@@ -992,7 +993,7 @@
             this.panel3.Controls.Add(this.txtSearchFood);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(1120, 55);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(309, 644);
             this.panel3.TabIndex = 86;
@@ -1006,7 +1007,7 @@
             this.lvFood.FullRowSelect = true;
             this.lvFood.GridLines = true;
             this.lvFood.Location = new System.Drawing.Point(3, 279);
-            this.lvFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvFood.Margin = new System.Windows.Forms.Padding(4);
             this.lvFood.Name = "lvFood";
             this.lvFood.Size = new System.Drawing.Size(301, 354);
             this.lvFood.TabIndex = 85;
