@@ -183,6 +183,7 @@
             this.Controls.Add(this.groupbox1);
             this.Name = "Account";
             this.Text = "Account";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Account_FormClosed);
             this.groupbox1.ResumeLayout(false);
             this.groupbox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

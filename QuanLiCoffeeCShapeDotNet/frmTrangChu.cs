@@ -72,6 +72,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void tBtnThoat_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
+            
 		}
 
 		private void frmTrangChu_Load(object sender, EventArgs e)
@@ -260,6 +261,12 @@ namespace QuanLiCoffeeCShapeDotNet
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void frmTrangChu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form ac = new Account();
+            ac.Show();
         }
     }
 }

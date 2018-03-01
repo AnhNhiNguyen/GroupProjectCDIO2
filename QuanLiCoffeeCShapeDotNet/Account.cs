@@ -33,6 +33,7 @@ namespace QuanLiCoffeeCShapeDotNet
                         this.Hide();
                         frmLoading loading = new frmLoading();
                         loading.Show();
+              
                     }
                     else MessageBox.Show( "Username or Password no value!");
                 }
@@ -67,6 +68,11 @@ namespace QuanLiCoffeeCShapeDotNet
         private void groupbox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void Account_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
     

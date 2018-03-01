@@ -647,6 +647,11 @@
             // 
             this.txtPhiDichVu.Location = new System.Drawing.Point(284, 529);
             this.txtPhiDichVu.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPhiDichVu.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.txtPhiDichVu.Name = "txtPhiDichVu";
             this.txtPhiDichVu.Size = new System.Drawing.Size(176, 22);
             this.txtPhiDichVu.TabIndex = 118;
@@ -1152,6 +1157,7 @@
             this.Name = "frmTrangChu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí coffee - Group Project - CS 414 IS";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmTrangChu_FormClosed);
             this.Load += new System.EventHandler(this.frmTrangChu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
