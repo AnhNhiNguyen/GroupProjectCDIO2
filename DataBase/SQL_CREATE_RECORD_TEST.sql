@@ -115,3 +115,7 @@ END
 GO
 ---------------
 DELETE FROM PDT_TABLE WHERE idKhuVuc=3
+---------------
+SELECT * 
+FROM PDT_FOOD
+WHERE foodName LIKE 'p%' 

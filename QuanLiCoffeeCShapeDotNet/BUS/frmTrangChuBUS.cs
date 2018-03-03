@@ -13,6 +13,9 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 {
 	public class frmTrangChuBUS
 	{
+		private static int heightTable=150;
+		private static int widthTable = 128;
+
 		private static frmTrangChuBUS instances;
 
 		public static frmTrangChuBUS Instances
@@ -70,6 +73,32 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			set
 			{
 				btnTableMouseRight2 = value;
+			}
+		}
+
+		public static int HightTable
+		{
+			get
+			{
+				return heightTable;
+			}
+
+			set
+			{
+				heightTable = value;
+			}
+		}
+
+		public static int WeightTable
+		{
+			get
+			{
+				return widthTable;
+			}
+
+			set
+			{
+				widthTable = value;
 			}
 		}
 
@@ -142,8 +171,8 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 					Text = listTable[j].TableName,
 					Name = listTable[j].IdTable.ToString(),
 					//Tag = listTable[j].IdTable,
-					Width = 128,
-					Height = 150,
+					Width = widthTable,
+					Height = heightTable,
 
 					TextAlign = ContentAlignment.BottomCenter,
 					ImageAlign = ContentAlignment.TopCenter,

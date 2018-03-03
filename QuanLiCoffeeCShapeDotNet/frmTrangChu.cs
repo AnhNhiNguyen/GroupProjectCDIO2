@@ -24,6 +24,8 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		Form frmMatHang;
 		Form frmThanhToan;
+		Form frmChuyenBan;
+		Form frmGopBan;
 
 		public frmTrangChu()
 		{
@@ -239,7 +241,8 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnGopBan_Click(object sender, EventArgs e)
 		{
-			
+			frmGopBan = new frmGopBan();
+			frmGopBan.ShowDialog();
 		}
 
 		private void showTableEmpty()
@@ -256,5 +259,11 @@ namespace QuanLiCoffeeCShapeDotNet
         {
 
         }
-    }
+
+		private void btnChuyenBan_Click(object sender, EventArgs e)
+		{
+			frmChuyenBan = new frmChuyenBan();
+			frmChuyenBan.ShowDialog();
+		}
+	}
 }
