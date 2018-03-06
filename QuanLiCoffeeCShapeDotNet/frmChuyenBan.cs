@@ -45,6 +45,9 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmChuyenBanBUS.Instances.loadKhuVucAndTableFromDatabase(tabEmptyTable,this);
 		}
 
-
+		private void frmChuyenBan_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			this.Dispose();
+		}
 	}
 }

@@ -48,6 +48,7 @@
 			this.Name = "frmChuyenBan";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Danh sách bàn trống";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmChuyenBan_FormClosed);
 			this.Load += new System.EventHandler(this.frmChuyenBan_Load);
 			this.ResumeLayout(false);
 

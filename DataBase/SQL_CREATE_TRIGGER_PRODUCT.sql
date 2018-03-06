@@ -188,7 +188,7 @@ GO
 -----------------------------------
 --UPDATE BY NGUYENVANPHUC 
 --DATE: 12/02/2018
-CREATE PROC USP_CHUYENBAN
+CREATE PROC ----------------
 @idTableOld INT,@idTableNew INT
 AS
 BEGIN
@@ -217,3 +217,19 @@ BEGIN
 	WHERE idTable=@idTableOld
 END
 GO
+
+---------------
+--UPDATE BY NGUYENVANPHUC 
+--DATE: 06/03/2018
+
+CREATE PROC USP_SEARCHFOOD
+@FOODNAME NVARCHAR(100)
+AS
+BEGIN
+	SELECT * 
+	FROM PDT_FOOD
+	WHERE foodName like @FOODNAME + '%'
+END
+GO
+
+

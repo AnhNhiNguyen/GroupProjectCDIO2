@@ -241,8 +241,14 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnGopBan_Click(object sender, EventArgs e)
 		{
-			frmGopBan = new frmGopBan();
-			frmGopBan.ShowDialog();
+			//if (frmTrangChuBUS.Instances.BtnClicked == null)
+			//{
+			//	MessageBox.Show("Vui long chon ban can chuyen !");
+			//	return;
+			//}
+
+			//frmGopBan = new frmGopBan();
+			//frmGopBan.ShowDialog();
 		}
 
 		private void showTableEmpty()
@@ -262,8 +268,18 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnChuyenBan_Click(object sender, EventArgs e)
 		{
+			if (frmTrangChuBUS.Instances.BtnClicked == null)
+			{
+				MessageBox.Show("Vui long chon ban can chuyen !");
+				return;
+			}
 			frmChuyenBan = new frmChuyenBan();
 			frmChuyenBan.ShowDialog();
+
+			if (frmChuyenBan.IsDisposed)
+			{
+				showTableByidKhuVuc(tabControlKhuVuc,TableDAO.Instances.getIdKhuVucByIdTable(Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString())));
+			}
 		}
 	}
 }
