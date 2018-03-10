@@ -32,17 +32,20 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnDongBillAndPrint = new System.Windows.Forms.Button();
+			this.btnInBill = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.txtTienKhachDua = new System.Windows.Forms.NumericUpDown();
+			this.txtTienThoiLai = new System.Windows.Forms.NumericUpDown();
+			this.txtTongTienThanhToan = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtTienKhachDua)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtTienThoiLai)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtTongTienThanhToan)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label5
@@ -85,57 +88,32 @@
 			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.button3.UseVisualStyleBackColor = false;
 			// 
-			// button2
+			// btnDongBillAndPrint
 			// 
-			this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button2.Location = new System.Drawing.Point(298, 204);
-			this.button2.Margin = new System.Windows.Forms.Padding(2);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(120, 50);
-			this.button2.TabIndex = 17;
-			this.button2.Text = "Đóng bill và In";
-			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.UseVisualStyleBackColor = false;
+			this.btnDongBillAndPrint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnDongBillAndPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnDongBillAndPrint.Image")));
+			this.btnDongBillAndPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnDongBillAndPrint.Location = new System.Drawing.Point(298, 204);
+			this.btnDongBillAndPrint.Margin = new System.Windows.Forms.Padding(2);
+			this.btnDongBillAndPrint.Name = "btnDongBillAndPrint";
+			this.btnDongBillAndPrint.Size = new System.Drawing.Size(120, 50);
+			this.btnDongBillAndPrint.TabIndex = 17;
+			this.btnDongBillAndPrint.Text = "Đóng bill và In";
+			this.btnDongBillAndPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnDongBillAndPrint.UseVisualStyleBackColor = false;
+			this.btnDongBillAndPrint.Click += new System.EventHandler(this.btnInBill_Click);
 			// 
-			// textBox3
+			// btnInBill
 			// 
-			this.textBox3.Location = new System.Drawing.Point(250, 142);
-			this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox3.Multiline = true;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(169, 36);
-			this.textBox3.TabIndex = 12;
-			// 
-			// textBox2
-			// 
-			this.textBox2.Location = new System.Drawing.Point(250, 100);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox2.Multiline = true;
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(169, 36);
-			this.textBox2.TabIndex = 13;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(250, 54);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(169, 36);
-			this.textBox1.TabIndex = 14;
-			// 
-			// button1
-			// 
-			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(298, 9);
-			this.button1.Margin = new System.Windows.Forms.Padding(2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(120, 28);
-			this.button1.TabIndex = 11;
-			this.button1.Text = "In thử bill";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnInBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnInBill.Location = new System.Drawing.Point(298, 9);
+			this.btnInBill.Margin = new System.Windows.Forms.Padding(2);
+			this.btnInBill.Name = "btnInBill";
+			this.btnInBill.Size = new System.Drawing.Size(120, 28);
+			this.btnInBill.TabIndex = 11;
+			this.btnInBill.Text = "In thử bill";
+			this.btnInBill.UseVisualStyleBackColor = true;
+			this.btnInBill.Click += new System.EventHandler(this.btnInBill_Click);
 			// 
 			// label2
 			// 
@@ -196,21 +174,69 @@
 			this.pictureBox1.TabIndex = 19;
 			this.pictureBox1.TabStop = false;
 			// 
+			// txtTienKhachDua
+			// 
+			this.txtTienKhachDua.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtTienKhachDua.Location = new System.Drawing.Point(250, 95);
+			this.txtTienKhachDua.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.txtTienKhachDua.Name = "txtTienKhachDua";
+			this.txtTienKhachDua.Size = new System.Drawing.Size(168, 44);
+			this.txtTienKhachDua.TabIndex = 20;
+			this.txtTienKhachDua.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.txtTienKhachDua.ThousandsSeparator = true;
+			this.txtTienKhachDua.ValueChanged += new System.EventHandler(this.txtTienKhachDua_ValueChanged);
+			// 
+			// txtTienThoiLai
+			// 
+			this.txtTienThoiLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtTienThoiLai.Location = new System.Drawing.Point(250, 141);
+			this.txtTienThoiLai.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.txtTienThoiLai.Name = "txtTienThoiLai";
+			this.txtTienThoiLai.ReadOnly = true;
+			this.txtTienThoiLai.Size = new System.Drawing.Size(168, 44);
+			this.txtTienThoiLai.TabIndex = 20;
+			this.txtTienThoiLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.txtTienThoiLai.ThousandsSeparator = true;
+			// 
+			// txtTongTienThanhToan
+			// 
+			this.txtTongTienThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtTongTienThanhToan.Location = new System.Drawing.Point(250, 52);
+			this.txtTongTienThanhToan.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.txtTongTienThanhToan.Name = "txtTongTienThanhToan";
+			this.txtTongTienThanhToan.ReadOnly = true;
+			this.txtTongTienThanhToan.Size = new System.Drawing.Size(168, 44);
+			this.txtTongTienThanhToan.TabIndex = 20;
+			this.txtTongTienThanhToan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.txtTongTienThanhToan.ThousandsSeparator = true;
+			// 
 			// frmPayment
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.InactiveBorder;
 			this.ClientSize = new System.Drawing.Size(442, 380);
+			this.Controls.Add(this.txtTongTienThanhToan);
+			this.Controls.Add(this.txtTienThoiLai);
+			this.Controls.Add(this.txtTienKhachDua);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnDongBillAndPrint);
+			this.Controls.Add(this.btnInBill);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -219,7 +245,11 @@
 			this.Name = "frmPayment";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Payment";
+			this.Load += new System.EventHandler(this.frmPayment_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtTienKhachDua)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtTienThoiLai)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.txtTongTienThanhToan)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -230,15 +260,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDongBillAndPrint;
+        private System.Windows.Forms.Button btnInBill;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-    }
+		private System.Windows.Forms.NumericUpDown txtTienKhachDua;
+		private System.Windows.Forms.NumericUpDown txtTienThoiLai;
+		private System.Windows.Forms.NumericUpDown txtTongTienThanhToan;
+	}
 }

@@ -36,6 +36,10 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 
 		private ContextMenuStrip btnTableMouseRight2;
 
+		private double tienHang = 0;
+		private double phiDichVu = 0;
+		private double giamGia = 0;
+		private double tongTien = 0;
 
 		public Button BtnClicked
 		{
@@ -99,6 +103,58 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			set
 			{
 				widthTable = value;
+			}
+		}
+
+		public double TienHang
+		{
+			get
+			{
+				return tienHang;
+			}
+
+			set
+			{
+				tienHang = value;
+			}
+		}
+
+		public double PhiDichVu
+		{
+			get
+			{
+				return phiDichVu;
+			}
+
+			set
+			{
+				phiDichVu = value;
+			}
+		}
+
+		public double GiamGia
+		{
+			get
+			{
+				return giamGia;
+			}
+
+			set
+			{
+				giamGia = value;
+			}
+		}
+
+		public double TongTien
+		{
+			get
+			{
+				return tongTien;
+			}
+
+			set
+			{
+				tongTien = value;
 			}
 		}
 
@@ -347,6 +403,11 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				totalCost = totalCost + listBill[i].BillInfoCount * food.Gia;
 			}
 			return totalCost;
+		}
+
+		public void insertFoodToBillInfoBySoluong(int idFood,int idBill,int soLuong)
+		{
+			BillInfoDAO.Instances.insertBillinfoBySoLuong(idFood,idBill,soLuong);
 		}
 
 		public void insertFoodToBIllInfo(int idFood,int idBill)

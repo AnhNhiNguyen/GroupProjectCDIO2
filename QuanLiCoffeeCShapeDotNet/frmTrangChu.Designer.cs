@@ -88,6 +88,7 @@
 			this.pnLayoutTab = new System.Windows.Forms.FlowLayoutPanel();
 			this.tabControlKhuVuc = new System.Windows.Forms.TabControl();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.cbbSoLuong = new System.Windows.Forms.ComboBox();
 			this.txtGiamGia = new System.Windows.Forms.NumericUpDown();
 			this.txtPhiDichVu = new System.Windows.Forms.NumericUpDown();
 			this.lvBillInfo = new System.Windows.Forms.ListView();
@@ -99,20 +100,19 @@
 			this.btnThongKe = new System.Windows.Forms.Button();
 			this.btnThanhToan = new System.Windows.Forms.Button();
 			this.btnDeleteFood = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
+			this.btnThem1Item = new System.Windows.Forms.Button();
+			this.btnGiam1Item = new System.Windows.Forms.Button();
 			this.btnChuyenBan = new System.Windows.Forms.Button();
 			this.btnGopBan = new System.Windows.Forms.Button();
 			this.txtTienHang = new System.Windows.Forms.TextBox();
-			this.txtTongTien = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.label3 = new System.Windows.Forms.Label();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+			this.btnCong1 = new System.Windows.Forms.ToolStripButton();
+			this.btnTru1 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
 			this.txtSTT = new System.Windows.Forms.TextBox();
@@ -139,6 +139,7 @@
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.txtTongTien = new System.Windows.Forms.NumericUpDown();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -150,6 +151,7 @@
 			this.panel3.SuspendLayout();
 			this.btnTableMouseRight.SuspendLayout();
 			this.btnTableMouseRight2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.txtTongTien)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// danhMụcNhàCungCấpToolStripMenuItem
@@ -600,18 +602,19 @@
 			// panel1
 			// 
 			this.panel1.AutoSize = true;
+			this.panel1.Controls.Add(this.txtTongTien);
+			this.panel1.Controls.Add(this.cbbSoLuong);
 			this.panel1.Controls.Add(this.txtGiamGia);
 			this.panel1.Controls.Add(this.txtPhiDichVu);
 			this.panel1.Controls.Add(this.lvBillInfo);
 			this.panel1.Controls.Add(this.btnThongKe);
 			this.panel1.Controls.Add(this.btnThanhToan);
 			this.panel1.Controls.Add(this.btnDeleteFood);
-			this.panel1.Controls.Add(this.button5);
-			this.panel1.Controls.Add(this.button4);
+			this.panel1.Controls.Add(this.btnThem1Item);
+			this.panel1.Controls.Add(this.btnGiam1Item);
 			this.panel1.Controls.Add(this.btnChuyenBan);
 			this.panel1.Controls.Add(this.btnGopBan);
 			this.panel1.Controls.Add(this.txtTienHang);
-			this.panel1.Controls.Add(this.txtTongTien);
 			this.panel1.Controls.Add(this.label6);
 			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.label4);
@@ -630,20 +633,47 @@
 			this.panel1.Size = new System.Drawing.Size(655, 515);
 			this.panel1.TabIndex = 84;
 			// 
+			// cbbSoLuong
+			// 
+			this.cbbSoLuong.FormatString = "N1";
+			this.cbbSoLuong.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+			this.cbbSoLuong.Location = new System.Drawing.Point(351, 152);
+			this.cbbSoLuong.Name = "cbbSoLuong";
+			this.cbbSoLuong.Size = new System.Drawing.Size(66, 21);
+			this.cbbSoLuong.TabIndex = 120;
+			// 
 			// txtGiamGia
 			// 
 			this.txtGiamGia.Location = new System.Drawing.Point(213, 456);
 			this.txtGiamGia.Name = "txtGiamGia";
 			this.txtGiamGia.Size = new System.Drawing.Size(104, 20);
 			this.txtGiamGia.TabIndex = 119;
+			this.txtGiamGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtGiamGia.ValueChanged += new System.EventHandler(this.txtGiamGia_ValueChanged);
 			// 
 			// txtPhiDichVu
 			// 
 			this.txtPhiDichVu.Location = new System.Drawing.Point(213, 430);
+			this.txtPhiDichVu.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
 			this.txtPhiDichVu.Name = "txtPhiDichVu";
 			this.txtPhiDichVu.Size = new System.Drawing.Size(132, 20);
 			this.txtPhiDichVu.TabIndex = 118;
+			this.txtPhiDichVu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.txtPhiDichVu.ThousandsSeparator = true;
 			this.txtPhiDichVu.ValueChanged += new System.EventHandler(this.txtPhiDichVu_ValueChanged);
 			// 
 			// lvBillInfo
@@ -729,7 +759,7 @@
 			this.btnDeleteFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnDeleteFood.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteFood.Image")));
 			this.btnDeleteFood.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnDeleteFood.Location = new System.Drawing.Point(350, 227);
+			this.btnDeleteFood.Location = new System.Drawing.Point(350, 240);
 			this.btnDeleteFood.Margin = new System.Windows.Forms.Padding(2);
 			this.btnDeleteFood.Name = "btnDeleteFood";
 			this.btnDeleteFood.Size = new System.Drawing.Size(68, 28);
@@ -739,37 +769,39 @@
 			this.btnDeleteFood.UseVisualStyleBackColor = false;
 			this.btnDeleteFood.Click += new System.EventHandler(this.btnDeleteFood_Click);
 			// 
-			// button5
+			// btnThem1Item
 			// 
-			this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-			this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button5.Location = new System.Drawing.Point(350, 195);
-			this.button5.Margin = new System.Windows.Forms.Padding(2);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(68, 28);
-			this.button5.TabIndex = 113;
-			this.button5.Text = "Giảm";
-			this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button5.UseVisualStyleBackColor = false;
+			this.btnThem1Item.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnThem1Item.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnThem1Item.Image = ((System.Drawing.Image)(resources.GetObject("btnThem1Item.Image")));
+			this.btnThem1Item.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnThem1Item.Location = new System.Drawing.Point(350, 178);
+			this.btnThem1Item.Margin = new System.Windows.Forms.Padding(2);
+			this.btnThem1Item.Name = "btnThem1Item";
+			this.btnThem1Item.Size = new System.Drawing.Size(68, 28);
+			this.btnThem1Item.TabIndex = 113;
+			this.btnThem1Item.Text = "Thêm";
+			this.btnThem1Item.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnThem1Item.UseVisualStyleBackColor = false;
+			this.btnThem1Item.Click += new System.EventHandler(this.btnThem1Item_Click_1);
 			// 
-			// button4
+			// btnGiam1Item
 			// 
-			this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.button4.Cursor = System.Windows.Forms.Cursors.Default;
-			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button4.Location = new System.Drawing.Point(350, 164);
-			this.button4.Margin = new System.Windows.Forms.Padding(2);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(68, 26);
-			this.button4.TabIndex = 112;
-			this.button4.Text = "Thêm";
-			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button4.UseVisualStyleBackColor = false;
+			this.btnGiam1Item.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnGiam1Item.Cursor = System.Windows.Forms.Cursors.Default;
+			this.btnGiam1Item.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnGiam1Item.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.btnGiam1Item.Image = ((System.Drawing.Image)(resources.GetObject("btnGiam1Item.Image")));
+			this.btnGiam1Item.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnGiam1Item.Location = new System.Drawing.Point(350, 210);
+			this.btnGiam1Item.Margin = new System.Windows.Forms.Padding(2);
+			this.btnGiam1Item.Name = "btnGiam1Item";
+			this.btnGiam1Item.Size = new System.Drawing.Size(68, 26);
+			this.btnGiam1Item.TabIndex = 112;
+			this.btnGiam1Item.Text = "Giảm";
+			this.btnGiam1Item.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnGiam1Item.UseVisualStyleBackColor = false;
+			this.btnGiam1Item.Click += new System.EventHandler(this.btnGiam1Item_Click_1);
 			// 
 			// btnChuyenBan
 			// 
@@ -805,26 +837,15 @@
 			// 
 			// txtTienHang
 			// 
+			this.txtTienHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtTienHang.Location = new System.Drawing.Point(213, 405);
 			this.txtTienHang.Margin = new System.Windows.Forms.Padding(2);
 			this.txtTienHang.Name = "txtTienHang";
 			this.txtTienHang.ReadOnly = true;
-			this.txtTienHang.Size = new System.Drawing.Size(133, 20);
+			this.txtTienHang.Size = new System.Drawing.Size(133, 22);
 			this.txtTienHang.TabIndex = 108;
 			this.txtTienHang.Text = "0";
-			// 
-			// txtTongTien
-			// 
-			this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtTongTien.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.txtTongTien.Location = new System.Drawing.Point(213, 479);
-			this.txtTongTien.Margin = new System.Windows.Forms.Padding(2);
-			this.txtTongTien.Multiline = true;
-			this.txtTongTien.Name = "txtTongTien";
-			this.txtTongTien.ReadOnly = true;
-			this.txtTongTien.Size = new System.Drawing.Size(133, 32);
-			this.txtTongTien.TabIndex = 107;
-			this.txtTongTien.Text = "0";
+			this.txtTienHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label6
 			// 
@@ -884,41 +905,43 @@
 			this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
 			this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton8,
-            this.toolStripButton9,
+            this.btnCong1,
+            this.btnTru1,
             this.toolStripButton10,
             this.toolStripButton11});
 			this.toolStrip2.Location = new System.Drawing.Point(3, 52);
 			this.toolStrip2.Name = "toolStrip2";
-			this.toolStrip2.Size = new System.Drawing.Size(230, 27);
+			this.toolStrip2.Size = new System.Drawing.Size(223, 27);
 			this.toolStrip2.TabIndex = 100;
 			this.toolStrip2.Text = "toolStrip2";
 			// 
-			// toolStripButton8
+			// btnCong1
 			// 
-			this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-			this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton8.Name = "toolStripButton8";
-			this.toolStripButton8.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton8.Text = "Tăng số lượng lên 1";
+			this.btnCong1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnCong1.Image = ((System.Drawing.Image)(resources.GetObject("btnCong1.Image")));
+			this.btnCong1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnCong1.Name = "btnCong1";
+			this.btnCong1.Size = new System.Drawing.Size(24, 24);
+			this.btnCong1.Text = "Tăng số lượng lên 1";
+			this.btnCong1.Click += new System.EventHandler(this.btnThem1Item_Click);
 			// 
-			// toolStripButton9
+			// btnTru1
 			// 
-			this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-			this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton9.Name = "toolStripButton9";
-			this.toolStripButton9.Size = new System.Drawing.Size(24, 24);
-			this.toolStripButton9.Text = "Giảm số lượng đi 1";
+			this.btnTru1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnTru1.Image = ((System.Drawing.Image)(resources.GetObject("btnTru1.Image")));
+			this.btnTru1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnTru1.Name = "btnTru1";
+			this.btnTru1.Size = new System.Drawing.Size(24, 24);
+			this.btnTru1.Text = "Giảm số lượng đi 1";
+			this.btnTru1.Click += new System.EventHandler(this.btnGiam1Item_Click);
 			// 
 			// toolStripButton10
 			// 
 			this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
 			this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton10.Name = "toolStripButton10";
-			this.toolStripButton10.Size = new System.Drawing.Size(98, 24);
-			this.toolStripButton10.Text = "Đặt số lượng";
+			this.toolStripButton10.Size = new System.Drawing.Size(91, 24);
+			this.toolStripButton10.Text = "Đổi giá bán";
 			// 
 			// toolStripButton11
 			// 
@@ -958,6 +981,7 @@
 			// 
 			// cbbTableName
 			// 
+			this.cbbTableName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.cbbTableName.FormattingEnabled = true;
 			this.cbbTableName.Location = new System.Drawing.Point(5, 2);
 			this.cbbTableName.Margin = new System.Windows.Forms.Padding(2);
@@ -1135,6 +1159,23 @@
 			this.toolStripMenuItem3.Size = new System.Drawing.Size(138, 22);
 			this.toolStripMenuItem3.Text = "Đóng bàn";
 			// 
+			// txtTongTien
+			// 
+			this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtTongTien.Location = new System.Drawing.Point(213, 481);
+			this.txtTongTien.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.txtTongTien.Name = "txtTongTien";
+			this.txtTongTien.ReadOnly = true;
+			this.txtTongTien.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.txtTongTien.Size = new System.Drawing.Size(133, 29);
+			this.txtTongTien.TabIndex = 121;
+			this.txtTongTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.txtTongTien.ThousandsSeparator = true;
+			// 
 			// frmTrangChu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1168,6 +1209,7 @@
 			this.panel3.PerformLayout();
 			this.btnTableMouseRight.ResumeLayout(false);
 			this.btnTableMouseRight2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.txtTongTien)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1233,15 +1275,14 @@
 		private System.Windows.Forms.FlowLayoutPanel pnLayoutTab;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TextBox txtTienHang;
-		private System.Windows.Forms.TextBox txtTongTien;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ToolStrip toolStrip2;
-		private System.Windows.Forms.ToolStripButton toolStripButton8;
-		private System.Windows.Forms.ToolStripButton toolStripButton9;
+		private System.Windows.Forms.ToolStripButton btnCong1;
+		private System.Windows.Forms.ToolStripButton btnTru1;
 		private System.Windows.Forms.ToolStripButton toolStripButton10;
 		private System.Windows.Forms.ToolStripButton toolStripButton11;
 		private System.Windows.Forms.TextBox txtSTT;
@@ -1257,8 +1298,8 @@
 		private System.Windows.Forms.Button btnThongKe;
 		private System.Windows.Forms.Button btnThanhToan;
 		private System.Windows.Forms.Button btnDeleteFood;
-		private System.Windows.Forms.Button button5;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button btnThem1Item;
+		private System.Windows.Forms.Button btnGiam1Item;
 		private System.Windows.Forms.Button btnChuyenBan;
 		private System.Windows.Forms.Button btnGopBan;
 		private System.Windows.Forms.TabControl tabControlKhuVuc;
@@ -1284,5 +1325,7 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+		private System.Windows.Forms.ComboBox cbbSoLuong;
+		private System.Windows.Forms.NumericUpDown txtTongTien;
 	}
 }

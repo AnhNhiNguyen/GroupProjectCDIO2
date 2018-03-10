@@ -60,6 +60,7 @@
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
     <Compile Include="BUS\frmChuyenBanBUS.cs" />
+    <Compile Include="BUS\frmThanhToanBUS.cs" />
     <Compile Include="BUS\frmTrangChuBUS.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />

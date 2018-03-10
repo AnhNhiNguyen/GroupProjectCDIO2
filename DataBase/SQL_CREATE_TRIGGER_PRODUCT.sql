@@ -45,6 +45,7 @@ CREATE PROC USP_INSERTBILLINFO
 @idBill INT, @idFood INT ,@countBillInfo INT
 AS
 BEGIN
+
 	--UPDATE 10/02/2018
 	--CHẶN LỖI
 	DECLARE @countExitBill int =-1
@@ -65,6 +66,14 @@ BEGIN
 	SELECT @isExitFood =idFood,@countFood=billInfoCount 
 	FROM PDT_BILLINFO
 	WHERE idBill=@idBill AND idFood=@idFood
+
+	--UPDATE 07/03/2018
+	--Ràng buộc số lượng
+	IF(@countFood+@countBillInfo<=0)
+	BEGIN
+		PRINT N'Số lượng món ăn không thể nhỏ hơn không'
+		RETURN
+	END
 
 	IF(@isExitFood>0)
 	BEGIN
@@ -188,7 +197,7 @@ GO
 -----------------------------------
 --UPDATE BY NGUYENVANPHUC 
 --DATE: 12/02/2018
-CREATE PROC ----------------
+CREATE PROC USP_CHUYENBAN
 @idTableOld INT,@idTableNew INT
 AS
 BEGIN
@@ -226,10 +235,11 @@ CREATE PROC USP_SEARCHFOOD
 @FOODNAME NVARCHAR(100)
 AS
 BEGIN
-	SELECT * 
+	SELECT *
 	FROM PDT_FOOD
 	WHERE foodName like @FOODNAME + '%'
 END
 GO
+----------------
 
 
