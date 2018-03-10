@@ -41,10 +41,10 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.TZcL7Cc1;
-            this.pictureBox1.Location = new System.Drawing.Point(196, 47);
+            this.pictureBox1.Location = new System.Drawing.Point(196, 59);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(397, 269);
+            this.pictureBox1.Size = new System.Drawing.Size(397, 317);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -53,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(313, 389);
+            this.label1.Location = new System.Drawing.Point(313, 410);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 17);
             this.label1.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(337, 28);
+            this.label2.Location = new System.Drawing.Point(334, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 17);
             this.label2.TabIndex = 41;
@@ -71,7 +71,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(196, 341);
+            this.progressBar1.Location = new System.Drawing.Point(196, 381);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(397, 23);
             this.progressBar1.TabIndex = 42;

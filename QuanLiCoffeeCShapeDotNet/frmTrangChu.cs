@@ -268,5 +268,10 @@ namespace QuanLiCoffeeCShapeDotNet
             Form ac = new Account();
             ac.Show();
         }
+
+        private void txtTimeOpenTable_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -695,13 +695,13 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Số lượng";
-            this.columnHeader6.Width = 55;
+            this.columnHeader6.Width = 75;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Thành tiền";
             this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 70;
+            this.columnHeader7.Width = 97;
             // 
             // btnThongKe
             // 
@@ -725,10 +725,10 @@
             this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThanhToan.Image = ((System.Drawing.Image)(resources.GetObject("btnThanhToan.Image")));
             this.btnThanhToan.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnThanhToan.Location = new System.Drawing.Point(467, 471);
+            this.btnThanhToan.Location = new System.Drawing.Point(467, 459);
             this.btnThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(91, 70);
+            this.btnThanhToan.Size = new System.Drawing.Size(91, 82);
             this.btnThanhToan.TabIndex = 115;
             this.btnThanhToan.Text = "Thanh toán";
             this.btnThanhToan.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -951,6 +951,7 @@
             this.txtTimeOpenTable.ReadOnly = true;
             this.txtTimeOpenTable.Size = new System.Drawing.Size(172, 22);
             this.txtTimeOpenTable.TabIndex = 96;
+            this.txtTimeOpenTable.TextChanged += new System.EventHandler(this.txtTimeOpenTable_TextChanged);
             // 
             // btnOpenTable
             // 

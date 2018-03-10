@@ -37,11 +37,11 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupbox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtError = new System.Windows.Forms.TextBox();
             this.groupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -55,7 +55,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(94, 306);
+            this.btnLogin.Location = new System.Drawing.Point(94, 263);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(140, 53);
             this.btnLogin.TabIndex = 3;
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 195);
+            this.label2.Location = new System.Drawing.Point(6, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 29);
             this.label2.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(201, 107);
+            this.txtUsername.Location = new System.Drawing.Point(201, 64);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(162, 34);
             this.txtUsername.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(201, 190);
+            this.txtPassword.Location = new System.Drawing.Point(201, 147);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(162, 34);
             this.txtPassword.TabIndex = 1;
@@ -92,7 +92,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 112);
+            this.label1.Location = new System.Drawing.Point(6, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 29);
             this.label1.TabIndex = 0;
@@ -102,7 +102,7 @@
             // groupbox1
             // 
             this.groupbox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupbox1.Controls.Add(this.label3);
+            this.groupbox1.Controls.Add(this.txtError);
             this.groupbox1.Controls.Add(this.checkBox1);
             this.groupbox1.Controls.Add(this.pictureBox3);
             this.groupbox1.Controls.Add(this.pictureBox2);
@@ -120,24 +120,14 @@
             this.groupbox1.Text = "                Coffee House         ";
             this.groupbox1.Enter += new System.EventHandler(this.groupbox1_Enter);
             // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(103, 257);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(268, 23);
-            this.label3.TabIndex = 67;
-            this.label3.Text = "Show password";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(71, 259);
+            this.checkBox1.Location = new System.Drawing.Point(71, 216);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 17);
+            this.checkBox1.Size = new System.Drawing.Size(207, 33);
             this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "Show password";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -146,7 +136,7 @@
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(131, 184);
+            this.pictureBox3.Location = new System.Drawing.Point(131, 141);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(52, 45);
             this.pictureBox3.TabIndex = 4;
@@ -157,7 +147,7 @@
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(146, 107);
+            this.pictureBox2.Location = new System.Drawing.Point(146, 64);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 34);
             this.pictureBox2.TabIndex = 4;
@@ -174,6 +164,17 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // txtError
+            // 
+            this.txtError.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtError.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtError.Location = new System.Drawing.Point(11, 338);
+            this.txtError.Multiline = true;
+            this.txtError.Name = "txtError";
+            this.txtError.Size = new System.Drawing.Size(352, 55);
+            this.txtError.TabIndex = 6;
+            this.txtError.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -184,6 +185,7 @@
             this.Name = "Account";
             this.Text = "Account";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Account_FormClosed);
+            this.Load += new System.EventHandler(this.Account_Load);
             this.groupbox1.ResumeLayout(false);
             this.groupbox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -205,7 +207,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupbox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox txtError;
     }
 }

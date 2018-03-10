@@ -22,7 +22,7 @@ namespace QuanLiCoffeeCShapeDotNet
         {
             if (txtUsername.Text.Equals("useName") || txtPassword.Text.Equals("passWord"))
             {
-                MessageBox.Show( "Do not enter account or password!");
+                txtError.Text=  "Do not enter account or password!";
             }
             else
             {
@@ -35,13 +35,11 @@ namespace QuanLiCoffeeCShapeDotNet
                         loading.Show();
               
                     }
-                    else MessageBox.Show( "Username or Password no value!");
+                    else txtError.Text= "Username or Password no value!";
                 }
             }
 
         }
-
-  
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -73,6 +71,11 @@ namespace QuanLiCoffeeCShapeDotNet
         private void Account_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Account_Load(object sender, EventArgs e)
+        {
+
         }
     }
     
