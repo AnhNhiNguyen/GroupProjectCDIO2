@@ -19,11 +19,11 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void frmLoading_Load(object sender, EventArgs e)
 		{
-
+            timer1.Start();
 		}
 		private void timer1_Tick(object sender, EventArgs e)
 		{
-			timer1.Start();
+			
 			progressBar1.Increment(3);
 			if (progressBar1.Value == 100)
 			{

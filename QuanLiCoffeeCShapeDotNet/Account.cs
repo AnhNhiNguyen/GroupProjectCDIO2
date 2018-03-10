@@ -30,6 +30,7 @@ namespace QuanLiCoffeeCShapeDotNet
                 {
                     if (AccountDAO.Instance.Login(txtUsername.Text, txtPassword.Text) == true)
                     {
+                        AccountDAO.Instance.Usename = txtUsername.Text;
                         this.Hide();
                         frmLoading loading = new frmLoading();
                         loading.Show();
@@ -75,7 +76,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
         private void Account_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
     

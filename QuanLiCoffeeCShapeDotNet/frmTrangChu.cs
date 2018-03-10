@@ -68,7 +68,12 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnThanhToan_Click(object sender, EventArgs e)
 		{
-			frmThanhToanBUS.Instances.TongTien = cacluterCost();
+            if (frmTrangChuBUS.Instances.BtnClicked == null)
+            {
+                MessageBox.Show("Vui Lòng cần chọn bàn thanh toán");
+                return;
+            }
+            frmThanhToanBUS.Instances.TongTien = cacluterCost();
 			frmThanhToan = new frmPayment();
 			frmThanhToan.ShowDialog();
 
@@ -82,6 +87,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void frmTrangChu_Load(object sender, EventArgs e)
 		{
 			connectData();
+           
 		}
 
 		private void connectData()
@@ -352,5 +358,21 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			themItemBySoLuong(-Convert.ToInt16(cbbSoLuong.SelectedItem.ToString()));
 		}
-	}
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void txtTimeOpenTable_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmTrangChu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Account.ActiveForm.Show();
+        }
+    }
 }

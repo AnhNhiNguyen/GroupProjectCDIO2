@@ -9,6 +9,8 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 {
     class AccountDAO
     {
+       private string usename = "";
+
         private static AccountDAO instance;
         public static AccountDAO Instance
         {
@@ -20,6 +22,20 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
             }
             private set { instance = value; }
         }
+
+        public string Usename
+        {
+            get
+            {
+                return usename;
+            }
+
+            set
+            {
+                usename = value;
+            }
+        }
+
         private AccountDAO() {}
        public bool Login(string user, string pass)
         {
@@ -28,9 +44,7 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
             dataTable = DataProvider.Instance.ExecuteQuery(query);
             bool t = false;
             for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                //Console.WriteLine(dataTable.Rows[i][0].ToString().Trim());
-
+            {               
                 if (dataTable.Rows[i][0].ToString().Trim() == user && dataTable.Rows[i][1].ToString().Trim() == pass)
                 {
                     t = true;
@@ -43,5 +57,6 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
             }
             return t;
         }
+        
     }
 }
