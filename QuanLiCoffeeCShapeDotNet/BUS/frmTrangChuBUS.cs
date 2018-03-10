@@ -13,6 +13,9 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 {
 	public class frmTrangChuBUS
 	{
+		private static int heightTable=150;
+		private static int widthTable = 128;
+
 		private static frmTrangChuBUS instances;
 
 		public static frmTrangChuBUS Instances
@@ -33,6 +36,10 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 
 		private ContextMenuStrip btnTableMouseRight2;
 
+		private double tienHang = 0;
+		private double phiDichVu = 0;
+		private double giamGia = 0;
+		private double tongTien = 0;
 
 		public Button BtnClicked
 		{
@@ -70,6 +77,84 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 			set
 			{
 				btnTableMouseRight2 = value;
+			}
+		}
+
+		public static int HightTable
+		{
+			get
+			{
+				return heightTable;
+			}
+
+			set
+			{
+				heightTable = value;
+			}
+		}
+
+		public static int WeightTable
+		{
+			get
+			{
+				return widthTable;
+			}
+
+			set
+			{
+				widthTable = value;
+			}
+		}
+
+		public double TienHang
+		{
+			get
+			{
+				return tienHang;
+			}
+
+			set
+			{
+				tienHang = value;
+			}
+		}
+
+		public double PhiDichVu
+		{
+			get
+			{
+				return phiDichVu;
+			}
+
+			set
+			{
+				phiDichVu = value;
+			}
+		}
+
+		public double GiamGia
+		{
+			get
+			{
+				return giamGia;
+			}
+
+			set
+			{
+				giamGia = value;
+			}
+		}
+
+		public double TongTien
+		{
+			get
+			{
+				return tongTien;
+			}
+
+			set
+			{
+				tongTien = value;
 			}
 		}
 
@@ -142,8 +227,8 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 					Text = listTable[j].TableName,
 					Name = listTable[j].IdTable.ToString(),
 					//Tag = listTable[j].IdTable,
-					Width = 128,
-					Height = 150,
+					Width = widthTable,
+					Height = heightTable,
 
 					TextAlign = ContentAlignment.BottomCenter,
 					ImageAlign = ContentAlignment.TopCenter,
@@ -318,6 +403,11 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				totalCost = totalCost + listBill[i].BillInfoCount * food.Gia;
 			}
 			return totalCost;
+		}
+
+		public void insertFoodToBillInfoBySoluong(int idFood,int idBill,int soLuong)
+		{
+			BillInfoDAO.Instances.insertBillinfoBySoLuong(idFood,idBill,soLuong);
 		}
 
 		public void insertFoodToBIllInfo(int idFood,int idBill)

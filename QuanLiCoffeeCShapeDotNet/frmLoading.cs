@@ -10,28 +10,29 @@ using System.Windows.Forms;
 
 namespace QuanLiCoffeeCShapeDotNet
 {
-    public partial class frmLoading : Form
-    {
-        public frmLoading()
-        {
-            InitializeComponent();
-        }
+	public partial class frmLoading : Form
+	{
+		public frmLoading()
+		{
+			InitializeComponent();
+		}
 
-        private void frmLoading_Load(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
-        private void timer1_Tick(object sender, EventArgs e)
-        { 
-            progressBar1.Increment(3);
-            if (progressBar1.Value == 100)
-            {
-                timer1.Stop();
-                this.Hide();
-                Application.DoEvents();
-                frmTrangChu home = new frmTrangChu();
-                home.Show();
-            }
-        }
-    }
+		private void frmLoading_Load(object sender, EventArgs e)
+		{
+
+		}
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+			timer1.Start();
+			progressBar1.Increment(3);
+			if (progressBar1.Value == 100)
+			{
+				timer1.Stop();
+				this.Hide();
+				Application.DoEvents();
+				frmTrangChu home = new frmTrangChu();
+				home.Show();
+			}
+		}
+	}
 }

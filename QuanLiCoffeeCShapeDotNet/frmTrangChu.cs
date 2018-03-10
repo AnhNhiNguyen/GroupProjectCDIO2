@@ -19,11 +19,14 @@ namespace QuanLiCoffeeCShapeDotNet
 		private string useName="Chưa đăng nhập";
 		private string dataBaseName="Chưa kết nối";
 
-		private double tienHang=0;
-		private double tongTien=0;
+		private double tienHang=-1;
+		private double phiDichVu=0;
+		private double giamGia=0;
 
 		Form frmMatHang;
 		Form frmThanhToan;
+		frmChuyenBan frmChuyenBan;
+		Form frmGopBan;
 
 		public frmTrangChu()
 		{
@@ -65,14 +68,15 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnThanhToan_Click(object sender, EventArgs e)
 		{
+			frmThanhToanBUS.Instances.TongTien = cacluterCost();
 			frmThanhToan = new frmPayment();
 			frmThanhToan.ShowDialog();
+
 		}
 
 		private void tBtnThoat_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
-            
 		}
 
 		private void frmTrangChu_Load(object sender, EventArgs e)
@@ -130,10 +134,12 @@ namespace QuanLiCoffeeCShapeDotNet
 				return;
 			}
 			tienHang = frmTrangChuBUS.Instances.getTotalCostBillByidBill(bill.IdBill);
-			txtGiamGia.Value = 0;
+			txtGiamGia.Value =0;
 			txtPhiDichVu.Value = 0;
-			txtTienHang.Text = tienHang.ToString();	
+			txtTienHang.Text = tienHang.ToString();
+			frmTrangChuBUS.Instances.TienHang = Convert.ToDouble(tienHang.ToString());
 			txtTongTien.Text = cacluterCost().ToString();
+			frmTrangChuBUS.Instances.TongTien = Convert.ToDouble(cacluterCost().ToString());
 		}
 
 		private double cacluterCost()
@@ -171,16 +177,57 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void lvFood_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
+			them1Item();
+		}
+
+		private void them1Item()
+		{
 			Button btn = frmTrangChuBUS.Instances.BtnClicked;
+
+			if (!checkTableClickIsNull(frmTrangChuBUS.Instances.BtnClicked))
+			{
+				MessageBox.Show("Vui lòng chọn bàn cần thêm món ");
+				return;
+			}
 
 			if (lvFood.SelectedItems.Count == 0)
 			{
-				MessageBox.Show("Vui lòng chọn một món cần thêm","Cảnh báo");
+				MessageBox.Show("Vui lòng chọn một món cần thêm", "Cảnh báo");
 				return;
 			}
 			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
 				BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16(btn.Name.ToString())));
 			showInfoBillofTable(btn);
+		}
+
+		private void themItemBySoLuong(int soLuong)
+		{
+			Button btn = frmTrangChuBUS.Instances.BtnClicked;
+
+			if (!checkTableClickIsNull(frmTrangChuBUS.Instances.BtnClicked))
+			{
+				MessageBox.Show("Vui lòng chọn bàn cần thêm món ");
+				return;
+			}
+
+			if (lvFood.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("Vui lòng chọn một món cần thêm", "Cảnh báo");
+				return;
+			}
+			frmTrangChuBUS.Instances.insertFoodToBillInfoBySoluong(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
+				BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16(btn.Name.ToString())),soLuong);
+			showInfoBillofTable(btn);
+		}
+
+		private bool checkTableClickIsNull(Button btnClicker)
+		{
+			if (btnClicker != null)
+			{
+				return true;
+			}
+
+			return false;
 		}
 
 		private void btnOpenTable_Click(object sender, EventArgs e)
@@ -218,7 +265,8 @@ namespace QuanLiCoffeeCShapeDotNet
 			{
 				int idBillInfo = -1;				
 				idBillInfo= Convert.ToInt32(lvBillInfo.SelectedItems[0].Tag.ToString());				
-				frmTrangChuBUS.Instances.deleteBillInfoByBillInfo(idBillInfo); 				
+				frmTrangChuBUS.Instances.deleteBillInfoByBillInfo(idBillInfo);
+				showInfoBillofTable(frmTrangChuBUS.Instances.BtnClicked);//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
 			}
 		}
 
@@ -230,17 +278,28 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void txtPhiDichVu_ValueChanged(object sender, EventArgs e)
 		{
+			frmTrangChuBUS.Instances.PhiDichVu = Convert.ToDouble(txtPhiDichVu.Value);
 			txtTongTien.Text = cacluterCost().ToString();
+			frmTrangChuBUS.Instances.TongTien =Convert.ToDouble(cacluterCost().ToString());
 		}
 
 		private void txtGiamGia_ValueChanged(object sender, EventArgs e)
 		{
+			frmTrangChuBUS.Instances.GiamGia = Convert.ToDouble(txtGiamGia.Value);
 			txtTongTien.Text = cacluterCost().ToString();
+			frmTrangChuBUS.Instances.TongTien = Convert.ToDouble(cacluterCost().ToString());
 		}
 
 		private void btnGopBan_Click(object sender, EventArgs e)
 		{
-			
+			//if (frmTrangChuBUS.Instances.BtnClicked == null)
+			//{
+			//	MessageBox.Show("Vui long chon ban can chuyen !");
+			//	return;
+			//}
+
+			//frmGopBan = new frmGopBan();
+			//frmGopBan.ShowDialog();
 		}
 
 		private void showTableEmpty()
@@ -258,20 +317,40 @@ namespace QuanLiCoffeeCShapeDotNet
 
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+		private void btnChuyenBan_Click(object sender, EventArgs e)
+		{
+			if (frmTrangChuBUS.Instances.BtnClicked == null)
+			{
+				MessageBox.Show("Vui long chon ban can chuyen !");
+				return;
+			}
+			frmChuyenBan = new frmChuyenBan();
+			frmChuyenBan.ShowDialog();
 
-        }
+			if (frmChuyenBan.IsDisposed)
+			{
+				showTableByidKhuVuc(tabControlKhuVuc,TableDAO.Instances.getIdKhuVucByIdTable(Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString())));
+			}
+		}
 
-        private void frmTrangChu_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form ac = new Account();
-            ac.Show();
-        }
+		private void btnThem1Item_Click(object sender, EventArgs e)
+		{
+			them1Item();
+		}
 
-        private void txtTimeOpenTable_TextChanged(object sender, EventArgs e)
-        {
+		private void btnGiam1Item_Click(object sender, EventArgs e)
+		{
 
-        }
-    }
+		}
+
+		private void btnThem1Item_Click_1(object sender, EventArgs e)
+		{
+			themItemBySoLuong(Convert.ToInt16(cbbSoLuong.SelectedItem.ToString()));
+		}
+
+		private void btnGiam1Item_Click_1(object sender, EventArgs e)
+		{
+			themItemBySoLuong(-Convert.ToInt16(cbbSoLuong.SelectedItem.ToString()));
+		}
+	}
 }

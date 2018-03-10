@@ -104,14 +104,22 @@ PRINT @BB
 --------------------------
 EXEC USP_CHUYENBAN 3,1
 ------
-SELECT * FROM PDT_KHUVUC WHERE tableStatus=-1
+SELECT * FROM PDT_TABLE WHERE tableStatus=-1
 -------------
-DECLARE @I INT= 1
-WHILE(@I<50)
+DECLARE @I INT= 3
+WHILE(@I<60)
 BEGIN
-	INSERT INTO PDT_TABLE(tableName,tableStatus,idKhuVuc) VALUES ('Bàn '+CAST(@I AS nvarchar(10)),-1,3)
+	INSERT INTO PDT_TABLE(tableName,tableStatus,idKhuVuc) VALUES ('Bàn '+CAST(@I AS nvarchar(10)),-1,1)
 	SET @I=@I+1
 END
 GO
 ---------------
-DELETE FROM PDT_TABLE WHERE idKhuVuc=1
+DELETE FROM PDT_TABLE WHERE idKhuVuc=3
+---------------
+SELECT * 
+FROM PDT_FOOD
+WHERE foodName LIKE 'p%' 
+select * from PDT_TABLE where idKhuVuc=1
+
+-----------------------
+SELECT * FROM PDT_BILLINFO WHERE idBill=207

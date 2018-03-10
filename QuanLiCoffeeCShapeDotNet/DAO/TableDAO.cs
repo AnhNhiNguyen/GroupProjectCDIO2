@@ -65,5 +65,11 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			}
 			return -1;
 		}
+
+		public void chuyenBan(int idBanCu,int idBanMoi)
+		{
+			Sqlcommands.Instances.executeNonQueryStoredProcedure(new object[] { "idTableOld" , "idTableNew" },
+				new object[] { idBanCu,idBanMoi}, "USP_CHUYENBAN");
+		}
 	}
 }

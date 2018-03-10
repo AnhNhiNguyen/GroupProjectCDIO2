@@ -82,7 +82,10 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 		{
 			List<Food> food = new List<Food>();
 
-			DataTable data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_FOOD WHERE foodName like '" + name + "%'");
+			//DataTable data = Sqlcommands.Instances.getDataTable("SELECT * FROM PDT_FOOD WHERE foodName like '" + name + "%'");
+			DataTable data = Sqlcommands.Instances.getDataTableStoredProcedure(new object[] { "FOODNAME" },
+				new object[] { name }, "USP_SEARCHFOOD");
+
 			foreach (DataRow items in data.Rows)
 			{
 				food.Add(new Food(items));
