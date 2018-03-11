@@ -66,7 +66,9 @@ namespace QuanLiCoffeeCShapeDotNet
 			graphics.DrawString("", font, new SolidBrush(Color.Black), strartX, strartY + offSet);
 			offSet = offSet + (int)FontHeight + 5;
 
-			List<BillInfo> listBillInfo = BillInfoDAO.Instances.loadBillInfoByIdBill(207);//Fix cứng
+
+
+			List<BillInfo> listBillInfo = BillInfoDAO.Instances.loadBillInfoByIdBill(frmTrangChuBUS.Instances.BtnClicked);//Fix cứng
 			foreach (BillInfo item in listBillInfo)
 			{
 				Food food = FoodDAO.Instances.loadFoodByIdFood(item.IdFood);
