@@ -241,5 +241,28 @@ BEGIN
 END
 GO
 ----------------
+--UPDATE BY NGUYENVANPHUC 
+--DATE: 11/03/2018
 
+--THỦ TỤC KIỂM TRA BÀN ĐÃ MỞ CÓ MÓN ĂN NÀO KHÔNG
+CREATE PROC USP_CHECKBILLINFOBYIDTABLE
+@idTable INT
+AS
 
+BEGIN
+	DECLARE @idBillL INT=-1
+
+	SELECT @idBillL=idBill
+	FROM PDT_BILL
+	WHERE idTable=@idTable
+	--
+
+	DECLARE @count INT =-1
+
+	SELECT @count=COUNT(*)
+	FROM PDT_BILLINFO
+	WHERE idBill = @idBillL
+	--RETURN
+	SELECT @count
+END
+GO

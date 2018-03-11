@@ -68,16 +68,50 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnThanhToan_Click(object sender, EventArgs e)
 		{
-            if (frmTrangChuBUS.Instances.BtnClicked == null)
-            {
-                MessageBox.Show("Vui Lòng cần chọn bàn thanh toán");
-                return;
-            }
-            frmThanhToanBUS.Instances.TongTien = cacluterCost();
+
+			if (frmTrangChuBUS.Instances.BtnClicked == null)
+			{
+				MessageBox.Show("Vui Lòng cần chọn bàn thanh toán");
+				return;
+			}
+
+			int idTable = Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString());
+
+			if (!checkerHasHoaDon(idTable))
+			{
+				MessageBox.Show("Bàn này chưa có hóa đơn để thanh toán");
+				return;
+			}
+			if(!checkHasFood(idTable))
+			{
+				MessageBox.Show("Bàn này chưa có món ăn nào để thanh toán");
+				return;
+			}
+
+
+			frmThanhToanBUS.Instances.TongTien = cacluterCost();
 			frmThanhToan = new frmPayment();
 			frmThanhToan.ShowDialog();
 
+
+
 		}
+
+		private bool checkerHasHoaDon(int idTable)
+		{
+
+			if (BillDAO.Instances.getIdBillByIdTable(idTable) <=0)
+				return false;
+
+			return true;
+		}
+
+		private bool checkHasFood(int idTable)
+		{
+			if (FoodDAO.Instances.countFoodByIdTable(idTable) <=0)
+				return false;
+			return true;
+		} 
 
 		private void tBtnThoat_Click(object sender, EventArgs e)
 		{

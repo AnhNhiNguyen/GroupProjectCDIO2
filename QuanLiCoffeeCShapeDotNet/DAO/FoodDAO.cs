@@ -92,5 +92,18 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			}
 			return food;
 		}
+
+		public int countFoodByIdTable(int idTable)
+		{
+			try
+			{
+				return Convert.ToInt16(Sqlcommands.Instances.getObjectStoredProcedure(new object[] { "idTable" },
+				new object[] { idTable }, "USP_CHECKBILLINFOBYIDTABLE"));
+			}
+			catch (Exception)
+			{
+				return -1;
+			}
+		}
 	}
 }

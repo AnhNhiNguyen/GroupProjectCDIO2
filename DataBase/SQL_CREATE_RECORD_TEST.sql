@@ -127,3 +127,18 @@ select * from PDT_TABLE where idKhuVuc=1
 
 -----------------------
 SELECT * FROM PDT_BILLINFO WHERE idBill=207
+----------------------
+SELECT COUNT(*) FROM PDT_BILLINFO WHERE idBill=207
+-------------------
+exec USP_CHECKBILLINFOBYIDTABLE 1
+---------
+declare @count int
+select @count=COUNT(*)
+	FROM PDT_BILLINFO
+	WHERE idBill = 207
+
+select @count
+
+SELECT * 
+FROM PDT_BILLINFO
+WHERE idBill=207
