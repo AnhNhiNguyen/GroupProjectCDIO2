@@ -221,6 +221,7 @@ BEGIN
 		PRINT N'Bàn không tồn tại'
 		RETURN
 	END
+
 	UPDATE PDT_BILL
 	SET idTable=@idTableNew
 	WHERE idTable=@idTableOld
@@ -266,3 +267,55 @@ BEGIN
 	SELECT @count
 END
 GO
+
+----------------
+--UPDATE BY NGUYENVANPHUC 
+--DATE: 12/03/2018
+
+--Thủ tục gộp bàn
+use QL_COFFEE_CS414BIS_PDT
+CREATE PROC USP_GOPBAN
+@idTableOld INT, @idTableNew INT
+AS
+BEGIN
+	--Kiểm tra bàn cũ có tồn tại?
+	DECLARE @countExitTableOll INT=-1
+
+	SELECT @countExitTableOll=COUNT(*) 
+	FROM PDT_TABLE
+	WHERE idTable=@idTableOld
+
+	--Kiểm tra bàn mới có tồn tại?
+	DECLARE @countExitTablenNew INT=-1
+
+	SELECT @countExitTablenNew=COUNT(*) 
+	FROM PDT_TABLE
+	WHERE idTable=@idTableNew
+
+	--Nếu bạn không tồn tại thì nothing
+	IF(@countExitTablenNew<1 OR @countExitTableOll<1)
+	BEGIN
+		PRINT N'Bàn không tồn tại'
+		RETURN
+	END
+
+	--LẤY IDBILL CỦA BÀN MỚI
+	DECLARE @idBillNew INT=-1
+	SELECT @idBillNew=idBill
+	FROM PDT_BILL
+	WHERE idTable=@idTableNew
+
+	--LẤY IDBILL CỦA BÀN cũ
+	DECLARE @idBillOld INT=-1
+	SELECT @idBillOld=idBill
+	FROM PDT_BILL
+	WHERE idTable=@idTableOld
+
+	--Bắt đầu gộp bàn
+	UPDATE PDT_BILLINFO
+	SET idBill =@idBillNew
+	WHERE idBill=@idBillOld
+	--xóa bàn cũ đi
+	DELETE PDT_BILL
+	WHERE idTable=@idTableOld
+END

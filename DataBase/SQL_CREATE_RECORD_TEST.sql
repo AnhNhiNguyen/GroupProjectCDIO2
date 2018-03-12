@@ -142,3 +142,10 @@ select @count
 SELECT * 
 FROM PDT_BILLINFO
 WHERE idBill=207
+----------
+
+UPDATE PDT_BILLINFO
+SET idBill=
+WHERE idTable=@idTableNEW
+
+EXEC USP_DELETEBILLINFO 87
