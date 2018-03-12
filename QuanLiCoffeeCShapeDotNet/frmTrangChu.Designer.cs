@@ -1188,7 +1188,7 @@
 			this.Name = "frmTrangChu";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Quản lí coffee - Group Project - CS 414 IS";
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmTrangChu_FormClosed);
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmTrangChu_FormClosed_1);
 			this.Load += new System.EventHandler(this.frmTrangChu_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();

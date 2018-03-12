@@ -213,11 +213,42 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			Button btn = frmTrangChuBUS.Instances.BtnClicked;
 
+
+
 			if (!checkTableClickIsNull(frmTrangChuBUS.Instances.BtnClicked))
 			{
 				MessageBox.Show("Vui lòng chọn bàn cần thêm món ");
 				return;
 			}
+
+			int idTable = Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString());
+
+			if (!frmTrangChuBUS.Instances.checkerHasHoaDon(idTable))
+			{
+				//frmTrangChuBUS.Instances.messageCanhBao("Bàn chưa mở vui lòng mở bàn !");
+				try
+				{
+					if (MessageBox.Show("Bàn này chưa mở bạn có muốn mở bàn này và tiếp tục thêm?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						frmTrangChuBUS.Instances.insertBillToTableByIdTable(idTable);
+						//showKhuVuc();//Hiển thị không đẹp mắt khi dùng hàm này vì phải load cả khu vực và table
+						showTableByidKhuVuc(tabControlKhuVuc, TableDAO.Instances.getIdKhuVucByIdTable(idTable));//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
+
+						//dateTimePicker1.Select();dateTimePicker1.Focus();
+					}
+					
+				}
+				catch (Exception)
+				{
+					return;
+				}
+				//return;
+			}
+			//if (!frmTrangChuBUS.Instances.checkHasFood(idTable))
+			//{
+			//	frmTrangChuBUS.Instances.messageCanhBao("Vui lòng thêm ít nhất một món ăn vào hóa đơn! ");
+			//	return;
+			//}
 
 			if (lvFood.SelectedItems.Count == 0)
 			{
@@ -284,13 +315,21 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnOpenTable_Click(object sender, EventArgs e)
 		{
-			int idTable = -1;
-			idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
-			frmTrangChuBUS.Instances.insertBillToTableByIdTable(idTable);
-			//showKhuVuc();//Hiển thị không đẹp mắt khi dùng hàm này vì phải load cả khu vực và table
-			showTableByidKhuVuc(tabControlKhuVuc,TableDAO.Instances.getIdKhuVucByIdTable(idTable));//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
+			try
+			{
+				int idTable = -1;
+				idTable = Convert.ToInt32(cbbTableName.SelectedValue.ToString());
+				frmTrangChuBUS.Instances.insertBillToTableByIdTable(idTable);
+				//showKhuVuc();//Hiển thị không đẹp mắt khi dùng hàm này vì phải load cả khu vực và table
+				showTableByidKhuVuc(tabControlKhuVuc, TableDAO.Instances.getIdKhuVucByIdTable(idTable));//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
+
+				//dateTimePicker1.Select();dateTimePicker1.Focus();
+			}
+			catch (Exception)
+			{
+
+			}
 			
-			//dateTimePicker1.Select();dateTimePicker1.Focus();
 		}
 
 		private void contextBtnDeleteTable_Click(object sender, EventArgs e)
@@ -453,7 +492,12 @@ namespace QuanLiCoffeeCShapeDotNet
 			}
 		}
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		private void frmTrangChu_FormClosed_1(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
