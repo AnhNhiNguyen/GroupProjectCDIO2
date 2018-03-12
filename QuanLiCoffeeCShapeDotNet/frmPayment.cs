@@ -26,13 +26,21 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnInBill_Click(object sender, EventArgs e)
 		{
-			dongBill();
 			inHoaDon();
+			this.Close();
 		}
 
 		private void dongBill()
 		{
-			//Dongs bill o day
+			try
+			{
+				int idTable = -1;
+				idTable = Convert.ToInt32(frmTrangChuBUS.Instances.BtnClicked.Name);
+				frmTrangChuBUS.Instances.deleteBillByIdTable(idTable);
+			}catch(Exception)
+			{
+
+			}			
 		}
 
 		private void inHoaDon()
@@ -66,34 +74,38 @@ namespace QuanLiCoffeeCShapeDotNet
             graphics.DrawString("  254 Nguyễn Văn Linh - Tp.Đà Nẵng", new Font("Courier", 18), new SolidBrush(Color.Black), strartX, strartY + 80);
             graphics.DrawString("\tĐiện Thoại:0969696969 ", new Font("Courier", 18), new SolidBrush(Color.Black), strartX, strartY + 110);
             graphics.DrawString("\tPHIẾU TẠM TÍNH", new Font("/tCorier", 18), new SolidBrush(Color.Black), strartX, strartY + 170);
-            string date  = DateTime.Now.ToString().Trim();
+
+			string date  = DateTime.Now.ToString().Trim();
             date = date.Substring(0, 10);
-            graphics.DrawString("Ngày: "+date,font,new SolidBrush(Color.Black),strartX,strartY+200);
+			string use = AccountDAO.Instance.Usename;
+			graphics.DrawString("Ngày: "+date.PadRight(22)+"Thu ngân: "+use,font,new SolidBrush(Color.Black),strartX,strartY+200);
             
-            string use = AccountDAO.Instance.Usename;
-            graphics.DrawString("Thu Ngân: "+use,font,soli,strartX,strartY+225);
+            
+            graphics.DrawString("".PadRight(15)+frmTrangChuBUS.Instances.BtnClicked.Text.ToString(),new Font("Courier New", 20,FontStyle.Bold), soli,strartX,strartY+225);
 
 
-            string top = "Mặt hàng".PadRight(12) + "Đơn giá".PadRight(12)+"ĐVT".PadRight(12) + "Số lượng".PadRight(12) + "Thành tiền";
+            string top = "Mặt hàng".PadRight(20) + "Đơn giá".PadRight(12)+"ĐVT".PadRight(10) + "Số lượng".PadRight(12) + "Thành tiền";
 			graphics.DrawString(top,font, new SolidBrush(Color.Black),strartX,strartY+offSet);
 			offSet = offSet + (int)FontHeight + 5;
 
 			//graphics.DrawString("", font, new SolidBrush(Color.Black), strartX, strartY + offSet);
-   //         offSet = offSet + (int)FontHeight + 5;
+			//         offSet = offSet + (int)FontHeight + 5;
 
-            int idBill = BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16( frmTrangChuBUS.Instances.BtnClicked.Name.ToString()));
-			List<BillInfo> listBillInfo = BillInfoDAO.Instances.loadBillInfoByIdBill(idBill);//Fix cứng
+			graphics.DrawString("----------------------------------------------------------------", font, soli, strartX, strartY + offSet);
+			offSet = offSet + (int)FontHeight + 5;
+
+			int idBill = BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16( frmTrangChuBUS.Instances.BtnClicked.Name.ToString()));
+			List<BillInfo> listBillInfo = BillInfoDAO.Instances.loadBillInfoByIdBill(idBill);
 			foreach (BillInfo item in listBillInfo)
 			{
-                graphics.DrawString("----------------------------------------------------------", font, soli, strartX, strartY+offSet);
-                offSet = offSet + (int)FontHeight + 5;
+                
 
                 Food food = FoodDAO.Instances.loadFoodByIdFood(item.IdFood);
 				int soLuong = item.BillInfoCount;
 				double thanhTien = soLuong * food.Gia;
 
-				string showItem = food.FoodName.PadRight(12) + doiSoSangDonViTienTe(food.Gia).PadRight(12) +food.DonViTinh.PadRight(12)
-					+soLuong.ToString().PadRight(12) + doiSoSangDonViTienTe(thanhTien).PadRight(12);
+				string showItem = food.FoodName.PadRight(20) + doiSoSangDonViTienTe(food.Gia).PadRight(12) +food.DonViTinh.PadRight(10)
+					+soLuong.ToString().PadRight(12) + doiSoSangDonViTienTe(thanhTien);
 
 				//in 
 				graphics.DrawString(showItem, font, new SolidBrush(Color.Black), strartX, strartY + offSet);
@@ -101,24 +113,24 @@ namespace QuanLiCoffeeCShapeDotNet
                 
             }
 
-			graphics.DrawString("----------------------------------------------------------", font, new SolidBrush(Color.Black), strartX, strartY + offSet);
+			graphics.DrawString("----------------------------------------------------------------", font, new SolidBrush(Color.Black), strartX, strartY + offSet);
 			offSet = offSet + (int)FontHeight + 5;
 
-			string tienHang = "Tiền Hàng: ".PadRight(49) + doiSoSangDonViTienTe(frmTrangChuBUS.Instances.TienHang);
+			string tienHang = "".PadRight(35)+"Tiền Hàng: ".PadRight(5) + doiSoSangDonViTienTe(frmTrangChuBUS.Instances.TienHang);
 			graphics.DrawString(tienHang, font, new SolidBrush(Color.Black), strartX, strartY + offSet);
 			offSet = offSet + (int)FontHeight + 5;
 
-			string phiDichVu = "Phí Dịch Vụ: ".PadRight(49) + doiSoSangDonViTienTe(frmTrangChuBUS.Instances.PhiDichVu);
+			string phiDichVu = "".PadRight(35)+"Phí Dịch Vụ: ".PadRight(5) + doiSoSangDonViTienTe(frmTrangChuBUS.Instances.PhiDichVu);
 			graphics.DrawString(phiDichVu, font, new SolidBrush(Color.Black), strartX, strartY + offSet);
 			offSet = offSet + (int)FontHeight + 5;
 
-			string giamGia= "Giảm giá: ".PadRight(49) + frmTrangChuBUS.Instances.GiamGia.ToString()+" %";
+			string giamGia= "".PadRight(35)+"Giảm giá: ".PadRight(5) + frmTrangChuBUS.Instances.GiamGia.ToString()+" %";
 			graphics.DrawString(giamGia, font, new SolidBrush(Color.Black), strartX, strartY + offSet);
             offSet = offSet + (int)FontHeight + 5;
-            graphics.DrawString("----------------------------------------------------------", font, soli, strartX, strartY + offSet);
+            graphics.DrawString("----------------------------------------------------------------", font, soli, strartX, strartY + offSet);
             offSet = offSet + (int)FontHeight + 5;
 
-            string tongTien=("Tổng Tiền".PadRight(30)) + doiSoSangDonViTienTe(frmTrangChuBUS.Instances.TongTien) ;
+            string tongTien=("Tổng Tiền: ".PadRight(30)) + doiSoSangDonViTienTe(frmTrangChuBUS.Instances.TongTien) ;
 			graphics.DrawString(tongTien,new Font("Courier New",18,FontStyle.Bold), new SolidBrush(Color.Black), strartX, strartY + offSet);
 			offSet = offSet + (int)FontHeight + 5;
 
@@ -149,7 +161,8 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void thanhToan()
 		{
-			txtTongTienThanhToan.Text = frmThanhToanBUS.Instances.TongTien.ToString();
+			txtTongTienThanhToan.Text = frmTrangChuBUS.Instances.doiSoSangDonViTienTe(frmThanhToanBUS.Instances.TongTien);
+			txtTienKhachDua.Value = Convert.ToInt16(frmThanhToanBUS.Instances.TongTien);
 		}
 
 		private void frmPayment_Load(object sender, EventArgs e)
@@ -159,13 +172,45 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void txtTienKhachDua_ValueChanged(object sender, EventArgs e)
 		{
-			if (txtTienKhachDua.Value < txtTongTienThanhToan.Value)
-			{
-				MessageBox.Show("Tiền khách đưa không thể nhỏ hơn số tiền cần thanh toán !");
-				return;
-			}
 
-			txtTienThoiLai.Value = txtTienKhachDua.Value - txtTongTienThanhToan.Value;
+			try
+			{
+				if (txtTienKhachDua.Value < Convert.ToInt16(frmThanhToanBUS.Instances.TongTien))
+				{
+					MessageBox.Show("Tiền khách đưa không thể nhỏ hơn số tiền cần thanh toán !");
+					return;
+				}
+
+				txtTienThoiLai.Text = frmTrangChuBUS.Instances.doiSoSangDonViTienTe(txtTienKhachDua.Value - Convert.ToInt16(frmThanhToanBUS.Instances.TongTien));
+			}
+			catch (Exception)
+			{
+
+			}
+			
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void btnDongBill_Click(object sender, EventArgs e)
+		{
+			dongBill();
+			this.Close();
+		}
+
+		private void btnDongBillAndPrint_Click(object sender, EventArgs e)
+		{
+			inHoaDon();
+			dongBill();
+			this.Close();
+		}
+
+		private void frmPayment_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			this.Dispose();
 		}
 	}
 }

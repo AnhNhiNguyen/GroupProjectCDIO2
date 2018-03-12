@@ -93,16 +93,18 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				{
 					case 1:
 						{
-							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;							
+							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffe;
+							btn.Enabled = false;							
 							break;
+							
 						}
 					default:
 						{
 							btn.Image = global::QuanLiCoffeeCShapeDotNet.Properties.Resources.coffeNull;
-							tabControl.TabPages[idKhuVuc.ToString()].Controls.Add(btn);
 							break;
 						}
 				}
+				tabControl.TabPages[idKhuVuc.ToString()].Controls.Add(btn);
 
 				btnBegin = btn;
 				if (j % 3 == 0 && j != 0)
@@ -146,8 +148,8 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				btn.Cursor = Cursors.Hand;
 				btn.FlatStyle = FlatStyle.Popup;
 				btn.ImageAlign = ContentAlignment.BottomCenter;
-				btn.Click += btnClick;
-				btn.MouseDown += btnClick;
+				btn.Click += btnGopBanClick;
+				//btn.MouseDown += btnClick;
 
 				
 
@@ -184,18 +186,50 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 
 		}
 
+		private void btnGopBanClick(object sender, EventArgs e)
+		{
+			try
+			{
+				Button btn = sender as Button;
+
+				//MessageBox.Show(btn.Name);
+
+				int idBanCu = Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString());
+				int idBanMoi = Convert.ToInt16(btn.Name.ToString());
+
+				TableDAO.Instances.gopBan(idBanCu, idBanMoi);
+
+
+				frmGopBan.ActiveForm.Close();
+			}
+			catch (Exception)
+			{
+				
+			}
+
+		}
+
 		private void btnClick(object sender, EventArgs e)
 		{
-			Button btn =sender as Button;
+			try
+			{
+				Button btn = sender as Button;
 
-			MessageBox.Show(btn.Name);
-			
-			int idBanCu = Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString());
-			int idBanMoi = Convert.ToInt16(btn.Name.ToString());
+				//MessageBox.Show(btn.Name);
 
-			TableDAO.Instances.chuyenBan(idBanCu, idBanMoi);
+				int idBanCu = Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString());
+				int idBanMoi = Convert.ToInt16(btn.Name.ToString());
 
-			frmChuyenBan.ActiveForm.Close();
+				TableDAO.Instances.chuyenBan(idBanCu, idBanMoi);
+
+				frmChuyenBan.ActiveForm.Close();
+			}
+			catch (Exception)
+			{
+
+			}
 		}
+
+
 	}
 }

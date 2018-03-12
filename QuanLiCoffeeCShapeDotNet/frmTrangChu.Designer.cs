@@ -88,7 +88,6 @@
 			this.pnLayoutTab = new System.Windows.Forms.FlowLayoutPanel();
 			this.tabControlKhuVuc = new System.Windows.Forms.TabControl();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.txtTongTien = new System.Windows.Forms.NumericUpDown();
 			this.cbbSoLuong = new System.Windows.Forms.ComboBox();
 			this.txtGiamGia = new System.Windows.Forms.NumericUpDown();
 			this.txtPhiDichVu = new System.Windows.Forms.NumericUpDown();
@@ -140,12 +139,12 @@
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.txtTongTien = new System.Windows.Forms.TextBox();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.pnLayoutTab.SuspendLayout();
 			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.txtTongTien)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.txtGiamGia)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.txtPhiDichVu)).BeginInit();
 			this.toolStrip2.SuspendLayout();
@@ -503,6 +502,7 @@
 			this.tBatnThongKeDoAnUong.Name = "tBatnThongKeDoAnUong";
 			this.tBatnThongKeDoAnUong.Size = new System.Drawing.Size(148, 24);
 			this.tBatnThongKeDoAnUong.Text = "Thống kê đồ ăn, uống";
+			this.tBatnThongKeDoAnUong.Click += new System.EventHandler(this.tBatnThongKeDoAnUong_Click);
 			// 
 			// tBtnBaoCao
 			// 
@@ -634,23 +634,6 @@
 			this.panel1.Size = new System.Drawing.Size(653, 515);
 			this.panel1.TabIndex = 84;
 			// 
-			// txtTongTien
-			// 
-			this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtTongTien.Location = new System.Drawing.Point(213, 481);
-			this.txtTongTien.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-			this.txtTongTien.Name = "txtTongTien";
-			this.txtTongTien.ReadOnly = true;
-			this.txtTongTien.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.txtTongTien.Size = new System.Drawing.Size(133, 29);
-			this.txtTongTien.TabIndex = 121;
-			this.txtTongTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.txtTongTien.ThousandsSeparator = true;
-			// 
 			// cbbSoLuong
 			// 
 			this.cbbSoLuong.FormatString = "N1";
@@ -674,7 +657,7 @@
 			// 
 			this.txtGiamGia.Location = new System.Drawing.Point(213, 456);
 			this.txtGiamGia.Name = "txtGiamGia";
-			this.txtGiamGia.Size = new System.Drawing.Size(104, 20);
+			this.txtGiamGia.Size = new System.Drawing.Size(132, 20);
 			this.txtGiamGia.TabIndex = 119;
 			this.txtGiamGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtGiamGia.ValueChanged += new System.EventHandler(this.txtGiamGia_ValueChanged);
@@ -753,7 +736,7 @@
 			this.btnThongKe.Text = "Thống kê";
 			this.btnThongKe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.btnThongKe.UseVisualStyleBackColor = false;
-			this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+			this.btnThongKe.Click += new System.EventHandler(this.tBatnThongKeDoAnUong_Click);
 			// 
 			// btnThanhToan
 			// 
@@ -900,6 +883,7 @@
 			// 
 			// dateTimePicker1
 			// 
+			this.dateTimePicker1.Enabled = false;
 			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.dateTimePicker1.Location = new System.Drawing.Point(232, 5);
 			this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
@@ -971,6 +955,7 @@
 			// 
 			// txtSTT
 			// 
+			this.txtSTT.Enabled = false;
 			this.txtSTT.Location = new System.Drawing.Point(232, 30);
 			this.txtSTT.Margin = new System.Windows.Forms.Padding(2);
 			this.txtSTT.Name = "txtSTT";
@@ -1178,6 +1163,16 @@
 			this.toolStripMenuItem3.Size = new System.Drawing.Size(138, 22);
 			this.toolStripMenuItem3.Text = "Đóng bàn";
 			// 
+			// txtTongTien
+			// 
+			this.txtTongTien.Enabled = false;
+			this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtTongTien.Location = new System.Drawing.Point(213, 480);
+			this.txtTongTien.Name = "txtTongTien";
+			this.txtTongTien.Size = new System.Drawing.Size(132, 35);
+			this.txtTongTien.TabIndex = 121;
+			this.txtTongTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
 			// frmTrangChu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1204,7 +1199,6 @@
 			this.pnLayoutTab.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.txtTongTien)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.txtGiamGia)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.txtPhiDichVu)).EndInit();
 			this.toolStrip2.ResumeLayout(false);
@@ -1329,6 +1323,6 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
 		private System.Windows.Forms.ComboBox cbbSoLuong;
-		private System.Windows.Forms.NumericUpDown txtTongTien;
+		private System.Windows.Forms.TextBox txtTongTien;
 	}
 }

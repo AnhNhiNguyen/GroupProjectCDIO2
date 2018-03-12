@@ -71,5 +71,11 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 			Sqlcommands.Instances.executeNonQueryStoredProcedure(new object[] { "idTableOld" , "idTableNew" },
 				new object[] { idBanCu,idBanMoi}, "USP_CHUYENBAN");
 		}
+
+		public void gopBan(int idBanCu, int idBanMoi)
+		{
+			Sqlcommands.Instances.executeNonQueryStoredProcedure(new object[] { "idTableOld", "idTableNew" },
+				new object[] { idBanCu, idBanMoi }, "USP_GOPBAN");
+		}
 	}
 }

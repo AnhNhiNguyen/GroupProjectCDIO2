@@ -23,10 +23,11 @@ namespace QuanLiCoffeeCShapeDotNet
 		private double phiDichVu=0;
 		private double giamGia=0;
 
-		Form frmMatHang;
-		Form frmThanhToan;
-		frmChuyenBan frmChuyenBan;
-		Form frmGopBan;
+		Form frmMatHang, 
+			frmThanhToan,
+			frmChuyenBan,
+			frmGopBan,
+			frmThongKe;
 
 		public frmTrangChu()
 		{
@@ -38,6 +39,7 @@ namespace QuanLiCoffeeCShapeDotNet
 		{
 			dataBaseName = Sqlcommands.Instances.getConnection().Database.ToString();
 			tLbCSDL.Text = "Csdl: " + dataBaseName;
+			useName = AccountDAO.Instance.Usename;
 			tLbUse.Text = "Tài khoản:  " + useName;
 			//MessageBox.Show(Sqlcommands.Instances.getConnection().Database.ToString());
 		}
@@ -71,47 +73,34 @@ namespace QuanLiCoffeeCShapeDotNet
 
 			if (frmTrangChuBUS.Instances.BtnClicked == null)
 			{
-				MessageBox.Show("Vui Lòng cần chọn bàn thanh toán");
+				frmTrangChuBUS.Instances.messageThongBao("Vui lòng cần chọn bàn thanh toán");
 				return;
 			}
 
 			int idTable = Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString());
 
-			if (!checkerHasHoaDon(idTable))
+			if (!frmTrangChuBUS.Instances.checkerHasHoaDon(idTable))
 			{
-				MessageBox.Show("Bàn này chưa có hóa đơn để thanh toán");
+				frmTrangChuBUS.Instances.messageCanhBao("Bàn này chưa có hóa đơn để thanh toán !");
 				return;
 			}
-			if(!checkHasFood(idTable))
+			if(!frmTrangChuBUS.Instances.checkHasFood(idTable))
 			{
-				MessageBox.Show("Bàn này chưa có món ăn nào để thanh toán");
+				frmTrangChuBUS.Instances.messageCanhBao("Vui lòng thêm ít nhất một món ăn vào hóa đơn! ");
 				return;
 			}
-
 
 			frmThanhToanBUS.Instances.TongTien = cacluterCost();
 			frmThanhToan = new frmPayment();
 			frmThanhToan.ShowDialog();
 
-
+			if (frmThanhToan.IsDisposed)
+			{
+				showTableByidKhuVuc(tabControlKhuVuc, TableDAO.Instances.getIdKhuVucByIdTable(Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString())));
+			}
 
 		}
 
-		private bool checkerHasHoaDon(int idTable)
-		{
-
-			if (BillDAO.Instances.getIdBillByIdTable(idTable) <=0)
-				return false;
-
-			return true;
-		}
-
-		private bool checkHasFood(int idTable)
-		{
-			if (FoodDAO.Instances.countFoodByIdTable(idTable) <=0)
-				return false;
-			return true;
-		} 
 
 		private void tBtnThoat_Click(object sender, EventArgs e)
 		{
@@ -176,9 +165,9 @@ namespace QuanLiCoffeeCShapeDotNet
 			tienHang = frmTrangChuBUS.Instances.getTotalCostBillByidBill(bill.IdBill);
 			txtGiamGia.Value =0;
 			txtPhiDichVu.Value = 0;
-			txtTienHang.Text = tienHang.ToString();
+			txtTienHang.Text =frmTrangChuBUS.Instances.doiSoSangDonViTienTe(tienHang);
 			frmTrangChuBUS.Instances.TienHang = Convert.ToDouble(tienHang.ToString());
-			txtTongTien.Text = cacluterCost().ToString();
+			txtTongTien.Text = frmTrangChuBUS.Instances.doiSoSangDonViTienTe(cacluterCost());
 			frmTrangChuBUS.Instances.TongTien = Convert.ToDouble(cacluterCost().ToString());
 		}
 
@@ -238,6 +227,7 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmTrangChuBUS.Instances.insertFoodToBIllInfo(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
 				BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16(btn.Name.ToString())));
 			showInfoBillofTable(btn);
+			showCost(btn);
 		}
 
 		private void themItemBySoLuong(int soLuong)
@@ -258,6 +248,28 @@ namespace QuanLiCoffeeCShapeDotNet
 			frmTrangChuBUS.Instances.insertFoodToBillInfoBySoluong(Convert.ToInt32(lvFood.SelectedItems[0].Tag.ToString()),
 				BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16(btn.Name.ToString())),soLuong);
 			showInfoBillofTable(btn);
+			showCost(btn);
+		}
+
+		private void xoaItemBySoLuong(int soLuong)
+		{
+			Button btn = frmTrangChuBUS.Instances.BtnClicked;
+
+			if (!checkTableClickIsNull(frmTrangChuBUS.Instances.BtnClicked))
+			{
+				frmTrangChuBUS.Instances.messageThongBao("Vui lòng chon một bàn ");
+				return;
+			}
+
+			if (lvBillInfo.SelectedItems.Count == 0)
+			{
+				frmTrangChuBUS.Instances.messageThongBao("Vui lòng chọn món trên hóa đơn cần xóa");
+				return;
+			}
+			frmTrangChuBUS.Instances.insertFoodToBillInfoBySoluong(Convert.ToInt32(lvBillInfo.SelectedItems[0].Name.ToString()),
+				BillDAO.Instances.getIdBillByIdTable(Convert.ToInt16(btn.Name.ToString())), soLuong);
+			showInfoBillofTable(btn);
+			showCost(btn);
 		}
 
 		private bool checkTableClickIsNull(Button btnClicker)
@@ -307,6 +319,7 @@ namespace QuanLiCoffeeCShapeDotNet
 				idBillInfo= Convert.ToInt32(lvBillInfo.SelectedItems[0].Tag.ToString());				
 				frmTrangChuBUS.Instances.deleteBillInfoByBillInfo(idBillInfo);
 				showInfoBillofTable(frmTrangChuBUS.Instances.BtnClicked);//Hiển thị đẹp mắt khi dùng hàm này vì dữ liệu chỉ phải load mỗi table
+				showCost(frmTrangChuBUS.Instances.BtnClicked);
 			}
 		}
 
@@ -319,27 +332,46 @@ namespace QuanLiCoffeeCShapeDotNet
 		private void txtPhiDichVu_ValueChanged(object sender, EventArgs e)
 		{
 			frmTrangChuBUS.Instances.PhiDichVu = Convert.ToDouble(txtPhiDichVu.Value);
-			txtTongTien.Text = cacluterCost().ToString();
+			txtTongTien.Text = frmTrangChuBUS.Instances.doiSoSangDonViTienTe(cacluterCost());
 			frmTrangChuBUS.Instances.TongTien =Convert.ToDouble(cacluterCost().ToString());
 		}
 
 		private void txtGiamGia_ValueChanged(object sender, EventArgs e)
 		{
 			frmTrangChuBUS.Instances.GiamGia = Convert.ToDouble(txtGiamGia.Value);
-			txtTongTien.Text = cacluterCost().ToString();
+			txtTongTien.Text =frmTrangChuBUS.Instances.doiSoSangDonViTienTe(cacluterCost());
 			frmTrangChuBUS.Instances.TongTien = Convert.ToDouble(cacluterCost().ToString());
 		}
 
 		private void btnGopBan_Click(object sender, EventArgs e)
 		{
-			//if (frmTrangChuBUS.Instances.BtnClicked == null)
-			//{
-			//	MessageBox.Show("Vui long chon ban can chuyen !");
-			//	return;
-			//}
+			if (frmTrangChuBUS.Instances.BtnClicked == null)
+			{
+				MessageBox.Show("Vui long chon ban can chuyen !");
+				return;
+			}
 
-			//frmGopBan = new frmGopBan();
-			//frmGopBan.ShowDialog();
+			int idTable = Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString());
+
+			if (!frmTrangChuBUS.Instances.checkerHasHoaDon(idTable))
+			{
+				frmTrangChuBUS.Instances.messageCanhBao("Bàn này chưa có hóa đơn để thanh toán !");
+				return;
+			}
+			if (!frmTrangChuBUS.Instances.checkHasFood(idTable))
+			{
+				frmTrangChuBUS.Instances.messageCanhBao("Vui lòng thêm ít nhất một món ăn vào hóa đơn! ");
+				return;
+			}
+
+
+			frmGopBan = new frmGopBan();
+			frmGopBan.ShowDialog();
+
+			if (frmGopBan.IsDisposed)
+			{
+				showTableByidKhuVuc(tabControlKhuVuc, TableDAO.Instances.getIdKhuVucByIdTable(Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString())));
+			}
 		}
 
 		private void showTableEmpty()
@@ -364,6 +396,21 @@ namespace QuanLiCoffeeCShapeDotNet
 				MessageBox.Show("Vui long chon ban can chuyen !");
 				return;
 			}
+
+			int idTable = Convert.ToInt16(frmTrangChuBUS.Instances.BtnClicked.Name.ToString());
+
+			if (!frmTrangChuBUS.Instances.checkerHasHoaDon(idTable))
+			{
+				frmTrangChuBUS.Instances.messageCanhBao("Bàn này chưa có hóa đơn nào !");
+				return;
+			}
+			if (!frmTrangChuBUS.Instances.checkHasFood(idTable))
+			{
+				frmTrangChuBUS.Instances.messageCanhBao("Vui lòng thêm ít nhất một món ăn vào hóa đơn! ");
+				return;
+			}
+
+			
 			frmChuyenBan = new frmChuyenBan();
 			frmChuyenBan.ShowDialog();
 
@@ -380,17 +427,30 @@ namespace QuanLiCoffeeCShapeDotNet
 
 		private void btnGiam1Item_Click(object sender, EventArgs e)
 		{
-
+			xoaItemBySoLuong(-1);
 		}
 
 		private void btnThem1Item_Click_1(object sender, EventArgs e)
 		{
-			themItemBySoLuong(Convert.ToInt16(cbbSoLuong.SelectedItem.ToString()));
+			try
+			{
+				themItemBySoLuong(Convert.ToInt16(cbbSoLuong.SelectedItem.ToString()));
+			}
+			catch (Exception)
+			{
+				frmTrangChuBUS.Instances.messageCanhBao("Chọn số lượng cần thay đổi !");
+			}
 		}
 
 		private void btnGiam1Item_Click_1(object sender, EventArgs e)
 		{
-			themItemBySoLuong(-Convert.ToInt16(cbbSoLuong.SelectedItem.ToString()));
+			try
+			{
+				xoaItemBySoLuong(-Convert.ToInt16(cbbSoLuong.SelectedItem.ToString()));
+			}catch(Exception)
+			{
+				frmTrangChuBUS.Instances.messageCanhBao("Chọn số lượng cần thay đổi !");
+			}
 		}
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -398,7 +458,7 @@ namespace QuanLiCoffeeCShapeDotNet
 
         }
 
-        private void txtTimeOpenTable_TextChanged(object sender, EventArgs e)
+		private void txtTimeOpenTable_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -408,5 +468,11 @@ namespace QuanLiCoffeeCShapeDotNet
 
             Account.ActiveForm.Show();
         }
-    }
+
+		private void tBatnThongKeDoAnUong_Click(object sender, EventArgs e)
+		{
+			frmThongKe = new frmThongKeMatHang();
+			frmThongKe.ShowDialog();
+		}
+	}
 }

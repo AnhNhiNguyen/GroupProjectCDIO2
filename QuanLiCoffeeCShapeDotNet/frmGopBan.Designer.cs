@@ -48,6 +48,7 @@
 			this.Name = "frmGopBan";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "frmGopBan";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmGopBan_FormClosed);
 			this.Load += new System.EventHandler(this.frmGopBan_Load);
 			this.ResumeLayout(false);
 

@@ -44,5 +44,10 @@ namespace QuanLiCoffeeCShapeDotNet
 				}
 			}
 		}
+
+		private void frmGopBan_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			this.Dispose();
+		}
 	}
 }

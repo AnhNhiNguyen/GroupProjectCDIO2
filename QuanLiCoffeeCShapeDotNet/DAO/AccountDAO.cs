@@ -9,7 +9,7 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
 {
     class AccountDAO
     {
-       private string usename = "";
+       private string usename = "Chưa đăng nhập";
 
         private static AccountDAO instance;
         public static AccountDAO Instance

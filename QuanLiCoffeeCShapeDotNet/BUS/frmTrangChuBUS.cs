@@ -386,7 +386,9 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 
 				double thanhTien = food.Gia * soLuong;
 				lv.SubItems.Add(thanhTien.ToString());
-				lv.Tag = listBillInfo[i].IdBillInfo;
+				lv.Tag = listBillInfo[i].IdBillInfo;//
+				lv.Name = food.IdFood.ToString();//IDfOOD
+				
 				lvBillInfo.Items.Add(lv);
 			}
 
@@ -444,6 +446,55 @@ namespace QuanLiCoffeeCShapeDotNet.BUS
 				lv.Tag = listFood[i].IdFood.ToString();
 				viewFood.Items.Add(lv);
 			}
+		}
+
+		public bool checkerHasHoaDon(int idTable)
+		{
+
+			if (BillDAO.Instances.getIdBillByIdTable(idTable) <= 0)
+				return false;
+
+			return true;
+		}
+
+		public bool checkHasFood(int idTable)
+		{
+			if (FoodDAO.Instances.countFoodByIdTable(idTable) <= 0)
+				return false;
+			return true;
+		}
+
+		public void messageThongBao(string canhBao)
+		{
+			MessageBox.Show(canhBao, "Xác nhận ?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+		}
+
+		public void messageCanhBao(string canhBao)
+		{
+			MessageBox.Show(canhBao, "Xác nhận ?", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+		}
+
+		public string doiSoSangDonViTienTe(object oj)
+		{
+			try
+			{
+				if (oj.ToString().Trim().Length == 0)
+				{
+					return " ";
+				}
+				if (oj.ToString() == "0")
+				{
+					return "0,000";
+				}
+				decimal dthanhTien = Convert.ToDecimal(oj);
+				string srtThanhTien = string.Format("{0:#,#.}", dthanhTien);
+				return srtThanhTien;
+			}
+			catch (Exception)
+			{
+
+			}
+			return "0,000";
 		}
 	}
 }
