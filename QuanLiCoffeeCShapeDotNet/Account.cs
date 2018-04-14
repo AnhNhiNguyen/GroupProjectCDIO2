@@ -18,7 +18,7 @@ namespace QuanLiCoffeeCShapeDotNet
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text.Equals("useName") || txtPassword.Text.Equals("passWord"))
             {
@@ -33,39 +33,11 @@ namespace QuanLiCoffeeCShapeDotNet
                         AccountDAO.Instance.Usename = txtUsername.Text;
                         this.Hide();
                         frmLoading loading = new frmLoading();
-                        loading.Show();
-              
+                        loading.Show();        
                     }
                     else txtError.Text= "Username or Password no value!";
                 }
             }
-
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-                txtPassword.UseSystemPasswordChar = false;
-            else
-                txtPassword.UseSystemPasswordChar = true;
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupbox1_Enter(object sender, EventArgs e)
-        {
 
         }
 

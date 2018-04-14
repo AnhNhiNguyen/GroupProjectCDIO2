@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using QuanLiCoffeeCShapeDotNet.DTO;
 
 namespace QuanLiCoffeeCShapeDotNet.DAO
 {
@@ -41,7 +42,7 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
         {
             string query = "SELECT useName,passWork FROM dbo.PDT_ACCOUNT";
             DataTable dataTable = new DataTable();
-            dataTable = DataProvider.Instance.ExecuteQuery(query);
+			dataTable = Sqlcommands.Instances.getDataTable(query);
             bool t = false;
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {               
