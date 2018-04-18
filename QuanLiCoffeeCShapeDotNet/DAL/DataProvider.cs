@@ -11,7 +11,7 @@ namespace QuanLiCoffeeCShapeDotNet.DAO
     class DataProvider
     {
         private static DataProvider instance;
-        private string connectionSTR = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_COFFEE_CS414BIS_PDT;Integrated Security=True";
+        private string connectionSTR = @"Data Source=DESKTOP-HHQC8A8\KHANHLY;Initial Catalog=QL_COFFEE_CS414BIS_PDT;Integrated Security=True";
 
         public static DataProvider Instance
         {

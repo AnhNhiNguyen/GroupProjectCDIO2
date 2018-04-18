@@ -44,7 +44,7 @@ namespace QuanLiCoffeeCShapeDotNet
 			//MessageBox.Show(Sqlcommands.Instances.getConnection().Database.ToString());
 		}
 
-		public Boolean CheckForm(string frm)
+		public bool CheckForm(string frm)
 		{
 			foreach (Form f in this.MdiChildren)
 			{
@@ -497,7 +497,29 @@ namespace QuanLiCoffeeCShapeDotNet
 			Application.Exit();
 		}
 
-		private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void tabControlKhuVuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void danhMụcNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //    if(!CheckForm("frmNhaCungCap"))
+            //    {
+            //        frmNhaCungCap nhacungcap = new frmNhaCungCap();
+            //        nhacungcap.MdiParent = this;
+            //       nhacungcap.Show();
+            //   }
+            frmNhaCungCap nhacungcap = new frmNhaCungCap();
+            nhacungcap.ShowDialog();
+        }
+
+        private void khoHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }

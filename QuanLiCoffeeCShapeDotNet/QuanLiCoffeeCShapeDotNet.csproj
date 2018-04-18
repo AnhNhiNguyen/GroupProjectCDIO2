@@ -59,18 +59,21 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="BLL\BLL_NCC.cs" />
     <Compile Include="BUS\frmChuyenBanBUS.cs" />
     <Compile Include="BUS\frmThanhToanBUS.cs" />
     <Compile Include="BUS\frmTrangChuBUS.cs" />
-    <Compile Include="DAO\AccountDAO.cs" />
-    <Compile Include="DAO\BillDAO.cs" />
-    <Compile Include="DAO\BillInfoDAO.cs" />
-    <Compile Include="DAO\CategoryFoodDAO.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="DAO\FoodDAO.cs" />
-    <Compile Include="DAO\KhuVucDAO.cs" />
-    <Compile Include="DAO\Sqlcommands.cs" />
-    <Compile Include="DAO\TableDAO.cs" />
+    <Compile Include="DAL\AccountDAO.cs" />
+    <Compile Include="DAL\BillDAO.cs" />
+    <Compile Include="DAL\BillInfoDAO.cs" />
+    <Compile Include="DAL\CategoryFoodDAO.cs" />
+    <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\DA_NhaCungCap.cs" />
+    <Compile Include="DAL\FoodDAO.cs" />
+    <Compile Include="DAL\KhuVucDAO.cs" />
+    <Compile Include="DAL\LOPDUNGCHUNG.cs" />
+    <Compile Include="DAL\Sqlcommands.cs" />
+    <Compile Include="DAL\TableDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DTO\CategoryFood.cs" />
@@ -204,6 +207,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
